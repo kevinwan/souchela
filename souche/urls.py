@@ -6,6 +6,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from souche.apps.core.views import IndexView
+from souche.apps.core.views import SearchCarView
 
 admin.autodiscover()
 
@@ -17,6 +18,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'search-car/', SearchCarView.as_view(), name='search_car'),
 )
 
 

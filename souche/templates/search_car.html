@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block title %}搜车{% endblock %}
+
+{% block ext_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/search_car.css" />    
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="main">
+            <div class="status">
+                <h4 class="fl">共有30004辆车</h4>
+                
+                <div class="filter fr">
+                    <ul>
+                        <li>默认</li>
+                        <li>价格</li>
+                        <li>里程</li>
+                    </ul>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+            
+            <div class="main-info"></div>
+        </div>
+    </div>
+{% endblock %}

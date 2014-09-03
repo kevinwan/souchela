@@ -13,7 +13,7 @@ COMMANDS="shell runserver sql syncdb"
 
 function runserver_proc()
 {
-    $DJANGO_ADMIN runserver 0.0.0.0:9000 $ARG_SETTINGS $ARG_PYTHONPATH
+    $DJANGO_ADMIN runserver 0.0.0.0:8808 $ARG_SETTINGS $ARG_PYTHONPATH
 }
 
 function shell_proc()

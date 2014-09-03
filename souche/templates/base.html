@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
+    {% block ext_css %}{% endblock %}
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            
+            <div class="logo fl"></div>
+            
+            <div class="mid fl">
+                <div class="mid-content">
+                    <div class="search-box">
+                        <input type="text" name="search_key" class="search-key fl" value="搜索您想要的车" />
+                        <input type="submit" value="" class="submit fl"/>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#" target="_blank">首页</a></li>
+                            <li><a href="#" target="_blank">找二手车</a></li>
+                            <li><a href="#" target="_blank">关于我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact fr">
+                <div class="phone">
+                    <i></i>                    
+                    400-025-3500 
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    {% block content %}{% endblock%}
+    <div class="footer"></div>
+    {% block ext_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+.status {
+    color: #3c3c3c;
+}
+
+.status h4 {
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.status .filter {
+    border-right: 1px solid #b1b1b1;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.status .filter li {
+    float: left;
+    border-left: 1px solid #b1b1b1;
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+}

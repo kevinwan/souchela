@@ -6,6 +6,7 @@ from django.views.generic import TemplateView
 
 __all__ = [
     'IndexView',
+    'SearchCarView',
 ]
 
 
@@ -14,3 +15,5 @@ class IndexView(TemplateView):
 
     template_name = 'index.html'
 
+class SearchCarView(TemplateView):
+    template_name = 'search_car.html'

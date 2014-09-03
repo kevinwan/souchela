@@ -1,0 +1,105 @@
+@import url(public.css);
+
+.header {
+    height:160px;
+    border-bottom: 3px solid #01669a;
+}
+
+.header .header-content {
+    margin: 0 auto;
+    width: 1190px;
+    height: 100%;
+    border: 1px solid;
+}
+
+.header-content .logo {
+    width: 214px;
+    background: #969696;
+    height: 100%;
+}
+
+.header-content .mid {
+    height: 100%;
+    width: 811px;
+    background: #66D8FF;
+}
+
+.header-content .contact {
+    width: 165px;
+    background: #FF6666;
+    height: 100%;
+}
+
+.header-content .mid .mid-content {
+    margin: 0 auto;
+    width: 480px;
+    background: #f0d1e1;
+    padding-top: 45px;
+}
+
+.header-content .mid .search-box .search-key {
+    width: 428px;
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid #006599;
+    border-right: none;
+    display: block;
+    font-size: 16px;
+    text-indent: 10px;
+}
+
+.header-content .mid .search-box .submit {
+    border: medium;
+    width: 50px;
+    height: 45px;
+    display: block;
+    background-color: #006599;
+}
+
+.header-content .mid .nav {
+    height: 45px;
+    line-height: 45px;
+    margin-top: 24px;
+}
+
+.header-content .mid .nav li {
+    float: left;
+}
+
+.header-content .mid .nav li a {
+    display: inline-block;
+    width: 90px;
+    text-align: center;
+}
+
+.header-content .mid .nav li a:hover {
+    background: #006697;
+}
+
+.content {
+    background: #efefef;
+    padding-top: 13px;
+}
+
+.main {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.main-info {
+    padding-top: 13px;
+    background: #efefef;
+    
+}
+
+.main .status {
+    background: #fff;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 10px;
+}
+
+.footer {
+    height: 80px;
+    background: #313131;
+}

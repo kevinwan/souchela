@@ -8,8 +8,9 @@ from souche.apps.carmodel import VolumeField
 
 __all__ = [
     'Brand',
-    'Model',
+    'ConfigParameter',
     'DetailModel',
+    'Model',
 ]
 
 class Brand(models.Model):

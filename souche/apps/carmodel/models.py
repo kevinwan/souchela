@@ -22,7 +22,7 @@ class Brand(models.Model):
     logo_img = models.CharField(max_length=200, null=True, blank=True,
                         verbose_name=u'品牌logo图片')
     first_letter = models.CharField(max_length=1, verbose_name=u'首字母')
-    pinyin= models.CharField(max_length=32, db_index=True,
+    pinyin = models.CharField(max_length=32, db_index=True,
                         verbose_name=u'品牌（拼音）')
     keywords = models.CharField(max_length=100, db_index=True,
                         verbose_name=u'搜索关键字')
@@ -133,8 +133,10 @@ class ConfigParameter(models.Model):
     ''' Car configuration parameters.'''
 
     para_cat = models.CharField(max_length=50, verbose_name=u'参数分类')
-    para_name = models.CharField(max_length=50, verbose_name=u'参数名')
-    para_value = models.CharField(max_length=50, verbose_name=u'参数值')
+    para_name = models.CharField(max_length=50, blank=True, null=True,
+                        verbose_name=u'参数名')
+    para_value = models.CharField(max_length=50, blank=True, null=True,
+                        verbose_name=u'参数值')
     isdefault = models.IntegerField(blank=True, default=0, verbose_name=u'是否默认配置')
     model = models.CharField(max_length=50, db_index=True, verbose_name=u'型号')
     detail_model = models.CharField(max_length=50, db_index=True,

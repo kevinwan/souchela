@@ -13,6 +13,12 @@ ALIVE_ON_PRODUCTION = False
 DEBUG = not ALIVE_ON_PRODUCTION
 TEMPLATE_DEBUG = DEBUG
 
+
+# Django south migration
+INSTALLED_APPS += (
+    'south',
+)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.

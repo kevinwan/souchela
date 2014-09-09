@@ -143,6 +143,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'souche.apps.core',
+    'souche.apps.carmodel',
+    'souche.apps.carsource',
 )
 
 # A sample logging configuration. The only tangible logging

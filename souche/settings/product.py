@@ -31,6 +31,19 @@ DATABASES = {
     }
 }
 
+# Use filesystem cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'wwwcache',
+        'TIMEOUT': 61200, # 07-24 17 hours
+        'OPTIONS': {
+            'MAX_ENTRIES': 100000,
+            'CULL_FREQUENCY': 3,
+        }
+    },
+}
+
 
 ####################
 # Email Settings #

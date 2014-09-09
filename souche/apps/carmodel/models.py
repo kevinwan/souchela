@@ -52,6 +52,10 @@ class Brand(models.Model):
     logo_img_link.short_description = u'图标'
     logo_img_link.allow_tags = True
 
+    @classmethod
+    def get_all_brands(cls):
+        return cls.objects.all()
+
 
 class Model(models.Model):
     CLASSIFICATION_CHOICE = (

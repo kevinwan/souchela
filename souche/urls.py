@@ -5,10 +5,13 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from souche.apps.carmodel.views import BrandDataView
+
 from souche.apps.core.views import IndexView
 from souche.apps.core.views import SearchCarView
 
 admin.autodiscover()
+
 
 urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='home'),
@@ -21,6 +24,9 @@ urlpatterns = patterns('',
     url(r'search-car/', SearchCarView.as_view(), name='search_car'),
 )
 
+urlpatterns += patterns('',
+    url(r'^meta-data/brand/$', BrandDataView.as_view()),
+)
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()

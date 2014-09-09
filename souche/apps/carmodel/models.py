@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.db import models
 
 from souche.apps.carmodel.fields import PriceField
@@ -36,6 +37,20 @@ class Brand(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @property
+    def logo_img_url(self):
+        img_url = settings.IMG_DOMAIN + '/img/logo/' + self.logo_img
+        return img_url
+
+    def logo_img_link(self):
+        context = {
+            'img_url': self.logo_img_url,
+            'logo_name': self.name,
+        }
+        return u'<img src="{img_url}?imageView2/2/w/60" alt="{logo_name}" />'.format(**context)
+    logo_img_link.short_description = u'图标'
+    logo_img_link.allow_tags = True
 
 
 class Model(models.Model):
@@ -80,7 +95,7 @@ class Model(models.Model):
     keywords = models.CharField(max_length=100, db_index=True,
                         verbose_name=u'搜索关键字')
     attribute = models.CharField(max_length=10, db_index=True,
-                        choices=ATTRIBUTE_CHOICE, verbose_name=u'属性，区分国产还是进口等')
+                        choices=ATTRIBUTE_CHOICE, verbose_name=u'属性(区分国产/进口)')
 
     class Meta:
         app_label = 'carmodel'

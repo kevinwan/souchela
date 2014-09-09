@@ -14,8 +14,7 @@ class Province(models.Model):
 
     name = models.CharField(max_length=50, db_index=True, unique=True,
                                 verbose_name=u'省份名')
-    slug = models.CharField(max_length=32, db_index=True, unique=True,
-                                verbose_name=u'省份slug')
+    slug = models.CharField(max_length=32, db_index=True, verbose_name=u'省份slug')
     pinyin = models.CharField(max_length=32, blank=True, null=True, db_index=True,
                                 verbose_name=u'省份拼音')
 

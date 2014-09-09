@@ -103,8 +103,7 @@ class Model(models.Model):
 class DetailModel(models.Model):
     ''' Car detail model data from gongpingjia.'''
 
-    name = models.CharField(max_length=50, db_index=True, unique=True,
-                        verbose_name=u'详细款型中文名')
+    name = models.CharField(max_length=50, db_index=True, verbose_name=u'详细款型中文名')
     slug = models.CharField(max_length=50, db_index=True, unique=True,
                         verbose_name=u'详细款型slug')
     model = models.ForeignKey('Model', db_column='model', to_field='slug',

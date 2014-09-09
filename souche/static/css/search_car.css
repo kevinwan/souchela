@@ -19,4 +19,279 @@
     width: 70px;
     height: 20px;
     line-height: 20px;
+    cursor: pointer;
+}
+
+.status .filter i {
+    display: inline-block;
+    width: 12px;
+    height: 15px;
+    background: url(../image/souchela1.png);
+    position: relative;
+    top: 2px;
+}
+
+.status .filter .default {
+    background-position: -3px -45px;
+}
+
+.status .filter .asc {
+    background-position: -16px -45px;
+}
+
+.status .filter .des {
+    background-position: -29px -45px;
+}
+
+.main-info  input {
+    border: 1px solid #ccc;
+    text-indent: 10px;
+}
+
+.filter-bar {
+    width: 222px;
+    background: #fff;
+    margin-right: 16px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    color: #3c3c3c;
+}
+
+.car-list {
+    width: 928px;
+    color: #3c3c3c;
+    border: 1px solid #ddd;
+}
+
+.filter-bar a {
+    color: #3c3c3c;
+}
+
+.filter-bar dl {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.filter-bar dt {
+    line-height: 35px;
+    height: 35px;
+}
+
+.filter-bar dd {
+    line-height: 30px;
+    height: 30px;
+}
+
+.filter-bar dd span {
+        display: inline-block;
+    font-size: 14px;
+}
+
+.filter-bar .select-brand dd span {
+    width: 23%;
+}
+
+.filter-bar dl .fr {
+    font-size: 14px;
+}
+
+.filter-bar dl .symbol {
+    color: #999;
+}
+
+.filter-bar dl .price {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.range-price li {
+    float: left;
+}
+
+.range-price .price-btn li {
+    height: 7px;
+    width: 11%;
+    background: #ccc;
+    margin-right: 2.5px;
+}
+
+.range-price .price-btn li:hover,
+.range-price .price-btn focus {
+    background: #2da3d3;
+    cursor: pointer;
+}
+
+.range-price .range-describe li {
+    width: 6%;
+    margin-right: 7.4px;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.filter-bar .select-slug dd span {
+    margin: 0 4px;
+}
+
+.select-color a {
+    width: 7%;
+    height: 16px;
+    float: left;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.select-color .ca {
+    background: #78386a;
+}
+.select-color .cb {
+    background: #396bb4;
+}
+.select-color .cc {
+    background: #99cb68;
+}
+.select-color .cd {
+    background: #fbdc05;
+}
+.select-color .ce {
+    background: #f27920;
+}
+.select-color .cf {
+    background: #ca2128;
+}
+.select-color .cg {
+    background: #febecc;
+}
+.select-color .ch {
+    background: #724623;
+}
+.select-color .ci {
+    background: #e7d3ae;
+}
+.select-color .cj {
+    background: #fff;
+}
+.select-color .ck {
+    background: #000;
+}
+.select-color .cl {
+    background: #888687;
+}
+.select-color .cm {
+    background: #eeedeb;
+}
+
+
+.plate-time input {
+    width: 101px;
+    height: 25px;
+}
+
+.mile input,
+.volume input {
+    width: 218px;
+    height: 25px;
+}
+
+.filter-bar .volume {
+    border: none;
+}
+
+.car-list .car-bar {
+    width: 454px;
+    height: 458px;
+    float: left;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    background: #fff;
+}
+
+.car-list .car-bar .car-img {
+    height: 340px;
+    background: #D989FF;
+}
+
+.car-list .car-bar .car-info {
+    font-size: 14px;
+    width: 289px;
+}
+
+.car-list .car-bar .car-info span {
+    margin: 0 5px;
+}
+
+.car-list .split {
+    margin-right: 16px;
+}
+
+.car-list .car-bar .car-info a {
+    color: #3c3c3c;
+}
+
+.car-list .car-bar .car-info i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #999;
+    position: relative;
+    top: 1px;
+    margin: 0 5px;
+}
+
+.car-list .car-bar .car-info li {
+    margin: 16px 0;
+}
+
+.car-list .car-bar .car-info .security span {
+    color: #fff;
+    padding: 1px 8px;
+}
+
+.car-list .car-bar .car-info .security-a {
+    background: #2fa3d4;
+}
+.car-list .car-bar .car-info .security-b {
+    background: #fe7879;
+}
+
+.car-list .car-bar .car-price {
+    width: 134px;
+    height: 82px;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.car-list .car-bar .sell-price {
+    font-size: 18px;
+}
+
+.car-list .car-bar .sell-price strong {
+    font-size: 24px;
+    margin:  0 2px;
+}
+
+.car-list .car-bar .economize {
+    font-size: 14px;
+}
+
+.list-box {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-indent: 10px;
+    display: none;
+    height: 100px;
+    overflow: auto;
+}
+
+.filter-bar  i {
+    width:15px;
+    height: 20px;
+    display: inline-block;
+    background: url(../image/souchela1.png);
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 3px;
+    background-position: -55px -44px;
 }

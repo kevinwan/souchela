@@ -9,31 +9,26 @@
     margin: 0 auto;
     width: 1190px;
     height: 100%;
-    border: 1px solid;
 }
 
 .header-content .logo {
     width: 214px;
-    background: #969696;
     height: 100%;
 }
 
 .header-content .mid {
     height: 100%;
     width: 811px;
-    background: #66D8FF;
 }
 
 .header-content .contact {
     width: 165px;
-    background: #FF6666;
     height: 100%;
 }
 
 .header-content .mid .mid-content {
     margin: 0 auto;
     width: 480px;
-    background: #f0d1e1;
     padding-top: 45px;
 }
 
@@ -54,12 +49,15 @@
     height: 45px;
     display: block;
     background-color: #006599;
+    background-image: url(../image/souchela1.png);
+    background-position: 9px 0;
+    cursor: pointer;
 }
 
 .header-content .mid .nav {
     height: 45px;
     line-height: 45px;
-    margin-top: 24px;
+    margin-top: 25px;
 }
 
 .header-content .mid .nav li {
@@ -74,6 +72,7 @@
 
 .header-content .mid .nav li a:hover {
     background: #006697;
+    color: #fff;
 }
 
 .content {
@@ -97,6 +96,7 @@
     height: 46px;
     line-height: 46px;
     padding: 0 10px;
+    border: 1px solid #ddd;
 }
 
 .footer {

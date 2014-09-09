@@ -4,6 +4,9 @@ __pycache__/
 # Django settings file
 */settings/local_settings.py
 
+# Migration file
+migrations/
+
 # C extensions
 *.so
 

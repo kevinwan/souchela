@@ -30,7 +30,7 @@ class CarSource(models.Model):
                         verbose_name=u'品牌slug')
     model_slug = models.CharField(max_length=32, db_index=True, \
                         verbose_name=u'型号slug')
-    detail_model_slug = models.CharField(blank=True, null=True, \
+    detail_model_slug = models.CharField(max_length=32, blank=True, null=True, \
                         verbose_name=u'详细款型slug')
     year = models.IntegerField(verbose_name=u'首次上牌年份')
     month = models.IntegerField(verbose_name=u'首次上牌月份')
@@ -72,13 +72,13 @@ class CarSource(models.Model):
                         verbose_name=u'车况等级')
     condition_detail = models.TextField(blank=True, null=True, \
                         verbose_name=u'车况介绍')
-    car_application = models.CharField(blank=True, null=True, \
+    car_application = models.CharField(max_length=10, blank=True, null=True, \
                         verbose_name=u'车辆用途', help_text=u'营运/非营运')
-    driving_license = models.CharField(blank=True, null=True, \
+    driving_license = models.CharField(max_length=10, blank=True, null=True, \
                         verbose_name=u'是否有行驶证', help_text=u'是/否')
-    invoice = models.CharField(blank=True, null=True, \
+    invoice = models.CharField(max_length=10, blank=True, null=True, \
                         verbose_name=u'是否有购车/过户发票', help_text=u'是/否')
-    maintenance_record = models.CharField(blank=True, null=True, \
+    maintenance_record = models.CharField(max_length=10, blank=True, null=True, \
                         verbose_name=u'是否有维修保养记录', help_text=u'是/否')
 
     class Meta:

@@ -2,8 +2,8 @@
 
 from django.db import models
 
-from souche.apps.carmodel import PriceField
-from souche.apps.carmodel import VolumeField
+from souche.apps.carmodel.fields import PriceField
+from souche.apps.carmodel.fields import VolumeField
 
 
 __all__ = [

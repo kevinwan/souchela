@@ -4,3 +4,4 @@ MySQL-python==1.2.3
 
 South==0.7.5
 
+django-redis==3.7.1

@@ -1,0 +1,8 @@
+<dl>
+{% for manufactor, models in model_dic.items %}
+	<dt>{{ manufactor }}</dt>
+	{% for m in models %}
+	<dd name="{{ m.slug }}">{{ m.name }}</dd>
+	{% endfor %}
+{% endfor %}
+</dl>

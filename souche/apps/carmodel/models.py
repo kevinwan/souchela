@@ -56,6 +56,14 @@ class Brand(models.Model):
     def get_all_brands(cls):
         return cls.objects.all()
 
+    def get_models(self):
+        return self.models.all()
+
+    @classmethod
+    def get_models_by_brand_slug(cls, brand_slug):
+        brand = cls.objects.get(slug=brand_slug)
+        return brand.models.all().order_by('pinyin')
+
 
 class Model(models.Model):
     CLASSIFICATION_CHOICE = (

@@ -147,6 +147,10 @@ INSTALLED_APPS = (
     'souche.apps.carsource',
 )
 
+# Configure cache as session engine.
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+# Set image server domain.
 IMG_DOMAIN = 'http://souchela.qiniudn.com'
 
 # A sample logging configuration. The only tangible logging

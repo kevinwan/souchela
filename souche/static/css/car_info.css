@@ -1,0 +1,173 @@
+.car-info {
+	height: 683px;
+	border: 1px solid #ddd;
+	background: #fff;
+	margin-bottom: 17px;
+}
+
+.base-info {
+	height: 366px;
+	margin-bottom: 17px;
+}
+
+.price-analysis {
+	height: 500px;
+	border: 1px solid #ddd;
+	background: #fff;
+	margin-bottom: 17px;
+}
+
+.config-info {
+	height: 934px;
+	border: 1px solid #ddd;
+	background: #fff;
+	margin-bottom: 17px;
+}
+
+.car-info .survey {
+	height: 546px;
+	border: 1px solid;
+}
+
+.car-info .survey .car-img-content {
+	width: 727px;
+	border: 1px solid #5EFFA1;
+	height: 100%;
+}
+
+.car-info .survey .car-img-content .thumbnail {
+	height: 62px;
+	width: 727px;
+	border: 1px solid #E0791F;
+	position: absolute;
+	top:660px;
+}
+
+.car-info .survey .car-img-content .current-img {
+	width: 100%;
+	height: 100%;
+	background: #124578;
+}
+
+.car-info .survey .grade {
+	width: 78px;
+	height: 100px;
+	position: absolute;
+	border: 1px solid #F2B8DA;
+	left: 380px;
+	top: 190px;
+}
+
+.car-info .survey .car-surver-content {
+	width: 455px;
+	height: 100%;
+	border: 1px solid #DD56DD;
+}
+
+.car-info .survey .car-surver-content .car-title {
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #FC62AA;
+	margin-top: 40px;
+}
+
+.car-info .survey .car-surver-content .price-info {
+	height: 97px;
+	border: 1px solid #F7F79B;
+	margin-top: 36px;
+}
+
+.car-info .survey .car-surver-content .evaluate-price {
+	height: 24px;
+	border: 1px solid #de1245;
+	margin-top: 36px;
+}
+
+.car-info .survey .car-surver-content .base-info {
+	height: 47px;
+	border: 1px solid #1254ea;
+	margin-top: 48px;
+}
+
+.car-info .survey .car-surver-content .dealer-info {
+	height: 64px;
+	border: 1px solid #da12ef;
+}
+
+.car-info .security {
+	height: 87px;
+	border: 1px solid;
+	margin-top: 24px;
+}
+
+.car-info .security .security_1,
+.car-info .security .security_2,
+.car-info .security .security_3 {
+	width: 375px;
+	height: 100%;
+	margin: 0 10px;
+	float: left;
+}
+
+.car-info .security .security_1 {
+	background: #ffbb34;
+}
+
+.car-info .security .security_2 {
+	background: #65c152;
+}
+
+.car-info .security .security_3 {
+	background: #ff894c;
+}
+
+.base-info .nav {
+	background: #f6f6f6;
+	height: 50px;
+	border: 1px solid #dcdcdc;
+	border-bottom: none;
+}
+
+.base-info .nav li {
+	width: 145px;
+	float: left;
+	height: 50px;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.base-info .nav a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 5px;
+	border-right: 1px solid #ddd;
+}
+
+.base-info .nav li .lasta {
+	border: none;
+}
+
+.base-info .nav .last {
+	border-bottom: 1px solid #dcdcdc;
+	width: 461px;
+}
+
+.base-info .nav .focus,
+.base-info .nav li:hover {
+	background: #fff;
+	border: none;
+	border-top: 2px solid #2fa3d4;
+	border-right: 1px solid #dcdcdc;
+}
+
+.base-info .nav .focus a,
+.base-info .nav li:hover a {
+	border: none;
+}
+
+.base-info .base-content {
+	height: 316px;
+	border: 1px solid #ddd;
+	border-top: none;
+	background: #fff;
+}

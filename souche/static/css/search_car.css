@@ -1,297 +1,462 @@
 .status {
-    color: #3c3c3c;
+	color: #3c3c3c;
 }
 
 .status h4 {
-    line-height: 40px;
-    font-weight: normal;
+	line-height: 40px;
+	font-weight: normal;
 }
 
 .status .filter {
-    border-right: 1px solid #b1b1b1;
-    margin-top: 10px;
-    text-align: center;
+	border-right: 1px solid #b1b1b1;
+	margin-top: 10px;
+	text-align: center;
 }
 
 .status .filter li {
-    float: left;
-    border-left: 1px solid #b1b1b1;
-    width: 70px;
-    height: 20px;
-    line-height: 20px;
-    cursor: pointer;
+	float: left;
+	border-left: 1px solid #b1b1b1;
+	width: 70px;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer;
 }
 
 .status .filter i {
-    display: inline-block;
-    width: 12px;
-    height: 15px;
-    background: url(../image/souchela1.png);
-    position: relative;
-    top: 2px;
+	display: inline-block;
+	width: 12px;
+	height: 15px;
+	background: url(../image/souchela1.png);
+	position: relative;
+	top: 2px;
 }
 
 .status .filter .default {
-    background-position: -3px -45px;
+	background-position: -3px -45px;
 }
 
 .status .filter .asc {
-    background-position: -16px -45px;
+	background-position: -16px -45px;
 }
 
 .status .filter .des {
-    background-position: -29px -45px;
+	background-position: -29px -45px;
 }
 
 .main-info  input {
-    border: 1px solid #ccc;
-    text-indent: 10px;
+	border: 1px solid #ccc;
+	text-indent: 10px;
 }
 
 .filter-bar {
-    width: 222px;
-    background: #fff;
-    margin-right: 16px;
-    padding: 0 10px;
-    border: 1px solid #ddd;
-    color: #3c3c3c;
+	width: 222px;
+	background: #fff;
+	margin-right: 16px;
+	padding: 0 10px;
+	border: 1px solid #ddd;
+	color: #3c3c3c;
 }
 
 .car-list {
-    width: 928px;
-    color: #3c3c3c;
-    border: 1px solid #ddd;
+	width: 928px;
+	color: #3c3c3c;
+	border: 1px solid #ddd;
 }
 
 .filter-bar a {
-    color: #3c3c3c;
+	color: #3c3c3c;
 }
 
 .filter-bar dl {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 20px;
 }
 
 .filter-bar dt {
-    line-height: 35px;
-    height: 35px;
+	line-height: 35px;
+	height: 35px;
 }
 
 .filter-bar dd {
-    line-height: 30px;
-    height: 30px;
+	line-height: 30px;
+	height: 30px;
 }
 
 .filter-bar dd span {
-        display: inline-block;
-    font-size: 14px;
+		display: inline-block;
+	font-size: 14px;
 }
 
 .filter-bar .select-brand dd span {
-    width: 23%;
+	width: 23%;
 }
 
 .filter-bar dl .fr {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .filter-bar dl .symbol {
-    color: #999;
+	color: #999;
 }
 
 .filter-bar dl .price {
-    width: 30px;
-    margin: 0 5px;
+	width: 30px;
+	margin: 0 5px;
 }
 
 .range-price li {
-    float: left;
+	float: left;
 }
 
 .range-price .price-btn li {
-    height: 7px;
-    width: 11%;
-    background: #ccc;
-    margin-right: 2.5px;
+	height: 7px;
+	width: 11%;
+	background: #ccc;
+	margin-right: 2.5px;
 }
 
 .range-price .price-btn li:hover,
 .range-price .price-btn focus {
-    background: #2da3d3;
-    cursor: pointer;
+	background: #2da3d3;
+	cursor: pointer;
 }
 
 .range-price .range-describe li {
-    width: 6%;
-    margin-right: 7.4px;
-    font-size: 12px;
-    text-align: center;
+	width: 6%;
+	margin-right: 7.4px;
+	font-size: 12px;
+	text-align: center;
 }
 
 
-.filter-bar .select-slug dd span {
-    margin: 0 4px;
+.filter-bar .select-type dd span {
+	margin: 0 4px;
 }
 
 .select-color a {
-    width: 7%;
-    height: 16px;
-    float: left;
-    cursor: pointer;
-    display: inline-block;
+	width: 7%;
+	height: 16px;
+	float: left;
+	cursor: pointer;
+	display: inline-block;
 }
 
 .select-color .ca {
-    background: #78386a;
+	background: #78386a;
 }
 .select-color .cb {
-    background: #396bb4;
+	background: #396bb4;
 }
 .select-color .cc {
-    background: #99cb68;
+	background: #99cb68;
 }
 .select-color .cd {
-    background: #fbdc05;
+	background: #fbdc05;
 }
 .select-color .ce {
-    background: #f27920;
+	background: #f27920;
 }
 .select-color .cf {
-    background: #ca2128;
+	background: #ca2128;
 }
 .select-color .cg {
-    background: #febecc;
+	background: #febecc;
 }
 .select-color .ch {
-    background: #724623;
+	background: #724623;
 }
 .select-color .ci {
-    background: #e7d3ae;
+	background: #e7d3ae;
 }
 .select-color .cj {
-    background: #fff;
+	background: #fff;
 }
 .select-color .ck {
-    background: #000;
+	background: #000;
 }
 .select-color .cl {
-    background: #888687;
+	background: #888687;
 }
 .select-color .cm {
-    background: #eeedeb;
+	background: #eeedeb;
 }
 
 
 .plate-time input {
-    width: 101px;
-    height: 25px;
+	width: 101px;
+	height: 25px;
 }
 
 .mile input,
 .volume input {
-    width: 218px;
-    height: 25px;
+	width: 218px;
+	height: 25px;
 }
 
 .filter-bar .volume {
-    border: none;
+	border: none;
 }
 
 .car-list .car-bar {
-    width: 454px;
-    height: 458px;
-    float: left;
-    border: 1px solid #ccc;
-    margin-bottom: 16px;
-    background: #fff;
+	width: 454px;
+	height: 458px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-bottom: 16px;
+	background: #fff;
 }
 
 .car-list .car-bar .car-img {
-    height: 340px;
-    background: #D989FF;
+	height: 340px;
+	overflow: hidden;
+}
+
+.car-list .car-bar .car-img li {
+	height: 340px;
+	overflow: hidden;
+	margin-top: -18px;
+}
+
+.car-list .car-bar .car-img img {
+	width: 100%;
+	height: 100%;
+	margin-top: -21px;
 }
 
 .car-list .car-bar .car-info {
-    font-size: 14px;
-    width: 289px;
+	font-size: 14px;
+	width: 289px;
 }
 
 .car-list .car-bar .car-info span {
-    margin: 0 5px;
+	margin: 0 5px;
 }
 
 .car-list .split {
-    margin-right: 16px;
+	margin-right: 16px;
 }
 
 .car-list .car-bar .car-info a {
-    color: #3c3c3c;
+	color: #3c3c3c;
 }
 
 .car-list .car-bar .car-info i {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border: 1px solid #999;
-    position: relative;
-    top: 1px;
-    margin: 0 5px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #999;
+	position: relative;
+	top: 1px;
+	margin: 0 5px;
 }
 
 .car-list .car-bar .car-info li {
-    margin: 16px 0;
+	margin: 16px 0;
 }
 
 .car-list .car-bar .car-info .security span {
-    color: #fff;
-    padding: 1px 8px;
+	color: #fff;
+	padding: 1px 8px;
 }
 
 .car-list .car-bar .car-info .security-a {
-    background: #2fa3d4;
+	background: #2fa3d4;
 }
 .car-list .car-bar .car-info .security-b {
-    background: #fe7879;
+	background: #fe7879;
 }
 
 .car-list .car-bar .car-price {
-    width: 134px;
-    height: 82px;
-    padding-top: 30px;
-    padding-left: 20px;
+	width: 134px;
+	height: 82px;
+	padding-top: 30px;
+	padding-left: 20px;
 }
 
 .car-list .car-bar .sell-price {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 .car-list .car-bar .sell-price strong {
-    font-size: 24px;
-    margin:  0 2px;
+	font-size: 24px;
+	margin:  0 2px;
 }
 
 .car-list .car-bar .economize {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .list-box {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
-    text-indent: 10px;
-    display: none;
-    height: 100px;
-    overflow: auto;
+	position: absolute;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	text-indent: 10px;
+	display: none;
+	height: 100px;
+	overflow: auto;
 }
 
 .filter-bar  i {
-    width:15px;
-    height: 20px;
-    display: inline-block;
-    background: url(../image/souchela1.png);
-    position: absolute;
-    margin-left: -20px;
-    margin-top: 3px;
-    background-position: -55px -44px;
+	width:15px;
+	height: 20px;
+	display: inline-block;
+	background: url(../image/souchela1.png);
+	position: absolute;
+	margin-left: -20px;
+	margin-top: 3px;
+	background-position: -55px -44px;
+}
+
+.brand-list {
+	width: 714px;
+	height: 408px;
+	position: absolute;
+	background: #fff;
+	overflow: auto;
+	top: 238px;
+	left: 599px;
+	z-index: 1;
+	border: 1px solid #006599;
+	padding-left: 20px;
+	display: none;
+}
+
+.brand-list dd {
+	margin: 0 10px;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.brand-list dt {
+	display: inline-block;
+	color: #006898;
+}
+
+.brand-list dd a {
+	color: #676767
+}
+.brand-list dd a:hover {
+	color: #006599;
+}
+
+.brand-list dl {
+	border-bottom: none;
+	padding-bottom:0;
+}
+
+.select-brand-list {
+	position: relative;
+	margin-left: -10px;
+	padding-left: 10px;
+	width: 231px;
+	z-index: 2;
+	border: 1px solid #fff;
+}
+
+.select-brand-list-focus {
+	border: 1px solid #006599;
+	border-right: 1px solid #fff;
+	position: relative;
+	margin-left: -10px;
+	padding-left: 10px;
+	width: 231px;
+	z-index: 2;
+	background: #fff;
+}
+
+.slug-list dl{
+	position: absolute;
+	border: 1px solid #DDD;
+	background: #FFF;
+	height: 200px;
+	overflow: auto;
+	width: 220px;
+	z-index: 7;
+	display: none;
+}
+
+.slug-list dt {
+	float: none;
+	clear: both;
+}
+
+.slug-list dd {
+	float: left;
+	width: 202px;
+	text-indent: 10px;
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.slug-list dd a,
+.list-box a {
+	display: block;
+	overflow: hidden;
+}
+
+.slug-list dd a:hover,
+.list-box a:hover {
+	background: #006599;
+	color: #fff;	
+}
+
+.filter-price .input-price {
+	position: absolute;
+	z-index: 6;
+	margin-left: -125px;
+}
+
+.filter-price .input-price-bg {
+	position: absolute;
+	width: 135px;
+	height: 55px;
+	background: #fff;
+	border: 1px solid #006599;
+	z-index: 3;
+	margin-left: -125px;
+	margin-top: -20px;
+	display: none;
+}
+
+.filter-price .input-price-bg p {
+	font-size: 12px;
+	position: relative;
+	top: -8px;
+	left: 9px;
+}
+
+.filter-price .input-price-bg .submit {
+	width: 36px;
+	height: 18px;
+	position: relative;
+	text-indent: 0;
+	left: 96px;
+	top: -7px;
+	background: #006599;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+#select-slug  {
+	width: 220px;
+	height: 25px;
+}
+
+.select-slug  i {
+	margin-top: 8px;
+}
+
+.filter-bar input {
+	cursor: pointer;
+}
+
+
+.flex-control-nav {
+	display: none;
+}
+
+.car-description {
+	margin-top: -62px;
 }

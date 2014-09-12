@@ -1,8 +1,11 @@
+<div  class="slug-list">
 <dl>
 {% for manufactor, models in model_dic.items %}
 	<dt>{{ manufactor }}</dt>
 	{% for m in models %}
-	<dd name="{{ m.slug }}">{{ m.name }}</dd>
+	<dd><a href="" title="{{ m.name }}">{{ m.name }}</a></dd>
 	{% endfor %}
 {% endfor %}
+<div class="clear"></div>
 </dl>
+</div>

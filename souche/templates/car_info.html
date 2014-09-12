@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+{% block title %}车源详情{% endblock %}
+
+{% block ext_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/car_info.css" />
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	<div class="main">
+		<!--信息概括 begin-->
+		<div class="car-info">
+			<div class="survey">
+				<div class="car-img-content fl">
+					<div class="current-img"></div>
+					
+					<div class="thumbnail"></div>
+					
+					<div class="grade"></div>
+				</div>
+				<!--概况 begin-->
+				<div class="car-surver-content fl">
+					<div class="car-title tac">
+						<h4>道奇 2010款 酷威2.7-手自一体前驱 【进口】 </h4>
+					</div>
+					
+					<div class="price-info"></div>
+					
+					<div class="evaluate-price"></div>
+					
+					<div class="base-info"></div>
+					
+					<div class="dealer-info"></div>
+				</div>
+				<!--概况 begin-->
+				<div class="clear"></div>
+			</div>
+			<!--商家保障 begin-->
+			<div class="security">
+				<div class="security_1"></div>
+				<div class="security_2"></div>
+				<div class="security_3"></div>
+				
+				<div class="clear"></div>
+			</div>
+			<!--商家保障 end-->
+		</div>
+		<!--信息概括 begin-->
+		<div class="base-info">
+			<div class="nav tac">
+				<ul>
+					<li class="focus"><a href="#">基本信息</a></li>
+					<li><a href="#">价格分析</a></li>
+					<li><a href="#">配置参数</a></li>
+					<li><a href="#">商家地址</a></li>
+					<li><a class="lasta" href="#">车辆图片</a></li>
+					<li class="last"></li>
+					
+					<div class="clear"></div>
+				</ul>
+				
+				
+			</div>
+			
+			<div class="base-content"></div>
+		</div>
+		
+		<div class="price-analysis"></div>
+		
+		<div class="config-info"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block ext_js %}
+{% endblock %}

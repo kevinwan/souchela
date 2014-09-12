@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from souche.apps.carmodel.constants import CLASSIFICATION_NAMES
+from souche.apps.carmodel.rules import CLASSIFICATION_NAMES
 
 
 

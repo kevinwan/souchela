@@ -71,7 +71,11 @@ DropDownList.prototype.init = function(inputEle,selectBox) {
 DropDownList.prototype._event = function(btn,box) {
 	$(btn).click(function(){
 		$(box).toggle();
-	});    
+	});
+	
+	$(btn).parent().mouseleave(function() {
+		$(box).hide();
+	});
 };
 
 DropDownList.prototype.select = function() {

@@ -105,7 +105,7 @@ $(function(){
 	BrandList.init(".brand-list","/meta-data/brand/",function(){});
 	
 	$("#select-brand-btn").click(function(){
-		$(".brand-list").toggle("normal",function(){
+		$(".brand-list").toggle("fast",function(){
 			var type = $(this).css("display");
 			if (type == "block") {
 				$(".select-brand-list").addClass("select-brand-list-focus").
@@ -137,7 +137,6 @@ $(function(){
 	$(".input-price-bg").mouseleave(function(){
 		$(this).hide();
 	});
-	
 	
 	(function() {
 		$(".car-img").flexslider({

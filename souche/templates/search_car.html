@@ -3,9 +3,9 @@
 {% block title %}搜车{% endblock %}
 
 {% block ext_css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/search_car.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/pagination.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}plugins/flexslider.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/search_car.css" />
 {% endblock %}
 
 {% block content %}
@@ -159,6 +159,8 @@
 								<li><a href="{% generate_search_link "color" "黑色" %}" class="ck" title="黑色"></a></li>
 								<li><a href="{% generate_search_link "color" "深灰色" %}" class="cl" title="深灰色"></a></li>
 								<li><a href="{% generate_search_link "color" "银灰色" %}" class="cm" title="银灰色"></a></li>
+
+								<div class="clear"></div>
 							</ul>
 						</dd>
 					</dl>
@@ -210,6 +212,7 @@
 								</li>
 								{% endfor %}
 						  </ul>
+							<h4 class="car-title">{{ car.title }}</h4>
 						</div>
 						
 						<div class="car-description">

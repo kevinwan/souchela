@@ -103,7 +103,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         return context
 
 
-class CarSourceDetailView(TemplateView):
+class CarSourceDetailView(TemplateView, CarCostDetailMixin):
     ''' Car source detail information.'''
 
     http_method_names = ['get', ]
@@ -112,6 +112,13 @@ class CarSourceDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         car_id = int(kwargs['car_id'])
         car = get_object_or_404(CarSource, pk=car_id)
-
+        if not car.price_bn:
+            detail_model = self.get_detail_model(car.model_slug, \
+                        car.detail_model_slug, car.volume, car.year)
+            car.price_bn = detail_model.price_bn
+        car.tax = self.get_purchase_tax(car.price)
+        car.total_cost = self.get_total_cost(car.price_bn, car.tax)
+        car.save_money = self.get_save_money(car.total_cost, car.price)
+        car.image_urls = car.imgurls.split(' ')
         return {'car': car}
 

@@ -24,7 +24,7 @@
 						<h4>{{ car.title }}</h4>
 					</div>
 					
-					<div class="price-info"></div>
+					<div class="price-info">￥<strong>{{ car.price|floatformat:"2" }}</strong>万   省：{{ car.save_money }}万</div>
 					
 					<div class="evaluate-price"></div>
 					

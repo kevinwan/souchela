@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 
 from souche.apps.carmodel.rules import CLASSIFICATION
+from souche.apps.carmodel.rules import TRANSMISSION
 from souche.apps.carmodel.models import Model
 
 from souche.apps.carsource.mixin import CarCostDetailMixin
@@ -28,7 +29,8 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
     -brand: brand slug.
     -model: model slug.
     -price: price range, e.g. 4-10, 0-5.
-    -year: year range, e.g. 2009-2012.
+    -min_year: year min range.
+    -max_year: year max range.
     -category: car category => classification.
     -color: color Chinese.
     -mile: mileage range, e.g. 0-5.
@@ -48,7 +50,8 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         brand = get_param.get('brand', '')
         model = get_param.get('model', '')
         price = get_param.get('price', '')
-        year = get_param.get('year', '')
+        min_year = get_param.get('min_year', '')
+        max_year = get_param.get('max_year', '')
         classification = get_param.get('category', '')
         color = get_param.get('color', '')
         mile = get_param.get('mile', '')
@@ -57,17 +60,17 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         page = get_param.get('page', '')
 
         if brand:
-            criteria.append(Q(brand=brand))
+            criteria.append(Q(brand_slug=brand))
         if model:
-            criteria.append(Q(model=model))
+            criteria.append(Q(model_slug=model))
         if price:
             price_range = price.split('-')
             min_price, max_price = map(int, price_range)
             criteria.append(price__range=(min_price, max_price))
-        if year:
-            year_range = year.split('-')
-            min_year, max_year = map(int, year_range)
-            criteria.append(year__range=(min_year, max_year))
+        if min_year:
+            criteria.append(year__gte=min_year)
+        if max_year:
+            criteria.append(year__lte=max_year)
         classifications = CLASSIFICATION.get(classification, '')
         if classifications:
             # TODO(jzhu): Need to refactor the classification filter and model filter.
@@ -80,7 +83,12 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
             min_mile, max_mile = map(int, mile_range)
             criteria.append(Q(mile__range=(min_mile, max_mile)))
         if control:
-            criteria.append(Q(control=control))
+            control = TRANSMISSION.get(control, None)
+            if control:
+                query = Q()
+                for con in control:
+                    query = query | Q(control__icontains=con)
+                criteria.append(query)
         if sort not in self.SORT_TYPE:
             sort = '-time'
         fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \

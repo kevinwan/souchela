@@ -349,9 +349,8 @@
 	position: relative;
 	margin-left: -10px;
 	padding-left: 10px;
-	width: 231px;
+	width: 230px;
 	z-index: 2;
-	border: 1px solid #fff;
 }
 
 .select-brand-list-focus {

@@ -22,3 +22,13 @@ CLASSIFICATION = {
     'commercial_car': (u'微面', u'微卡', u'轻客', u'皮卡')  # 商用车
 }
 
+# TRANSMISSION TYPE
+TRANSMISSION_NAMES = {
+    'AUTO_TRANSMISSION': 'at',
+    'MANUAL_TRANSMISSION': 'mt'
+}
+
+TRANSMISSION = {
+    'at': (u'自动', u'手自一体'),
+    'mt': (u'手动')
+}

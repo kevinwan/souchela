@@ -123,8 +123,16 @@ class Model(models.Model):
     def get_brand(cls, model_slug):
         pass
 
-    def  get_brand_name(self):
+    def get_brand_name(self):
         return self.brand.name
+
+    @classmethod
+    def get_models_by_classification(cls, classification):
+        if isinstance(classification, list) or isinstance(classification, tuple):
+            models = cls.objects.filter(classification__in=classification)
+        else:
+            models = cls.objects.filter(classification=classification)
+        return models
 
 
 class DetailModel(models.Model):

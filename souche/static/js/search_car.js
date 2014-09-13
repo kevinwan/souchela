@@ -5,7 +5,7 @@ $(function(){
 	var volumeEle = "#car-volume";
 	
 	//上牌时间下拉框生成
-	var TimePlate = function(inputEle) {        
+	var TimePlate = function(inputEle) {
 		this.init(inputEle);
 	};
 	
@@ -64,7 +64,7 @@ $(function(){
 	var CarVolumeList = function(inputEle) {
 		this.init(inputEle);
 	};
-	
+
 	CarVolumeList.prototype = new DropDownList();
 	CarVolumeList.prototype.setList = function() {
 		var html;
@@ -86,9 +86,8 @@ $(function(){
 			var li = $("<li>",{"html":a});
 			$(this.listBox).append(li);
 		}
-	}
-	
-		
+	};
+
 	var StartTimePlate = new TimePlate(plateStart);
 	var EndTimePlate = new TimePlate(plateEnd);
 	var CarMile = new CarMileList(carMileEle);
@@ -140,9 +139,11 @@ $(function(){
 	});
 	
 	
-	$(window).load(function() {
-		$('.car-img').flexslider({
-			animation: "slide",
-		});
-	});
+	(function() {
+		for (i=1; i<11; i++) {
+			$($(".car-img")[i]).flexslider({
+				animation: "slide",
+			});
+		}
+	})();
 });

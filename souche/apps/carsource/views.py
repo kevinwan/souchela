@@ -11,6 +11,8 @@ from souche.apps.carmodel.models import Model
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
 
+from souche.apps.utils.paginator import paginate
+
 
 
 
@@ -95,8 +97,8 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
                 'year', 'month', 'url', 'time', 'mile', 'volume', 'control', 'price', \
                 'price_bn', 'imgurls')
         cars = CarSource.objects.filter(*criteria).values(*fields).order_by(sort)
-
-        for car in cars:
+        cars = paginate(cars, page, 10, 10)
+        for car in cars.object_list:
             if not car['price_bn']:
                 detail_model = self.get_detail_model(car['model_slug'], \
                             car['detail_model_slug'], car['volume'], car['year'])

@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{% load carmodel_tags %}
+{% load carmodel_tags souche_tags %}
 {% block title %}搜车{% endblock %}
 
 {% block ext_css %}
@@ -232,18 +232,7 @@
 					<div class="clear"></div>
 
 					<!--分页器 begin-->
-					<div class="pagination">
-						<ul>
-							<li><a href="#"  class="prev-page"></a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#"  class="next-page"></a></li>
-							<li class="set-page">到第<input type="text" id="dump-page" />页</li>
-							<li><a id="dump-btn" href="javascript:;">GO</a></li>
-						</ul>
-						
-						 <div class="clear"></div>
-					</div>
+					{% pagination_for cars %}
 					<!--分页器 end-->
 				</div>
 				

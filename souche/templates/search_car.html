@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-{% load carmodel_tags  carsource_tags %}
+{% load carmodel_tags %}
 {% block title %}搜车{% endblock %}
 
 {% block ext_css %}
@@ -194,7 +194,11 @@
 					<div class="car-bar {% if not forloop.counter|divisibleby:"2" %}split{% endif %}">
 						<div class="car-img flexslider car{{ forloop.counter }}">
 							<ul class="slides">
-								{% show_car_source_images car.imgurls %}
+								{% for image in car.image_urls %}
+								<li>
+								 	<img src="{{ image }}" />
+								</li>
+								{% endfor %}
 						  </ul>
 						</div>
 						
@@ -218,7 +222,7 @@
 							
 							<div class="car-price fl f-orange">
 								<p class="sell-price">￥<strong>{{ car.price|floatformat:"2" }}</strong>万</p>
-								<p class="economize">省：25.87万</p>
+								<p class="economize">省：{{ car.save_money }}万</p>
 							</div>
 							
 							<div class="clear"></div>

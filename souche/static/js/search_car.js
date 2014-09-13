@@ -140,10 +140,9 @@ $(function(){
 	
 	
 	(function() {
-		for (i=1; i<11; i++) {
-			$($(".car-img")[i]).flexslider({
-				animation: "slide",
-			});
-		}
+		$(".car-img").flexslider({
+			animation: "slide",
+			slideshow: false,
+		});
 	})();
 });

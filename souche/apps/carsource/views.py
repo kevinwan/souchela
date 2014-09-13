@@ -7,7 +7,9 @@ from django.views.generic import TemplateView
 from souche.apps.carmodel.rules import CLASSIFICATION
 from souche.apps.carmodel.models import Model
 
+from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
+
 
 
 
@@ -18,7 +20,7 @@ __all__ = [
 
 
 
-class SearchCarView(TemplateView):
+class SearchCarView(TemplateView, CarCostDetailMixin):
     ''' Search Car View.
 
     Request method: GET
@@ -81,8 +83,19 @@ class SearchCarView(TemplateView):
             criteria.append(Q(control=control))
         if sort not in self.SORT_TYPE:
             sort = '-time'
-        cars = CarSource.objects.filter(*criteria).order_by(sort)
+        fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \
+                'year', 'month', 'url', 'time', 'mile', 'volume', 'control', 'price', \
+                'price_bn', 'imgurls')
+        cars = CarSource.objects.filter(*criteria).values(*fields).order_by(sort)
 
+        for car in cars:
+            if not car['price_bn']:
+                detail_model = self.get_detail_model(car['model_slug'], \
+                            car['detail_model_slug'], car['volume'], car['year'])
+                car['price_bn'] = detail_model.price_bn
+            car['total_cost'] = self.get_total_cost(car['price_bn'])
+            car['save_money'] = self.get_save_money(car['total_cost'], car['price'])
+            car['image_urls'] = car['imgurls'].split(' ')
         context.update({
             'cars': cars
         })

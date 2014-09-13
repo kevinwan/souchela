@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'souche.apps.core',
     'souche.apps.carmodel',
     'souche.apps.carsource',
+    'souche.apps.utils',
 )
 
 # Configure cache as session engine.

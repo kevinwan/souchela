@@ -10,6 +10,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	background: transparent;
 }
 
+table {
+	border-collapse: collapse;
+	border: medium none;
+}
+
 ul,ol,li{
 	list-style:none;
 }
@@ -37,3 +42,11 @@ input {
 .f-orange { color: #EA5F04; }
 .f-blue { color: #016699; }
 .f-white { color: #fff; }
+.f-tangerine { color:#EB6005; }
+.f-lake-blue { color: #2FA3D4; }
+.f-light-green { color: #20A94D; }
+.f-gray { color:#999; }
+
+.b-lake-blue { background: #2FA3D4; }
+.b-light-green { background: #20A94D; }
+.b-orange { background: #FF8915; }

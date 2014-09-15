@@ -18,10 +18,10 @@
 }
 
 .config-info {
-	height: 934px;
 	border: 1px solid #ddd;
 	background: #fff;
 	margin-bottom: 17px;
+	padding-bottom: 20px;
 }
 
 .car-info .survey {
@@ -56,6 +56,11 @@
 	border: 1px solid #F2B8DA;
 	left: 380px;
 	top: 190px;
+	background: url(../image/car_info.png) no-repeat scroll -2px 0px;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 130px;
+	color: #fff;
 }
 
 .car-info .survey .car-surver-content {
@@ -72,9 +77,12 @@
 }
 
 .car-info .survey .car-surver-content .price-info {
-	height: 97px;
-	border: 1px solid #F7F79B;
-	margin-top: 36px;
+	height: 71px;
+	width: 412px;
+	background: #F9F9F9;
+	border: 2px solid #E3E3E3;
+	margin: 36px auto auto;
+	padding: 13px 10px;
 }
 
 .car-info .survey .car-surver-content .evaluate-price {
@@ -170,4 +178,152 @@
 	border: 1px solid #ddd;
 	border-top: none;
 	background: #fff;
+}
+
+.base-info .base-content .grade {
+	width: 78px;
+	height: 100px;
+}
+
+.security i {
+	background: url(../image/car_info.png);
+	width: 53px;
+	height: 52px;
+	display: inline-block;
+	position: relative;
+	top: 13px;
+	left: 10px;
+}
+
+.security_1 i {
+background-position: -155px -2px;
+}
+.security_2 i {
+background-position: -211px -2px;
+}
+
+.security_3 i {
+	background-position: -270px -2px;
+}
+
+.security .security-info {
+	color: #fff;
+	display:inline-block;
+	position: relative;
+	left: 20px;
+	top: 10px;
+}
+
+.security .security-info h4 {
+	line-height: 40px;
+}
+
+.security .security-info p {
+	font-size: 14px;
+}
+
+.price-info .price {
+	width: 135px;
+	border-right: 2px solid #E3E3E3;
+	height: 100%;
+	line-height: 65px;
+}
+
+.price-info .price strong {
+	font-size: 24px;
+	margin: 0 5px;
+}
+
+.price-info .price-description {
+	font-size: 14px;
+	padding: 8px 0 0 20px;
+}
+
+.price-info .price-description p {
+	line-height: 25px;
+}
+
+.info {
+	padding-left: 30px;
+}
+
+.info .i-title {
+	margin: 15px 0;
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.config-info .legend dd,
+.config-info .legend dt {
+	float: left;
+}
+
+.config-info .legend dd {
+	margin-right: 40px;
+}
+
+.config-info .legend dd i {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: 3px;
+}
+
+.config-info .config-data {
+	margin: 30px 0 0 -30px;
+	padding: 0 15px;
+}
+
+.config-info .config-data table {
+	width: 355px;
+	height: 394px;
+	margin: 0 15px;
+	font-size: 14px;
+	float: left;
+}
+
+.config-info .config-data td {
+	border: 1px solid #d9d9d9;
+	color: #656764;
+	vertical-align: middle;
+	width: 50%;
+	text-align: center;
+}
+
+.config-info .config-data .t-title {
+	background: #F2F2F2;
+	color: #323431;
+}
+
+.config-info .config-data span {
+	width: 68px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+}
+
+.config-info .config-data .title {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.dealer-address {
+	height: 280px;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding-right: 332px;
+}
+
+.dealer-address .dealer-address-content {
+	border: 1px solid #FF60DC;
+	height: 168px;
+	margin-left: 85px;
+}
+
+.dealer-address .dealer-address-content .dealer-ico {
+	width: 285px;
+	hight:100%;
+	border-right: 1px solid #d9d9d9;
 }

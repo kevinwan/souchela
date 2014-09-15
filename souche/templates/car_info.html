@@ -16,7 +16,7 @@
 					
 					<div class="thumbnail"></div>
 					
-					<div class="grade"></div>
+					<div class="grade tac">B</div>
 				</div>
 				<!--概况 begin-->
 				<div class="car-surver-content fl">
@@ -24,7 +24,15 @@
 						<h4>{{ car.title }}</h4>
 					</div>
 					
-					<div class="price-info">￥<strong>{{ car.price|floatformat:"2" }}</strong>万   省：{{ car.save_money }}万</div>
+					<div class="price-info">
+						<div class="price fl tac f-tangerine">
+							<h4>￥<strong>{{ car.price|floatformat:"2" }}</strong>万</h4>
+						</div>
+						<div class="fl tal price-description">
+							<p class="f-orange">为您节省：{{ car.save_money }}</p>
+							<p>新车价：125.55万+10.34万（购置税）</p>
+						</div>
+					</div>
 					
 					<div class="evaluate-price"></div>
 					
@@ -37,9 +45,27 @@
 			</div>
 			<!--商家保障 begin-->
 			<div class="security">
-				<div class="security_1"></div>
-				<div class="security_2"></div>
-				<div class="security_3"></div>
+				<div class="security_1">
+					<i></i>
+					<div class="security-info">
+						<h4>无事故车</h4>
+						<p>100%确保无事故车、无水进车、无火烧车！</p>
+					</div>
+				</div>
+				<div class="security_2">
+					<i></i>
+					<div class="security-info">
+						<h4>无理由退车</h4>
+						<p>退货险给你保障：有任何不满意，7天可退货！</p>
+					</div>
+				</div>
+				<div class="security_3">
+					<i></i>
+					<div class="security-info">
+						<h4>免费质保</h4>
+						<p>为您提供1年2万公里的免费质保</p>
+					</div>
+				</div>
 				
 				<div class="clear"></div>
 			</div>
@@ -55,19 +81,368 @@
 					<li><a href="#">商家地址</a></li>
 					<li><a class="lasta" href="#">车辆图片</a></li>
 					<li class="last"></li>
-					
-					<div class="clear"></div>
 				</ul>
-				
-				
 			</div>
+			
+			<div class="clear"></div>
 			
 			<div class="base-content"></div>
 		</div>
 		
 		<div class="price-analysis"></div>
 		
-		<div class="config-info"></div>
+		<div class="config-info info">
+			<div class="i-title">配置</div>
+			<div class="legend f-gray" >
+				<dl>
+					<dt>图示说明：</dt>
+					<dd>
+						<i class="b-lake-blue"></i>
+						<span class="f-lake-blue">标配</span>
+						表示车主自行添加的配置
+					</dd>
+					<dd>
+						<i class="b-orange"></i>
+						<span class="f-orange">选配</span>
+						表示您在购车时可以选购此项配置
+					</dd>
+					<dd>
+						<i class="b-light-green"></i>
+						<span class="f-light-green">选配</span>
+						表示车主自行添加的配置
+					</dd>
+				</dl>
+				
+				<div class="clear"></div>
+			</div>
+			
+			<div class="config-data">
+				<table>
+					<!--安全配置 begin-->
+					<tr>
+						<td colspan="2" class="t-title">安全配置</td>
+					</tr>
+					<tr>
+						<td class="title">安全带未系提示</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">发动机启动防盗锁装置</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">车门关闭提示</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">车门自动落锁</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">遥控中控锁</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">遥控钥匙</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">安全气囊</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<!--安全配置 end-->
+					<!--操控配置 begin-->
+					<tr>
+						<td colspan="2" class="t-title">操控配置</td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+					<!--操控配置 end-->
+				</table>
+				<!--内饰配置 begin-->
+				<table>
+					<tr>
+						<td colspan="2" class="t-title">安全配置</td>
+					</tr>
+					<tr>
+						<td class="title">手动调节前座椅</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电动调节前座椅</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">真皮座椅</td>
+						<td><span class="b-orange f-white">选配</span></td>
+					</tr>
+					<tr>
+						<td class="title">倒车影像系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">自动恒温空调系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">手动空调</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">车载电话(蓝牙系统)</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+				</table>
+				<!--内饰配置 end-->
+				<!--外部配置 begin-->
+				<table>
+					<tr>
+						<td colspan="2" class="t-title">外部配置</td>
+					</tr>
+					<tr>
+						<td class="title">手动调节前座椅</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电动调节前座椅</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">真皮座椅</td>
+						<td><span class="b-orange f-white">选配</span></td>
+					</tr>
+					<tr>
+						<td class="title">倒车影像系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">自动恒温空调系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">手动空调</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">车载电话(蓝牙系统)</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+				</table>
+				<!--内饰配置 end-->
+				<div class="clear"></div>
+			</div>
+			
+			<div class="i-title">参数</div>
+			
+			<div class="config-data">
+				<table>
+					<!--安全配置 begin-->
+					<tr>
+						<td colspan="2" class="t-title">安全配置</td>
+					</tr>
+					<tr>
+						<td class="title">安全带未系提示</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">发动机启动防盗锁装置</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">车门关闭提示</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">车门自动落锁</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">遥控中控锁</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">遥控钥匙</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">安全气囊</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+					<!--操控配置 end-->
+				</table>
+				<!--内饰配置 begin-->
+				<table>
+					<tr>
+						<td colspan="2" class="t-title">安全配置</td>
+					</tr>
+					<tr>
+						<td class="title">手动调节前座椅</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电动调节前座椅</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">真皮座椅</td>
+						<td><span class="b-orange f-white">选配</span></td>
+					</tr>
+					<tr>
+						<td class="title">倒车影像系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">自动恒温空调系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">手动空调</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">车载电话(蓝牙系统)</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+				</table>
+				<!--内饰配置 end-->
+				<!--外部配置 begin-->
+				<table>
+					<tr>
+						<td colspan="2" class="t-title">外部配置</td>
+					</tr>
+					<tr>
+						<td class="title">手动调节前座椅</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电动调节前座椅</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">真皮座椅</td>
+						<td><span class="b-orange f-white">选配</span></td>
+					</tr>
+					<tr>
+						<td class="title">倒车影像系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">自动恒温空调系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">手动空调</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="t-title" colspan="2">车轮制动</td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title">电子制动分配系统</td>
+						<td><span class="b-lake-blue f-white">标配</span></td>
+					</tr>
+					<tr>
+						<td class="title"> TRC牵引力控制系统</td>
+						<td><span>——</span></td>
+					</tr>
+					<tr>
+						<td class="title">防抱死制动系统</td>
+						<td><span></span></td>
+					</tr>
+				</table>
+				<!--内饰配置 end-->
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div class="dealer-address info">
+			<div class="i-title">商家地址</div>
+			
+			<div class="dealer-address-content">
+				<div class="dealer-ico fl"><img src="http://bj.haoche51.com/img/logo.png" alt="好车无忧" /></div>
+				<div class="dealer-address-ico fl"></div>
+				
+				<div class="clear"></div>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock %}

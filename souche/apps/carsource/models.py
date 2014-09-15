@@ -32,6 +32,8 @@ class CarSource(models.Model):
                         verbose_name=u'型号slug')
     detail_model_slug = models.CharField(max_length=32, blank=True, null=True, \
                         verbose_name=u'详细款型slug')
+    classification = models.CharField(max_length=30, db_index=True, \
+                        verbose_name=u'车辆级别', help_text=u'该字段由触发器自动填')
     year = models.IntegerField(verbose_name=u'首次上牌年份')
     month = models.IntegerField(verbose_name=u'首次上牌月份')
     url = models.URLField(verbose_name=u'原网站链接')

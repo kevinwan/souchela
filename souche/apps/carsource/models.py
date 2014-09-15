@@ -83,6 +83,10 @@ class CarSource(models.Model):
     maintenance_record = models.CharField(max_length=10, blank=True, null=True, \
                         verbose_name=u'是否有维修保养记录', help_text=u'是/否')
 
+    view_num = models.IntegerField(default=0, verbose_name=u'查看次数')
+    collect_num = models.IntegerField(default=0, verbose_name=u'收藏次数')
+    compare_num = models.IntegerField(default=0, verbose_name=u'比较次数')
+
     class Meta:
         app_label = 'carsource'
         db_table = 'carsource_car_source'

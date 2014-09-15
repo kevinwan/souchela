@@ -6,6 +6,7 @@ from django.views.generic import TemplateView
 
 from souche.apps.carmodel.rules import CLASSIFICATION
 from souche.apps.carmodel.rules import TRANSMISSION
+from souche.apps.carmodel.models import Brand
 from souche.apps.carmodel.models import Model
 
 from souche.apps.carsource.mixin import CarCostDetailMixin
@@ -47,6 +48,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
 
     def get_context_data(self, **kwargs):
         context = {}
+        model_dic = {}
         get_param = self.request.GET.copy()
         criteria = []
         brand = get_param.get('brand', '')
@@ -63,6 +65,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
 
         if brand:
             criteria.append(Q(brand_slug=brand))
+            model_dic = self.get_models_of_brand(brand)
         if model:
             criteria.append(Q(model_slug=model))
         if price:
@@ -76,8 +79,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         classifications = CLASSIFICATION.get(classification, '')
         if classifications:
             # TODO(jzhu): Need to refactor the classification filter and model filter.
-            models = Model.get_models_by_classification(classifications)
-            criteria.append()
+            criteria.append(Q(classification__in=classifications))
         if color:
             criteria.append(Q(color=color))
         if mile:
@@ -107,10 +109,27 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
             car['save_money'] = self.get_save_money(car['total_cost'], car['price'])
             car['image_urls'] = car['imgurls'].split(' ')
         context.update({
-            'cars': cars
+            'cars': cars,
+            'amount': cars.paginator.count,
+            'brand': brand,
+            'model_dic': model_dic
         })
 
         return context
+
+    def get_models_of_brand(self, brand):
+        if isinstance(brand, Brand):
+            models = brand.get_models()
+        else:
+            models = Brand.get_models_by_brand_slug(brand)
+        model_dic = {}
+        for m in models:
+            if m.manufactor in model_dic:
+                model_dic[m.manufactor].append(m)
+            else:
+                model_dic[m.manufactor] = [m, ]
+
+        return model_dic
 
 
 class CarSourceDetailView(TemplateView, CarCostDetailMixin):

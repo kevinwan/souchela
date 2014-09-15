@@ -1,5 +1,16 @@
 # -*- coding: utf-8 -*-
 
+CLASSIFICATION_NAMES_ZH = {
+    'SMALL_CAR': u'微小型车',
+    'COMPACT_CAR': u'紧凑型车',
+    'MID_CAR': u'中型车',
+    'LARGE_CAR': u'中大型车',
+    'SUV': u'SUV',
+    'MPV': u'MPV',
+    'SPORTS_CAR': u'跑车',
+    'COMMERCIAL_CAR': u'商用车',
+}
+
 CLASSIFICATION_NAMES = {
     'SMALL_CAR': 'small_car',
     'COMPACT_CAR': 'compact_car',
@@ -31,4 +42,19 @@ TRANSMISSION_NAMES = {
 TRANSMISSION = {
     'at': (u'自动', u'手自一体', u'无级变速', u'双离合'),
     'mt': (u'手动', )
+}
+
+HOT_BRAND = {
+    'DAZHONG': 'dazhong',
+    'BENCHI': 'benz',
+    'AODI': 'audi',
+    'BAOMA': 'bmw',
+    'BENTIAN': 'hongda',
+    'FENGTIAN': 'toyota',
+    'RICHAN': 'richan',
+    'MAZIDA': 'mazda',
+    'XIANDAI': 'hyundai',
+    'LINGMU': 'suzuki',
+    'BIAOZHI': 'biaozhi',
+    'XUETIELONG': 'citroen'
 }

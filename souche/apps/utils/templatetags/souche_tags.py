@@ -19,3 +19,22 @@ def pagination_for(context, page):
         'querystring': querystring
     }
     return context
+
+
+@register.simple_tag(takes_context=True)
+def generate_search_link(context, param, value):
+    ''''''
+    search_params = ('brand', 'model', 'price', 'min_year', 'max_year', 'category', \
+                'color', 'mile', 'control', 'sort')
+    if param not in search_params:
+        return ''
+    querystring = context['request'].GET.copy()
+    if 'page' in querystring:
+        querystring.pop('page')
+    if param in querystring:
+        querystring.pop(param)
+    querystring.update({param: value})
+    if param == 'brand' and querystring.get('model'):
+        querystring.pop('model')
+
+    return ''.join(('?', querystring.urlencode()))

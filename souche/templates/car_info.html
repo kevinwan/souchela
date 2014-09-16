@@ -3,6 +3,7 @@
 {% block title %}车源详情{% endblock %}
 
 {% block ext_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}plugins/flexslider.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/car_info.css" />
 {% endblock %}
 
@@ -13,9 +14,19 @@
 		<div class="car-info">
 			<div class="survey">
 				<div class="car-img-content fl">
-					<div class="current-img"></div>
-					
-					<div class="thumbnail"></div>
+					<div class="current-img flexslider">
+						<ul class="slides">
+							<li>
+							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
+							</li>
+							<li>
+							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
+							</li>
+							<li>
+							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
+							</li>
+						 </ul>
+					</div>
 					
 					<div class="grade tac">{{ car.condition_level|default:"" }}</div>
 				</div>
@@ -35,11 +46,51 @@
 						</div>
 					</div>
 					
-					<div class="evaluate-price"></div>
+					<div class="evaluate-price">
+						<span class="f-bright-red price-range"><i></i>100.00万-125.00万</span>
+						<span class="f-dark-gray">公平价估值区间</span>
+					</div>
 					
-					<div class="base-info"></div>
+					<div class="base-info">
+						<ul>
+							<li>
+								<p class="f-gray">上牌时间</p>
+								<p>2014/03</p>
+							</li>
+							<li>
+								<p class="f-gray">行驶里程</p>
+								<p>0.71万公里</p>
+							</li>
+							<li>
+								<p class="f-gray">变速箱</p>
+								<p>双离合</p>
+							</li>
+							<li>
+								<p class="f-gray">排放标准</p>
+								<p>欧5</p>
+							</li>
+							<li>
+								<p class="f-gray">归属地</p>
+								<p>南京</p>
+							</li>
+						</ul>
+						
+						<div class="clear"></div>
+					</div>
 					
-					<div class="dealer-info">{{ car.company_name }}</div>
+					<div class="dealer-info f-gray">
+						<div class="fl dealer-name tar">
+							<p>商家</p>
+							<p>{{ car.company_name }}</p>
+						</div>
+						
+						<div class="contact-dealer fl tal">
+							<p class="phone"><i></i>400-811-9151</p>
+							<p class="address"><i></i>看车地点：南京市玄武区</p>
+						</div>
+						
+						<div class="clear"></div>
+					</div>
 				</div>
 				<!--概况 begin-->
 				<div class="clear"></div>
@@ -86,11 +137,86 @@
 			</div>
 			
 			<div class="clear"></div>
-			
-			<div class="base-content"></div>
+			<!--基本信息 begin-->
+			<div class="base-content">
+				<div class="grade fl">
+					<div class="grade-content">
+						<div class="level f-white tac">B</div>
+						<p class="tac f-gray">好车无忧综合评分：<span class="f-lake-blue">B级</span></p>
+					</div>
+				</div>
+				
+				<div class="grade-desc fl f-dark-gray">
+					<p>质检时间：2014-08-31</p>
+					
+					<div class="grade-comment">
+						<p><strong>车况点评：</strong></p>
+						<p>
+						目前车主保养做的比较精细，此车车况较好，现在车身喷漆地方较多，有轻微色差，其他方面没有什么大问题，整体车况很好！
+						</p>
+					</div>
+				</div>
+				
+				<div class="grade-data fl">
+					<table>
+						<tr>
+							<td>上次上牌时间：</td>
+							<td>2007年10月（7年车龄）</td>
+						</tr>
+						<tr>
+							<td>交强险到期时间：</td>
+							<td>2015年7月</td>
+						</tr>
+						<tr>
+							<td>年检到期时间：</td>
+							<td>2015年7月</td>
+						</tr>
+						<tr>
+							<td>商业险到期时间：</td>
+							<td>2015年7月</td>
+						</tr>
+						<tr>
+							<td>过户次数：</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>过后过户时间：</td>
+							<td>2015年7月</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			<!--基本信息 end-->
 		</div>
 		
-		<div class="price-analysis"></div>
+		<div class="price-analysis info">
+			<div class="i-title">价格分析</div>
+			<div class="analysis-content">
+				<div class="analysis-diagram fl">
+					<div class="diagram">
+						<div class="evaluate-range f-lake-blue tac">10.3万-20.6万</div>
+						<div class="total-cost f-light-green tac">10.3万</div>
+						<div class="mark f-orange tac">
+							<div class="current-point">￥105.65万</div>
+						</div>
+						<div class="rate-discount f-gray"><i></i>折价率：40%</div>
+					</div>
+				</div>
+				
+				<div class="analysis-info fl">
+					<p>
+						销售价格：<span class="f-orange">￥<strong class="f-tangerine">105.5</strong>万</span>
+					</p>
+					<p>新车总成本（新车价122.5+10.34万购置税）</p>
+					<p class="f-orange">省：25.87万</p>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			
+		</div>
 		
 		<div class="config-info info">
 			<div class="i-title">配置</div>
@@ -158,14 +284,59 @@
 			
 			<div class="dealer-address-content">
 				<div class="dealer-ico fl"><img src="http://bj.haoche51.com/img/logo.png" alt="好车无忧" /></div>
-				<div class="dealer-address-ico fl"></div>
+				<div class="dealer-address-info fl">
+					<ul>
+						<li>公司邮箱：contact@haoche51.com</li>
+						<li>联系电话：contact@haoche51.com</li>
+						<li>网址：contact@haoche51.com</li>
+						<li>公司地址：contact@haoche51.com</li>
+					</ul>
+				</div>
 				
 				<div class="clear"></div>
 			</div>
+		</div>
+		
+		<div class="recommend-list info">
+			<div class="i-title">推荐车源</div>
+			
+			<div class="recommend-content">
+				<ul>
+					<li>
+						<div class="car-img"><img src="http://image.haoche51.com/362248c62235b00e4c1ec8bc6b54c1b4054deaef_552_414_.jpg" /></div>
+						
+						<div class="car-name">2007款 福特 福克斯两厢 1.8手自一体时尚型</div>
+						
+						<div class="car-price f-orange">
+							<span class="price">￥<strong class="tangerine">12.54</strong>万</span>
+							<span>省1.25万</span>
+						</div>
+						
+						<div class="introduction">
+							<span>2014/04上牌</span>
+							<span>0.7万公里</span>
+							<span class="last">手动</span>
+						</div>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			
+			<div class="clear"></div>
 		</div>
 	</div>
 </div>
 {% endblock %}
 
 {% block ext_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+	$('.flexslider').flexslider({
+		animation: "slide",
+	});
+});
+</script>
 {% endblock %}

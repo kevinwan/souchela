@@ -15,6 +15,10 @@ table {
 	border: medium none;
 }
 
+td {
+	vertical-align: middle;
+}
+
 ul,ol,li{
 	list-style:none;
 }
@@ -46,6 +50,8 @@ input {
 .f-lake-blue { color: #2FA3D4; }
 .f-light-green { color: #20A94D; }
 .f-gray { color:#999; }
+.f-bright-red { color:#FF3435; }
+.f-dark-gray { color: #3C3C3C; }
 
 .b-lake-blue { background: #2FA3D4; }
 .b-light-green { background: #20A94D; }

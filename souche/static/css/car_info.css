@@ -26,13 +26,12 @@
 
 .car-info .survey {
 	height: 546px;
-	border: 1px solid;
 }
 
 .car-info .survey .car-img-content {
-	width: 727px;
-	border: 1px solid #5EFFA1;
+	width: 717px;
 	height: 100%;
+	margin: 10px 0 0 10px;
 }
 
 .car-info .survey .car-img-content .thumbnail {
@@ -46,14 +45,17 @@
 .car-info .survey .car-img-content .current-img {
 	width: 100%;
 	height: 100%;
-	background: #124578;
+	overflow: hidden;
+}
+
+.car-info .survey .car-img-content img {
+	margin-top: -18px;
 }
 
 .car-info .survey .grade {
 	width: 78px;
 	height: 100px;
 	position: absolute;
-	border: 1px solid #F2B8DA;
 	left: 380px;
 	top: 190px;
 	background: url(../image/car_info.png) no-repeat scroll -2px 0px;
@@ -66,19 +68,17 @@
 .car-info .survey .car-surver-content {
 	width: 455px;
 	height: 100%;
-	border: 1px solid #DD56DD;
 }
 
 .car-info .survey .car-surver-content .car-title {
 	height: 28px;
 	line-height: 28px;
-	border: 1px solid #FC62AA;
 	margin-top: 40px;
 }
 
 .car-info .survey .car-surver-content .price-info {
 	height: 71px;
-	width: 412px;
+	width: 370px;
 	background: #F9F9F9;
 	border: 2px solid #E3E3E3;
 	margin: 36px auto auto;
@@ -87,24 +87,23 @@
 
 .car-info .survey .car-surver-content .evaluate-price {
 	height: 24px;
-	border: 1px solid #de1245;
 	margin-top: 36px;
+	padding-left: 24px;
 }
 
 .car-info .survey .car-surver-content .base-info {
 	height: 47px;
-	border: 1px solid #1254ea;
 	margin-top: 48px;
+	padding-left: 24px;
 }
 
 .car-info .survey .car-surver-content .dealer-info {
 	height: 64px;
-	border: 1px solid #da12ef;
+	margin-top: 62px;
 }
 
 .car-info .security {
 	height: 87px;
-	border: 1px solid;
 	margin-top: 24px;
 }
 
@@ -141,6 +140,7 @@
 	float: left;
 	height: 50px;
 	border-bottom: 1px solid #dcdcdc;
+	border-top: 2px solid #efefef;
 }
 
 .base-info .nav a {
@@ -155,17 +155,18 @@
 	border: none;
 }
 
-.base-info .nav .last {
-	border-bottom: 1px solid #dcdcdc;
-	width: 461px;
-}
-
 .base-info .nav .focus,
 .base-info .nav li:hover {
 	background: #fff;
 	border: none;
 	border-top: 2px solid #2fa3d4;
 	border-right: 1px solid #dcdcdc;
+}
+
+.base-info .nav .last,
+.base-info .nav .last:hover {
+	border-bottom: 1px solid #dcdcdc;
+	width: 461px;
 }
 
 .base-info .nav .focus a,
@@ -178,11 +179,71 @@
 	border: 1px solid #ddd;
 	border-top: none;
 	background: #fff;
+	padding-left: 30px;
 }
 
 .base-info .base-content .grade {
+	width: 242px;
+	height: 100%;
+}
+
+.base-info .base-content .grade-content {
+	border-right: 1px solid #d9d9d9;
+	margin: 80px 0;
+	height: 146px;
+}
+
+.base-info .base-content .level {
+	background: url(../image/car_info.png) no-repeat scroll -2px 0px;
 	width: 78px;
 	height: 100px;
+	margin: 0 auto;
+	line-height: 130px;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.base-info .grade-content p {
+	height: 46px;
+	line-height: 46px;
+}
+
+.base-info .base-content .grade-desc,
+.base-info .base-content .grade-data {
+	font-size: 14px;
+}
+
+.base-info .base-content .grade-comment {
+	margin-top: 36px;
+}
+
+.base-info .grade-comment p {
+	line-height: 30px;
+}
+
+.base-info .base-content .grade-desc {
+	border-right: 1px solid #d9d9d9;
+	height: 236px;
+	width: 412px;
+	padding: 80px 10px 0 20px;
+}
+
+.base-info .base-content .grade-data {
+	height: 284px;
+	width: 442px;
+	padding: 32px 0 0 14px;
+}
+
+.base-info .base-content .grade-data table {
+	width: 100%;
+}
+
+.base-info .base-content .grade-data td {
+	width: 50%;
+	height: 42px;
+	border: 1px solid #d9d9d9;
+	text-align: center;
+	color: #3C3C3C;
 }
 
 .security i {
@@ -223,7 +284,7 @@ background-position: -211px -2px;
 }
 
 .price-info .price {
-	width: 135px;
+	width: 113px;
 	border-right: 2px solid #E3E3E3;
 	height: 100%;
 	line-height: 65px;
@@ -236,7 +297,7 @@ background-position: -211px -2px;
 
 .price-info .price-description {
 	font-size: 14px;
-	padding: 8px 0 0 20px;
+	padding: 8px 0 0 13px;
 }
 
 .price-info .price-description p {
@@ -317,13 +378,220 @@ background-position: -211px -2px;
 }
 
 .dealer-address .dealer-address-content {
-	border: 1px solid #FF60DC;
-	height: 168px;
+	height: 108px;
 	margin-left: 85px;
+	padding: 30px 0;
 }
 
 .dealer-address .dealer-address-content .dealer-ico {
 	width: 285px;
-	hight:100%;
+	height: 100%;
 	border-right: 1px solid #d9d9d9;
+}
+
+.dealer-address .dealer-address-content .dealer-ico img {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.dealer-address .dealer-address-content .dealer-address-info {
+	margin: 5px 0;
+	padding-left: 40px;
+	font-size: 14px;
+}
+
+.dealer-address .dealer-address-content .dealer-address-info li {
+	line-height: 25px
+}
+
+.price-analysis .analysis-content {
+	height: 337px;
+	width: 1002px;
+	margin-left: 63px;
+}
+
+.price-analysis .analysis-content .analysis-diagram {
+	width: 672px;
+	height: 100%;
+	border-right: 1px solid #d9d9d9;
+}
+
+.price-analysis .analysis-content .analysis-diagram .diagram {
+	background: url(../image/analysis_diagram.png) no-repeat;
+	height: 269px;
+	width: 610px;
+	margin: 66px auto auto;
+}
+
+.price-analysis .analysis-content .evaluate-range {
+	position: relative;
+	width: 131px;
+	height:25px;
+	line-height: 25px;
+	border: 1px solid;
+	top: 109px;
+	left: 211px;
+}
+
+.price-analysis .analysis-content .analysis-diagram .total-cost {
+	position: relative;
+	width: 103px;
+	height:25px;
+	line-height: 25px;
+	top: 120px;
+	left: 499px;
+}
+
+.price-analysis .analysis-content .analysis-diagram .mark {
+	width: 192px;
+	height: 85px;
+	top: 130px;
+	position: relative;
+	left: 182px;
+}
+
+.price-analysis .analysis-content .analysis-diagram .current-point {
+	background: url(../image/car_info.png) no-repeat scroll -29px -207px;
+	width: 105px;
+	height: 85px;
+	margin-left: 52px;
+	line-height: 140px;
+}
+
+.price-analysis .analysis-content .analysis-diagram .rate-discount {
+	border: 1px solid;
+	position: relative;
+	width: 130px;
+	font-size: 14px;
+	left: 375px;
+	top: 80px;
+}
+
+.price-analysis .analysis-content .rate-discount i {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(../image/car_info.png) no-repeat scroll -90px -57px;
+	position: relative;
+	top: 3px;
+	margin-right: 5px;
+}
+
+
+.price-analysis .analysis-content .analysis-info {
+	width: 327px;
+	height: 320px;
+	padding-top: 15px;
+	background: url(../image/car_info.png) no-repeat scroll -240px 0px;
+}
+
+.price-analysis .analysis-content .analysis-info p {
+	line-height: 50px;
+	text-indent: 8px;
+}
+
+.evaluate-price .price-range {
+	margin-right: 24px;
+}
+
+.evaluate-price .price-range i {
+	display: inline-block;
+	position: relative;
+	width: 18px ;
+	height: 18px;
+	background: url(../image/car_info.png) no-repeat scroll -88px -8px;
+	top: 3px;
+	margin: 0 5px;
+}
+
+.survey .base-info li {
+	float: left;
+	border-left: 1px solid #C4C4C4;
+	text-align: left;
+	height: 45px;
+	width: 85px;
+	line-height: 24px;
+	text-indent: 10px;
+	font-size: 14px;
+}
+
+.car-info .survey .car-surver-content .dealer-info .dealer-name {
+	width: 84px;
+	height: 57px;
+	border-right: 1px solid #d9d9d9;
+	padding: 8px 16px 0 0;
+}
+
+.car-info .survey .car-surver-content .contact-dealer {
+	height: 56px;
+	width: 314px;
+	padding: 8px 0 0 36px;
+}
+
+.car-info .survey .car-surver-content .dealer-info p {
+	line-height: 25px;
+}
+
+.recommend-list {
+	height: 400px;
+	padding-bottom: 30px;
+}
+
+.recommend-list .recommend-content {
+	height: 360px;
+	margin-left: -30px;
+}
+
+.recommend-list .recommend-content li {
+	float: left;
+	width: 266px;
+	height: 332px;
+	border: 1px solid #d9d9d9;
+	background: #fff;
+	margin-right: 5px;
+	padding: 12px;
+	text-align: center;
+}
+
+.recommend-list .recommend-content .car-img {
+	width: 266px;
+	height: 215px;
+}
+
+.recommend-list .recommend-content .car-img img {
+	width: 100%;
+}
+
+.recommend-list .recommend-content .car-name {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.recommend-list .recommend-content .car-price strong {
+	font-size: 20px;
+}
+
+.recommend-list .recommend-content .car-price .price {
+	margin-right: 24px;
+}
+
+.recommend-list .recommend-content .introduction {
+	margin-top: 15px;
+}
+
+.recommend-list .recommend-content .introduction span {
+	border-right: 1px solid #BDBDBD;
+	display: inline-block;
+	padding: 0 8px;
+	font-size: 14px;
+	color: #3C3C3C;
+}
+
+.recommend-list .recommend-content .introduction .last {
+	border: none;
+}
+
+.flexslider {
+	box-shadow:none;
+	border:none;
 }

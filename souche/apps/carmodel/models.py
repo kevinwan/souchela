@@ -166,6 +166,10 @@ class DetailModel(models.Model):
 
 class ConfigParameter(models.Model):
     ''' Car configuration parameters.'''
+    CONFIG_KIND_CHOICES = (
+        ('C', u'配置'),
+        ('P', u'参数'),
+    )
 
     para_cat = models.CharField(max_length=50, verbose_name=u'参数分类')
     para_name = models.CharField(max_length=50, blank=True, null=True,
@@ -176,6 +180,8 @@ class ConfigParameter(models.Model):
     model = models.CharField(max_length=50, db_index=True, verbose_name=u'型号')
     detail_model = models.CharField(max_length=50, db_index=True,
                         verbose_name=u'详细款型')
+    kind = models.CharField(max_length=1, choices=CONFIG_KIND_CHOICES, \
+                        default='C', verbose_name=u'区分参数和配置的标志')
     # model = models.ForeignKey('Model', to_field='slug', db_column='model', db_index=True)
     # detail_model = models.ForeignKey('DetailModel', to_field='slug',
     #                     db_column='detail_model', db_index=True)
@@ -191,9 +197,21 @@ class ConfigParameter(models.Model):
         return s.format(**{'para_name': self.para_name, 'para_value': self.para_value})
 
     @classmethod
-    def get_parameters(cls, model, detail_model):
-        pass
+    def get_car_parameters(cls, model, detail_model):
+        criteria = {
+            'model': model,
+            'detail_model': detail_model,
+            'kind': 'P'
+        }
+        parameters = cls.objects.filter(**criteria)
+        return parameters
 
     @classmethod
-    def get_config(cls, model, detail_model):
-        pass
+    def get_car_configurations(cls, model, detail_model):
+        criteria = {
+            'model': model,
+            'detail_model': detail_model,
+            'kind': 'C'
+        }
+        parameters = cls.objects.filter(**criteria)
+        return parameters

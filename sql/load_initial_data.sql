@@ -35,4 +35,7 @@ insert into souche.carmodel_config_parameter(para_cat, para_name, para_value, is
 select para_cat, para_name, para_value, isdefault, global_slug, detail_model_slug from pingjia.open_cat_detail
 where status='Y';
 
+update carmodel_config_parameter
+set kind='P'
+where para_cat in ('主要参数', '内部尺寸', '发动机', '发动机/变速箱', '变速器', '变速箱', '基本信息', '基本参数', '基本性能', '外部尺寸', '底盘/车轮制动', '底盘操控', '底盘转向', '性能参数', '燃油&发动机', '电动机', '越野性能', '车型结构', '车身', '车轮制动', '车辆基本信息', '轮胎轮毂');
 

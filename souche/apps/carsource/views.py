@@ -4,10 +4,14 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 
-from souche.apps.carmodel.rules import CLASSIFICATION
-from souche.apps.carmodel.rules import TRANSMISSION
 from souche.apps.carmodel.models import Brand
 from souche.apps.carmodel.models import Model
+from souche.apps.carmodel.models import ConfigParameter
+from souche.apps.carmodel.rules import CLASSIFICATION
+from souche.apps.carmodel.rules import TRANSMISSION
+from souche.apps.carmodel.rules import CAR_PARAMETERS
+from souche.apps.carmodel.rules import CAR_CONFIGURATIONS
+
 
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
@@ -78,7 +82,6 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
             criteria.append(year__lte=max_year)
         classifications = CLASSIFICATION.get(classification, '')
         if classifications:
-            # TODO(jzhu): Need to refactor the classification filter and model filter.
             criteria.append(Q(classification__in=classifications))
         if color:
             criteria.append(Q(color=color))
@@ -133,21 +136,60 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
 
 
 class CarSourceDetailView(TemplateView, CarCostDetailMixin):
-    ''' Car source detail information.'''
+    ''' Car source detail information view.'''
 
     http_method_names = ['get', ]
     template_name = 'car_info.html'
 
     def get_context_data(self, **kwargs):
+        context = {}
         car_id = int(kwargs['car_id'])
+        car = self.get_car_detail_info(car_id)
+        context = {
+            'car': car,
+            'params': self.get_car_parameters(car.model_slug, \
+                            car.detail_model.slug),
+            'configs': self.get_car_configurations(car.model_slug, \
+                            car.detail_model.slug)
+        }
+        return context
+
+    def get_car_detail_info(self, car_id):
         car = get_object_or_404(CarSource, pk=car_id)
+        detail_model = self.get_detail_model(car.model_slug, \
+                car.detail_model_slug, car.volume, car.year)
+        car.detail_model = detail_model
         if not car.price_bn:
-            detail_model = self.get_detail_model(car.model_slug, \
-                        car.detail_model_slug, car.volume, car.year)
             car.price_bn = detail_model.price_bn
         car.tax = self.get_purchase_tax(car.price)
         car.total_cost = self.get_total_cost(car.price_bn, car.tax)
         car.save_money = self.get_save_money(car.total_cost, car.price)
         car.image_urls = car.imgurls.split(' ')
-        return {'car': car}
+        return car
 
+    def get_car_parameters(self, model, detail_model):
+        params = ConfigParameter.get_car_parameters(model, detail_model)
+        param_list = self._get_config_param_list(params, CAR_PARAMETERS)
+        return param_list
+
+    def get_car_configurations(self, model, detail_model):
+        configs = ConfigParameter.get_car_configurations(model, detail_model)
+        config_list = self._get_config_param_list(configs, CAR_CONFIGURATIONS)
+        return config_list
+
+    def _get_config_param_list(self, cp_set, names):
+        param_list = []
+        for name in names:
+            para_dic = {}
+            for pa in cp_set:
+                if pa.para_cat == name:
+                    if not para_dic:
+                        para_dic.update({'para_cat': name})
+                    para_dic.update({pa.para_name: pa.para_value})
+            if para_dic:
+                param_list.append(para_dic)
+        return param_list
+
+
+    def get_recommend_cars(self):
+        pass

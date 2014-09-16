@@ -150,7 +150,8 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
             'params': self.get_car_parameters(car.model_slug, \
                             car.detail_model.slug),
             'configs': self.get_car_configurations(car.model_slug, \
-                            car.detail_model.slug)
+                            car.detail_model.slug),
+            're_cars': self.get_recommend_cars(car),
         }
         return context
 
@@ -161,9 +162,10 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         car.detail_model = detail_model
         if not car.price_bn:
             car.price_bn = detail_model.price_bn
-        car.tax = self.get_purchase_tax(car.price)
+        car.tax = self.get_purchase_tax(car.price_bn)
         car.total_cost = self.get_total_cost(car.price_bn, car.tax)
         car.save_money = self.get_save_money(car.total_cost, car.price)
+        car.discount_rate = self.get_discount_rate(car.total_cost, car.price)
         car.image_urls = car.imgurls.split(' ')
         return car
 
@@ -191,5 +193,14 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         return param_list
 
 
-    def get_recommend_cars(self):
-        pass
+    def get_recommend_cars(self, car):
+        fields = ('title', 'year', 'month', 'mile', 'control', 'price', 'thumbnail', \
+                        'price_bn')
+        re_cars = car.get_recommend_cars().values(*fields) \
+                        .order_by('view_num', '-time')[:4]
+        for re_car in re_cars:
+            if re_car['price_bn']:
+                re_car['total_cost'] = self.get_total_cost(re_car['price_bn'])
+            else:
+                re_car['total_cost'] = ''
+        return re_cars

@@ -16,19 +16,15 @@
 				<div class="car-img-content fl">
 					<div class="current-img flexslider">
 						<ul class="slides">
+							{% for image in car.image_urls %}
 							<li>
-							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
+							 	<img src="{{ image }}" alt="搜车啦 {{ car.title }} 图片"/>
 							</li>
-							<li>
-							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
-							</li>
-							<li>
-							 	<img src="http://image.haoche51.com/b7fad3f9b44d67f799723542f6a4c0229b24489b_552_414_.jpg" alt="" />
-							</li>
+							{% endfor %}
 						 </ul>
 					</div>
 					
-					<div class="grade tac">{{ car.condition_level|default:"" }}</div>
+					<div class="grade tac">{{ car.condition_level|default:"B" }}</div>
 				</div>
 				<!--概况 begin-->
 				<div class="car-surver-content fl">
@@ -42,7 +38,7 @@
 						</div>
 						<div class="fl tal price-description">
 							<p class="f-orange">为您节省：{{ car.save_money }}万</p>
-							<p>新车价：{{ car.price_bn }}万+{{ car.tax }}万（购置税）</p>
+							<p>新车价：{{ car.price_bn|floatformat:"1"  }}万+{{ car.tax }}万（购置税）</p>
 						</div>
 					</div>
 					
@@ -55,23 +51,19 @@
 						<ul>
 							<li>
 								<p class="f-gray">上牌时间</p>
-								<p>2014/03</p>
+								<p>{{ car.year }}/{{ car.month }}</p>
 							</li>
 							<li>
 								<p class="f-gray">行驶里程</p>
-								<p>0.71万公里</p>
+								<p>{{ car.mile|floatformat:"1" }}万公里</p>
 							</li>
 							<li>
 								<p class="f-gray">变速箱</p>
-								<p>双离合</p>
-							</li>
-							<li>
-								<p class="f-gray">排放标准</p>
-								<p>欧5</p>
+								<p>{{ car.control }}</p>
 							</li>
 							<li>
 								<p class="f-gray">归属地</p>
-								<p>南京</p>
+								<p>{{ car.city }}</p>
 							</li>
 						</ul>
 						
@@ -85,8 +77,8 @@
 						</div>
 						
 						<div class="contact-dealer fl tal">
-							<p class="phone"><i></i>400-811-9151</p>
-							<p class="address"><i></i>看车地点：南京市玄武区</p>
+							<p class="phone"><i></i>{{ car.phone }}</p>
+							<p class="address"><i></i>看车地点：{{ car.region }}</p>
 						</div>
 						
 						<div class="clear"></div>
@@ -141,18 +133,18 @@
 			<div class="base-content">
 				<div class="grade fl">
 					<div class="grade-content">
-						<div class="level f-white tac">B</div>
-						<p class="tac f-gray">好车无忧综合评分：<span class="f-lake-blue">B级</span></p>
+						<div class="level f-white tac">{{ car.condition_level|default:"合" }}</div>
+						<p class="tac f-gray">{{ car.company_name }}综合评定：<span class="f-lake-blue">{% if car.condition_level %}{{ car.condition_level }}级{% else %}合格{% endif %}</span></p>
 					</div>
 				</div>
 				
 				<div class="grade-desc fl f-dark-gray">
-					<p>质检时间：2014-08-31</p>
+					<p>质检时间：{{ car.time|date:"Y-m-d" }}</p>
 					
 					<div class="grade-comment">
 						<p><strong>车况点评：</strong></p>
 						<p>
-						目前车主保养做的比较精细，此车车况较好，现在车身喷漆地方较多，有轻微色差，其他方面没有什么大问题，整体车况很好！
+						{{ car.condition_detail }}
 						</p>
 					</div>
 				</div>
@@ -161,27 +153,27 @@
 					<table>
 						<tr>
 							<td>上次上牌时间：</td>
-							<td>2007年10月（7年车龄）</td>
+							<td>{{ car.year }}年{{ car.month }}月（7年车龄）</td>
 						</tr>
 						<tr>
 							<td>交强险到期时间：</td>
-							<td>2015年7月</td>
+							<td>{{ car.mandatory_insurance|year_month_zh }}</td>
 						</tr>
 						<tr>
 							<td>年检到期时间：</td>
-							<td>2015年7月</td>
+							<td>{{ car.examine_insurance|year_month_zh }}</td>
 						</tr>
 						<tr>
 							<td>商业险到期时间：</td>
-							<td>2015年7月</td>
+							<td>{{ car.business_insurance|year_month_zh }}</td>
 						</tr>
 						<tr>
 							<td>过户次数：</td>
-							<td>2</td>
+							<td>{% if car.transfer_owner == 0 %}{{ car.transfer_owner }}{% else %}{{ car.transfer_owner|default:"--" }}{% endif %}</td>
 						</tr>
 						<tr>
-							<td>过后过户时间：</td>
-							<td>2015年7月</td>
+							<td>购车发票：</td>
+							<td>{{ car.invoice|default:"--" }}</td>
 						</tr>
 					</table>
 				</div>
@@ -196,24 +188,24 @@
 			<div class="analysis-content">
 				<div class="analysis-diagram fl">
 					<div class="diagram">
-						<div class="evaluate-range f-lake-blue tac">10.3万-20.6万</div>
+						<div class="evaluate-range f-lake-blue tac">￥10.3万-￥20.6万</div>
 						
-						<div class="total-cost f-light-green tac">10.3万</div>
+						<div class="total-cost f-light-green tac">￥{{ car.total_cost }}万</div>
 						
 						<div class="mark f-orange tac">
-							<div class="current-point">￥105.65万</div>
+							<div class="current-point">￥{{ car.price }}万</div>
 							
-							<div class="rate-discount f-gray"><i></i>折价率：40%</div>
+							<div class="rate-discount f-gray"><i></i>折价率：{{ car.discount_rate }}%</div>
 						</div>
 					</div>
 				</div>
 				
 				<div class="analysis-info fl">
 					<p>
-						销售价格：<span class="f-orange">￥<strong class="f-tangerine">105.5</strong>万</span>
+						销售价格：<span class="f-orange">￥<strong class="f-tangerine">{{ car.price }}</strong>万</span>
 					</p>
-					<p>新车总成本（新车价122.5+10.34万购置税）</p>
-					<p class="f-orange">省：25.87万</p>
+					<p>新车总成本：{{ car.price_bn|floatformat:"1" }}万+{{ car.tax }}万（购置税）</p>
+					<p class="f-orange">省：{{ car.save_money }}万</p>
 				</div>
 				
 				<div class="clear"></div>
@@ -296,9 +288,9 @@
 				<div class="dealer-address-info fl">
 					<ul>
 						<li>公司邮箱：contact@haoche51.com</li>
-						<li>联系电话：contact@haoche51.com</li>
-						<li>网址：contact@haoche51.com</li>
-						<li>公司地址：contact@haoche51.com</li>
+						<li>联系电话：{{ car.phone }}</li>
+						<li>网址：{{ car.company_url }}</li>
+						<li>公司地址：{{ car.region }}</li>
 					</ul>
 				</div>
 				
@@ -307,29 +299,30 @@
 		</div>
 		
 		<div class="recommend-list info">
-			<div class="i-title">推荐车源</div>
+			<div class="i-title">看过的人又看了</div>
 			
 			<div class="recommend-content">
 				<ul>
+					{% for re_car in re_cars %}
 					<li>
-						<div class="car-img"><img src="http://image.haoche51.com/362248c62235b00e4c1ec8bc6b54c1b4054deaef_552_414_.jpg" /></div>
-						
-						<div class="car-name">2007款 福特 福克斯两厢 1.8手自一体时尚型</div>
+						<div class="car-img"><img src="{{ IMG_URL }}{{ re_car.thumbnail }}" alt="搜车啦 {{ re_car.title }}图片"/></div>
+
+						<div class="car-name"><a href="{{ re_car.get_absolute_url }}" target="_blank">{{ re_car.title }}</a></div>
 						
 						<div class="car-price f-orange">
-							<span class="price">￥<strong class="tangerine">12.54</strong>万</span>
-							<span>省1.25万</span>
+							<span class="price">￥<strong class="tangerine">{{ re_car.price }}</strong>万</span>
+							{% if re_car.total_cost %}
+							<span class="f-gray">新车价<del>￥{{ re_car.total_cost }}万</del></span>
+							{% endif %}
 						</div>
 						
 						<div class="introduction">
-							<span>2014/04上牌</span>
-							<span>0.7万公里</span>
-							<span class="last">手动</span>
+							<span>{{ re_car.year }}/{{ re_car.month }}上牌</span>
+							<span>{{ re_car.mile }}万公里</span>
+							<span class="last">{{ re_car.control }}</span>
 						</div>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
+					{% endfor %}
 				</ul>
 			</div>
 			

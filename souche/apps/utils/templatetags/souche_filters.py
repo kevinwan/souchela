@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 
+from datetime import date
+
 from django import template
 
 
@@ -24,3 +26,10 @@ def car_config_value(value):
         '-': u'——',
     }
     return config_values.get(value, value)
+
+
+@register.filter
+def year_month_zh(value):
+    if isinstance(value, date):
+        return u'{year}年{month}月'.format(year=value.year, month=value.month)
+    return ''

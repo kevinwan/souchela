@@ -106,6 +106,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.request',
     'souche.apps.core.context_processors.rules',
+    'souche.apps.core.context_processors.settings',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -153,6 +154,14 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 # Set image server domain.
 IMG_DOMAIN = 'http://souchela.qiniudn.com'
+IMG_URL = IMG_DOMAIN + '/img/'
+
+# Site information
+SITE_INFO = {
+    'COPY_RIGHT': '2014',
+    'ICP': u'苏 ICP备14023068号'
+}
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

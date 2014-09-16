@@ -50,3 +50,9 @@ class CarCostDetailMixin(object):
     def get_save_money(self, total_cost, list_price):
         save_money = float(total_cost) - float(list_price)
         return round(save_money, 2)
+
+    def get_discount_rate(self, total_cost, list_price):
+        ''' 折价率=售价/新车总成本 * 100%'''
+        discount_rate = float(list_price) / float(total_cost)
+        discount_rate *= 100
+        return round(discount_rate, 2)

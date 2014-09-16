@@ -406,7 +406,7 @@ background-position: -211px -2px;
 
 .price-analysis .analysis-content {
 	height: 337px;
-	width: 1002px;
+	width: 1020px;
 	margin-left: 63px;
 }
 
@@ -460,7 +460,7 @@ background-position: -211px -2px;
 
 .price-analysis .analysis-content .analysis-diagram .rate-discount {
 	position: relative;
-	width: 130px;
+	width: 160px;
 	font-size: 14px;
 	left: 100px;
 	top: -35px;
@@ -478,7 +478,7 @@ background-position: -211px -2px;
 
 
 .price-analysis .analysis-content .analysis-info {
-	width: 327px;
+	width: 340px;
 	height: 320px;
 	padding-top: 15px;
 	background: url(../image/car_info.png) no-repeat scroll -240px 0px;
@@ -508,7 +508,7 @@ background-position: -211px -2px;
 	border-left: 1px solid #C4C4C4;
 	text-align: left;
 	height: 45px;
-	width: 85px;
+	width: 90px;
 	line-height: 24px;
 	text-indent: 10px;
 	font-size: 14px;

@@ -339,7 +339,6 @@ background-position: -211px -2px;
 
 .config-info .config-data table {
 	width: 355px;
-	height: 394px;
 	margin: 0 15px;
 	font-size: 14px;
 	float: left;
@@ -351,6 +350,7 @@ background-position: -211px -2px;
 	vertical-align: middle;
 	width: 50%;
 	text-align: center;
+	height: 32px;
 }
 
 .config-info .config-data .t-title {
@@ -445,33 +445,32 @@ background-position: -211px -2px;
 .price-analysis .analysis-content .analysis-diagram .mark {
 	width: 192px;
 	height: 85px;
-	top: 130px;
+	top: 132px;
 	position: relative;
-	left: 182px;
+	left: 117px;
 }
 
 .price-analysis .analysis-content .analysis-diagram .current-point {
-	background: url(../image/car_info.png) no-repeat scroll -29px -207px;
+	background: url(../image/car_info.png) no-repeat scroll -29px -205px;
 	width: 105px;
 	height: 85px;
-	margin-left: 52px;
+	margin-left: 0;
 	line-height: 140px;
 }
 
 .price-analysis .analysis-content .analysis-diagram .rate-discount {
-	border: 1px solid;
 	position: relative;
 	width: 130px;
 	font-size: 14px;
-	left: 375px;
-	top: 80px;
+	left: 100px;
+	top: -35px;
 }
 
 .price-analysis .analysis-content .rate-discount i {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
-	background: url(../image/car_info.png) no-repeat scroll -90px -57px;
+	background: url(../image/car_info.png) no-repeat scroll -89px -57px;
 	position: relative;
 	top: 3px;
 	margin-right: 5px;

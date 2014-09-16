@@ -197,11 +197,14 @@
 				<div class="analysis-diagram fl">
 					<div class="diagram">
 						<div class="evaluate-range f-lake-blue tac">10.3万-20.6万</div>
+						
 						<div class="total-cost f-light-green tac">10.3万</div>
+						
 						<div class="mark f-orange tac">
 							<div class="current-point">￥105.65万</div>
+							
+							<div class="rate-discount f-gray"><i></i>折价率：40%</div>
 						</div>
-						<div class="rate-discount f-gray"><i></i>折价率：40%</div>
 					</div>
 				</div>
 				
@@ -253,6 +256,9 @@
 					{% endif %}
 					{% endfor %}
 				</table>
+				{% if forloop.counter|divisibleby:"3" %}
+				<div class="clear"></div>
+				{% endif %}
 				{% endfor %}
 				<div class="clear"></div>
 			</div>
@@ -274,6 +280,9 @@
 					{% endif %}
 					{% endfor %}
 				</table>
+				{% if forloop.counter|divisibleby:"4" %}
+				<div class="clear"></div>
+				{% endif %}
 				{% endfor %}
 				<div class="clear"></div>
 			</div>

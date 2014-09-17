@@ -15,6 +15,7 @@ from souche.apps.carmodel.rules import CAR_CONFIGURATIONS
 
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
+from souche.apps.carsource.tasks import record_car_source_access
 
 from souche.apps.utils.paginator import paginate
 
@@ -153,6 +154,7 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
                             car.detail_model.slug),
             're_cars': self.get_recommend_cars(car),
         }
+        record_car_source_access(car_id)
         return context
 
     def get_car_detail_info(self, car_id):

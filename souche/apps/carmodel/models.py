@@ -137,6 +137,11 @@ class Model(models.Model):
 
 class DetailModel(models.Model):
     ''' Car detail model data from gongpingjia.'''
+    TRANSMISSION_CHOICES = (
+        (u'手动', u'手动'),
+        (u'自动', u'自动'),
+        (u'手自一体', u'手自一体'),
+    )
 
     name = models.CharField(max_length=50, db_index=True, verbose_name=u'详细款型中文名')
     slug = models.CharField(max_length=50, db_index=True, unique=True,
@@ -146,6 +151,12 @@ class DetailModel(models.Model):
     price_bn = PriceField(verbose_name=u'新车指导价')
     year = models.IntegerField(verbose_name=u'款型年代')
     volume = VolumeField(db_index=True, verbose_name=u'排量')
+    emission_standard = models.CharField(max_length=20, blank=True, null=True,
+                        verbose_name=u'汽车排放标准')
+    transmission = models.CharField(max_length=20, db_index=True, \
+                        choices=TRANSMISSION_CHOICES, blank=True, \
+                        null=True, verbose_name=u'变速器', \
+                        help_text='手动/自动/手自一体')
 
     class Meta:
         app_label = 'carmodel'

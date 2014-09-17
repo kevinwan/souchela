@@ -156,6 +156,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 IMG_DOMAIN = 'http://souchela.qiniudn.com'
 IMG_URL = IMG_DOMAIN + '/img/'
 
+# Evaluation API URL
+EVALUATION_DOMAIN = 'http://www.eyelee.cn'
+EVALUATION_API_URL = EVALUATION_DOMAIN + '/api/cars/evaluation/souchela/'
+
 # Site information
 SITE_INFO = {
     'COPY_RIGHT': '2014',

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 
 from souche.apps.carmodel.models import Brand
-from souche.apps.carmodel.models import Model
 from souche.apps.carmodel.models import ConfigParameter
 from souche.apps.carmodel.rules import CLASSIFICATION
 from souche.apps.carmodel.rules import TRANSMISSION
@@ -153,6 +153,7 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
             'configs': self.get_car_configurations(car.model_slug, \
                             car.detail_model.slug),
             're_cars': self.get_recommend_cars(car),
+            'EVAL_API_URL': settings.EVALUATION_API_URL,
         }
         record_car_source_access(car_id)
         return context
@@ -169,7 +170,16 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         car.save_money = self.get_save_money(car.total_cost, car.price)
         car.discount_rate = self.get_discount_rate(car.total_cost, car.price)
         car.image_urls = car.imgurls.split(' ')
+        car.condition = self.get_condition(car.condition_level)
         return car
+
+    def get_condition(self, condition_level):
+        level = {
+            'A': u'优秀',
+            'B': u'较好',
+            'C': u'一般',
+        }
+        return level.get(condition_level, u'较好')
 
     def get_car_parameters(self, model, detail_model):
         params = ConfigParameter.get_car_parameters(model, detail_model)

@@ -2,7 +2,7 @@
 {% load carmodel_tags souche_tags %}
 {% block title %}搜车{% endblock %}
 
-{% block ext_css %}
+{% block extra_css %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/pagination.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}plugins/flexslider.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/search_car.css" />
@@ -256,7 +256,7 @@
 
 {% endblock %}
 
-{% block ext_js %}
+{% block extra_js %}
 <script type="text/javascript" src="{{ STATIC_URL }}js/search_car.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
 {% endblock %}

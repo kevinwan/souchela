@@ -2,7 +2,7 @@
 {% load souche_filters %}
 {% block title %}车源详情{% endblock %}
 
-{% block ext_css %}
+{% block extra_css %}
 <link rel="stylesheet" href="{{ STATIC_URL }}plugins/flexslider.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/car_info.css" />
 {% endblock %}
@@ -34,7 +34,7 @@
 					
 					<div class="price-info">
 						<div class="price fl tac f-tangerine">
-							<h4>￥<strong>{{ car.price|floatformat:"2" }}</strong>万</h4>
+							<h4>￥<strong id="car-price">{{ car.price|floatformat:"2" }}</strong>万</h4>
 						</div>
 						<div class="fl tal price-description">
 							<p class="f-orange">为您节省：{{ car.save_money }}万</p>
@@ -43,7 +43,7 @@
 					</div>
 					
 					<div class="evaluate-price">
-						<span class="f-bright-red price-range"><i></i>100.00万-125.00万</span>
+						<span class="f-bright-red price-range"><i></i><a id="eval-range" href="" target="_blank"></a></span>
 						<span class="f-dark-gray">公平价估值区间</span>
 					</div>
 					
@@ -188,12 +188,12 @@
 			<div class="analysis-content">
 				<div class="analysis-diagram fl">
 					<div class="diagram">
-						<div class="evaluate-range f-lake-blue tac">￥10.3万-￥20.6万</div>
+						<div class="evaluate-range f-lake-blue tac" id="eval-range-report">￥0.0万-￥0.0万</div>
 						
 						<div class="total-cost f-light-green tac">￥{{ car.total_cost }}万</div>
 						
 						<div class="mark f-orange tac">
-							<div class="current-point">￥{{ car.price }}万</div>
+							<div class="current-point" id="list-price">￥{{ car.price }}万</div>
 							
 							<div class="rate-discount f-gray"><i></i>折价率：{{ car.discount_rate }}%</div>
 						</div>
@@ -328,17 +328,94 @@
 			
 			<div class="clear"></div>
 		</div>
+		<div class="car-data">
+			<input type="hidden" id="eval-api" value="{{ EVAL_API_URL }}"/>
+			<input type="hidden" id="brand" value="{{ car.brand_slug }}"/>
+			<input type="hidden" id="model" value="{{ car.model_slug }}"/>
+			<input type="hidden" id="detail-model" value="{{ car.detail_model.slug }}"/>
+			<input type="hidden" id="volume" value="{{ car.volume }}"/>
+			<input type="hidden" id="year" value="{{ car.year }}"/>
+			<input type="hidden" id="month" value="{{ car.month }}"/>
+			<input type="hidden" id="mile" value="{{ car.mile|floatformat:"1" }}"/>
+			<input type="hidden" id="color" value="{{ car.color }}"/>
+			<input type="hidden" id="city" value="{{ car.city }}"/>
+			<input type="hidden" id="condition" value="{{ car.condition }}"/>
+		</div>
 	</div>
 </div>
 {% endblock %}
 
-{% block ext_js %}
+{% block extra_js %}
+<script type="text/javascript">
+$(function(){
+	var evalURL = $("#eval-api").val();
+	var evalData = {
+		brand: $("#brand").val(),
+		model: $("#model").val(),
+		d_model: $("#detail-model").val(),
+		volume: $("#volume").val(),
+		year: $("#year").val(),
+		month: $("#month").val(),
+		mile: $("#mile").val(),
+		color: $("#color").val(),
+		city: $("#city").val(),
+		condition: $("#condition").val(),
+		intent: "buy"
+	};
+	var getEvaluationPrice = function() {};
+	var updateEvaluationPrice = function(evalPrice, evalReportURL) {
+		var evalPriceMin = parseFloat(evalPrice*0.975/10000).toFixed(1),
+			evalPriceMax = parseFloat(evalPrice*1.025/10000).toFixed(1),
+			evalPriceRangeStr = "￥"+evalPriceMin+"万-"+"￥"+evalPriceMax+"万";
+		var carPrice = $("#car-price").text(),
+			$listPrice = $("#list-price"),
+			evalPriceRange = evalPriceMax - evalPriceMin,
+			width = 215,
+			widthRate = width / evalPriceRange,
+			leftPosition = 0;
+		var $evalPriceRange = $("#eval-range"),
+			$evalPriceRangeReport = $("#eval-range-report");
+		carPrice = parseFloat(carPrice);
+
+		$evalPriceRange.text(evalPriceRangeStr).attr("href", evalReportURL);
+		$evalPriceRangeReport.text(evalPriceRangeStr);
+
+		leftPosition = (carPrice - evalPriceMin) * widthRate;
+		if (leftPosition < -40) {
+			leftPosition = -40;
+		} else if (leftPosition > 255) {
+			leftPosition = 255;
+		}
+		$listPrice.css("margin-left", leftPosition);
+	};
+	$.ajax({
+		url: evalURL,
+		dataType: "jsonp",
+		data: evalData,
+		jsonpCallback: "getEvaluationPrice",
+		success: function(response){
+			if (response.status === "success") {
+				var evalPrice = response.deal_price;
+				var evalReportURL = response.url;
+				updateEvaluationPrice(evalPrice, evalReportURL);
+			} else {
+				console.log(response.message);
+			}
+		},
+		error: function() {
+			console.log("request evaluation failed!");
+		}
+	});
+
+});
+</script>
 <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
 	$('.flexslider').flexslider({
 		animation: "slide",
 	});
+
 });
 </script>
 {% endblock %}

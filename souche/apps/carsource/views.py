@@ -197,7 +197,7 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
 
     def get_recommend_cars(self, car):
         fields = ('title', 'year', 'month', 'mile', 'control', 'price', 'thumbnail', \
-                        'price_bn')
+                        'price_bn', 'pk')
         re_cars = car.get_recommend_cars().values(*fields) \
                         .order_by('view_num', '-time')[:4]
         for re_car in re_cars:

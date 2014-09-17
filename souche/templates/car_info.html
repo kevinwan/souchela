@@ -24,7 +24,7 @@
 						 </ul>
 					</div>
 					
-					<div class="grade tac">{{ car.condition_level|default:"B" }}</div>
+					<div class="grade tac">{{ car.condition_level|default:"合" }}</div>
 				</div>
 				<!--概况 begin-->
 				<div class="car-surver-content fl">
@@ -307,7 +307,7 @@
 					<li>
 						<div class="car-img"><img src="{{ IMG_URL }}{{ re_car.thumbnail }}" alt="搜车啦 {{ re_car.title }}图片"/></div>
 
-						<div class="car-name"><a href="{{ re_car.get_absolute_url }}" target="_blank">{{ re_car.title }}</a></div>
+						<div class="car-name"><a href="{% url car_detail re_car.pk %}" target="_blank">{{ re_car.title }}</a></div>
 						
 						<div class="car-price f-orange">
 							<span class="price">￥<strong class="tangerine">{{ re_car.price }}</strong>万</span>

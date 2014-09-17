@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
+
 from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
@@ -171,7 +173,20 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         car.discount_rate = self.get_discount_rate(car.total_cost, car.price)
         car.image_urls = car.imgurls.split(' ')
         car.condition = self.get_condition(car.condition_level)
+        car.age = self.get_car_age(car.year, car.month)
         return car
+
+    def get_car_age(self, year, month):
+        today = date.today()
+        buy_date = date(year, month, 1)
+        age = 0
+        if buy_date < today:
+            months = (today - buy_date).days / 30
+            age = months / 12
+            months = months % 12
+            if months >= 6:
+                age += 1
+        return age
 
     def get_condition(self, condition_level):
         level = {

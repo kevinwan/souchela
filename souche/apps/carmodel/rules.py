@@ -40,7 +40,7 @@ TRANSMISSION_NAMES = {
 }
 
 TRANSMISSION = {
-    'at': (u'自动', u'手自一体', u'无级变速', u'双离合'),
+    'at': (u'自动', u'手自一体'),
     'mt': (u'手动', )
 }
 

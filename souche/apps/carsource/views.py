@@ -95,10 +95,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         if control:
             control = TRANSMISSION.get(control, None)
             if control:
-                query = Q()
-                for con in control:
-                    query = query | Q(control__icontains=con)
-                criteria.append(query)
+                criteria.append(Q(control__in=control))
         if sort not in self.SORT_TYPE:
             sort = '-time'
         fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \

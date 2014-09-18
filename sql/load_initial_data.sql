@@ -29,6 +29,10 @@ insert into souche.carmodel_detail_model(name, slug, model, price_bn, year, volu
 select detail_model, detail_model_slug, global_slug, price_bn, year, volume from pingjia.open_model_detail
 where status='Y';
 
+update souche.carmodel_detail_model a, pingjia.export_vehicle_model_for_youxinpai_version_copy b
+set a.emission_standard=b.`排放标准`
+where a.slug=b.detail_model_slug;
+
 
 # 导入初始汽车配置参数数据
 insert into souche.carmodel_config_parameter(para_cat, para_name, para_value, isdefault, model, detail_model)

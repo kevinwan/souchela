@@ -165,6 +165,7 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         detail_model = self.get_detail_model(car.model_slug, \
                 car.detail_model_slug, car.volume, car.year)
         car.detail_model = detail_model
+        car.emission_standard = car.detail_model.emission_standard
         if not car.price_bn:
             car.price_bn = detail_model.price_bn
         car.tax = self.get_purchase_tax(car.price_bn)

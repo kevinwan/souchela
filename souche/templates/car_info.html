@@ -61,6 +61,12 @@
 								<p class="f-gray">变速箱</p>
 								<p>{{ car.control }}</p>
 							</li>
+							{% if car.emission_standard %}
+							<li>
+								<p class="f-gray">排放标准</p>
+								<p>{{ car.emission_standard }}</p>
+							</li>
+							{% endif %}
 							<li>
 								<p class="f-gray">归属地</p>
 								<p>{{ car.city }}</p>

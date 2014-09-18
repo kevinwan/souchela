@@ -32,4 +32,4 @@ def car_config_value(value):
 def year_month_zh(value):
     if isinstance(value, date):
         return u'{year}年{month}月'.format(year=value.year, month=value.month)
-    return ''
+    return '--'

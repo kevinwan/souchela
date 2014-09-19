@@ -78,11 +78,11 @@
 
 .car-info .survey .car-surver-content .price-info {
 	height: 71px;
-	width: 370px;
+	width: 400px;
 	background: #F9F9F9;
 	border: 2px solid #E3E3E3;
 	margin: 36px auto auto;
-	padding: 13px 10px;
+	padding: 13px 10px 13px 5px;
 }
 
 .car-info .survey .car-surver-content .evaluate-price {
@@ -139,7 +139,6 @@
 	width: 145px;
 	float: left;
 	height: 50px;
-	border-bottom: 1px solid #dcdcdc;
 	border-top: 2px solid #efefef;
 }
 
@@ -156,7 +155,7 @@
 }
 
 .base-info .nav .focus,
-.base-info .nav li:hover {
+.base-info .nav .nav-btn:hover {
 	background: #fff;
 	border: none;
 	border-top: 2px solid #2fa3d4;
@@ -165,7 +164,6 @@
 
 .base-info .nav .last,
 .base-info .nav .last:hover {
-	border-bottom: 1px solid #dcdcdc;
 	width: 461px;
 }
 
@@ -284,10 +282,11 @@ background-position: -211px -2px;
 }
 
 .price-info .price {
-	width: 113px;
+	width: auto;
 	border-right: 2px solid #E3E3E3;
 	height: 100%;
 	line-height: 65px;
+	padding-right:5px;
 }
 
 .price-info .price strong {
@@ -458,9 +457,12 @@ background-position: -211px -2px;
 	line-height: 140px;
 }
 
-.price-analysis .analysis-content .analysis-diagram .rate-discount {
+.price-analysis .analysis-content .current-point .rate-discount {
 	font-size: 14px;
-	margin-top: 15px;
+	line-height: 20px;
+	margin-top: -50px;
+	margin-left: -14px;
+	width: 150px;
 }
 
 .price-analysis .analysis-content .rate-discount i {
@@ -590,4 +592,137 @@ background-position: -211px -2px;
 .flexslider {
 	box-shadow:none;
 	border:none;
+}
+
+.car-img-list {
+	overflow: hidden;
+	height: auto;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding-bottom: 50px;
+	margin-top: 50px;
+}
+
+.car-img-list img {
+	width: 95%;
+}
+
+.car-surver-content .page-op {
+	border: 1px solid #fff;
+}
+
+.car-surver-content .page-op .share {
+	margin-top: 15px;
+	margin-left: 35px;
+}
+
+.car-surver-content .page-op .add-contrast {
+	width: 100px;
+	height: 27px;
+	font-size: 14px;
+	margin: 12px 0 0 120px;
+}
+
+.car-surver-content .page-op .add-contrast span {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #999;
+	position: relative;
+	top: 3px;
+	left: 0px;
+	margin: 0 5px;
+}
+
+
+.car-surver-content .page-op .mark {
+	width: 15px;
+	height: 15px;
+	background: url(../image/mark.png) scroll 0px -10px;
+	position: relative;
+	top: -26px;
+	left: 318px;
+	display: none;
+	cursor: pointer;
+}
+
+#select-contrast{
+	cursor: pointer;
+}
+
+.grade-data .show-tip {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	top: 3px;
+	position: relative;
+	background: url(../image/car_info.png) no-repeat scroll -88px -34px;
+	cursor: pointer;
+}
+
+.grade-data .tip {
+	position: relative;
+	display: none;
+}
+
+.grade-data .tip i {
+	width: 17px;
+	height: 12px;
+	display: block;
+	background: url('../image/car_info.png') repeat scroll -35px -126px;
+	position: relative;
+}
+
+.grade-data .tip .tip-box {
+	border: 1px solid #E0E0E0;
+	background: none repeat scroll 0% 0% #FFF;
+	width: 300px;
+	height: auto;
+	text-align: left;
+	text-indent: 15px;
+	padding: 5px;
+	font-size: 12px;
+}
+
+.grade-data .tip li {
+	list-style-type: disc;
+	list-style-position: inside;
+	line-height: 24px;
+}
+
+.grade-data .tip li strong {
+	margin-right: 2px;
+}
+
+.grade-data .tip li .split {
+	margin-right: 4px;
+}
+
+#transfer-tip {
+	top: -55px;
+	left: 175px;
+}
+#transfer-tip i {
+	left: 154px;
+	top: 1px;
+}
+
+#mandatory-tip {
+	top: -145px;
+	left: 200px;
+}
+
+#mandatory-tip i {
+	left: 161px;
+	top: 2px;
+}
+
+#business-tip {
+	left: 215px;
+	top: -95px;
+}
+
+#business-tip i {
+	left: 147px;
+	top: 1px;
 }

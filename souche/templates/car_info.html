@@ -89,6 +89,31 @@
 						
 						<div class="clear"></div>
 					</div>
+					<div class="page-op">
+						<div class="share fl">
+							<!-- Baidu Button BEGIN -->
+							<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+							<span class="bds_more">分享到：</span>
+							<a class="bds_renren"></a>
+							<a class="bds_qzone"></a>
+							<a class="bds_tsina"></a>
+							<a class="bds_tqq"></a>
+							</div>
+							<script type="text/javascript" id="bdshare_js" data="type=tools&uid=636341" ></script>
+							<script type="text/javascript" id="bdshell_js"></script>
+							<script type="text/javascript">
+							document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+							</script>
+							<!-- Baidu Button END -->
+							<div class="clear"></div>
+						</div>
+						
+						<div id="select-contrast" class="add-contrast fl f-dark-gray"><span></span>加入对比</div>
+						
+						<div class="clear"></div>
+						
+						<div id="contrast-mark" class="mark"></div>
+					</div>
 				</div>
 				<!--概况 begin-->
 				<div class="clear"></div>
@@ -125,18 +150,18 @@
 		<div class="base-info">
 			<div class="nav tac">
 				<ul>
-					<li class="focus"><a href="#">基本信息</a></li>
-					<li><a href="#">价格分析</a></li>
-					<li><a href="#">配置参数</a></li>
-					<li><a href="#">商家地址</a></li>
-					<li><a class="lasta" href="#">车辆图片</a></li>
+					<li class="nav-btn focus"><a href="#base-content">基本信息</a></li>
+					<li class="nav-btn"><a href="#price-analysis">价格分析</a></li>
+					<li class="nav-btn"><a href="#config-info">配置参数</a></li>
+					<li class="nav-btn"><a href="#dealer-address">商家地址</a></li>
+					<li class="nav-btn"><a class="lasta" href="#car-img-list">车辆图片</a></li>
 					<li class="last"></li>
 				</ul>
 			</div>
 			
 			<div class="clear"></div>
 			<!--基本信息 begin-->
-			<div class="base-content">
+			<div id="base-content" class="base-content">
 				<div class="grade fl">
 					<div class="grade-content">
 						<div class="level f-white tac">{{ car.condition_level|default:"合" }}</div>
@@ -162,34 +187,77 @@
 							<td>{{ car.year }}年{{ car.month }}月（{{ car.age }}年车龄）</td>
 						</tr>
 						<tr>
-							<td>交强险到期时间：</td>
-							<td>{{ car.mandatory_insurance|year_month_zh }}</td>
-						</tr>
-						<tr>
 							<td>年检到期时间：</td>
 							<td>{{ car.examine_insurance|year_month_zh }}</td>
 						</tr>
 						<tr>
+							<td>交强险到期时间：</td>
+							<td>
+								{{ car.mandatory_insurance|year_month_zh }}
+								<i id="mandatory" class="show-tip"></i>
+							</td>
+						</tr>
+						<tr>
 							<td>商业险到期时间：</td>
-							<td>{{ car.business_insurance|year_month_zh }}</td>
+							<td>
+								{{ car.business_insurance|year_month_zh }}
+								<i id="business" class="show-tip"></i>
+							</td>
 						</tr>
 						<tr>
 							<td>过户次数：</td>
-							<td>{% if car.transfer_owner == 0 %}{{ car.transfer_owner }}{% else %}{{ car.transfer_owner|default:"--" }}{% endif %}</td>
+							<td>
+								{% if car.transfer_owner == 0 %}{{ car.transfer_owner }}{% else %}{{ car.transfer_owner|default:"--" }}{% endif %}
+								<i id="transfer" class="show-tip"></i>
+							</td>
 						</tr>
 						<tr>
 							<td>购车发票：</td>
 							<td>{{ car.invoice|default:"--" }}</td>
 						</tr>
 					</table>
+					<!--tips begin-->
+					<div id="mandatory-tip" class="tip">
+						<i></i>
+						<div class="tip-box">
+							<h2>交强险为强制责任保险。</h2>
+							<ul>
+								<li>车辆过户后，需车辆交易双方共同去保险公司营业厅，同商业险一起办理保险过户。</li>
+								<li>交强险基础保费950元 (会根据上一年出险情况浮动)。</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div id="business-tip" class="tip">
+						<i></i>
+						<div class="tip-box">
+							<h2>商业险包括车损险，第三者责任险等。</h2>
+							<p>商业险处理方式有两种：</p>
+							<ul>
+								<li>原车主申请退保，新车主重新购买。</li>
+								<li>商业险过户，需车辆交易双方共同去保险公司营业厅办理。</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div id="transfer-tip" class="tip">
+						<i></i>
+						<div class="tip-box">
+							<ul>
+								<li><strong>0</strong><strong class="split">-</strong>代表为个人一手车，即车主在4S店或经销商处直接购买的新车</li>
+								<li><strong>大于0</strong><strong class="split">-</strong>代表为车主也是购买的二手车，或其他原因导致的转让</li>
+							</ul>
+						</div>
+					</div>
+					<!--tips end-->
 				</div>
 				
 				<div class="clear"></div>
 			</div>
 			<!--基本信息 end-->
 		</div>
-		
-		<div class="price-analysis info">
+		<!-- 价格分析 begin -->
+		<div id="price-analysis" class="price-analysis info">
 			<div class="i-title">价格分析</div>
 			<div class="analysis-content">
 				<div class="analysis-diagram fl">
@@ -199,9 +267,10 @@
 						<div class="total-cost f-light-green tac">￥{{ car.total_cost }}万</div>
 						
 						<div class="mark f-orange tac">
-							<div class="current-point" id="list-price">￥{{ car.price }}万</div>
-							
-							<div class="rate-discount f-gray"><i></i>折价率：{{ car.discount_rate }}%</div>
+							<div class="current-point" id="list-price">
+								￥{{ car.price }}万
+								<div class="rate-discount f-gray"><i></i>折价率：{{ car.discount_rate }}%</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -216,51 +285,11 @@
 				
 				<div class="clear"></div>
 			</div>
-			
 		</div>
-		
-		<div class="config-info info">
-			<div class="i-title">配置</div>
-			<div class="legend f-gray" >
-				<dl>
-					<dt>图示说明：</dt>
-					<dd>
-						<i class="b-lake-blue"></i>
-						<span class="f-lake-blue">标配</span>
-						表示车辆标准配置
-					</dd>
-					<dd>
-						<i class="b-orange"></i>
-						<span class="f-orange">选配</span>
-						表示您在购车时可以选购此项配置
-					</dd>
-				</dl>
-				
-				<div class="clear"></div>
-			</div>
-			
-			<div class="config-data">
-				{% for config in configs %}
-				<table>
-					<tr>
-						<td colspan="2" class="t-title">{{ config.para_cat }}</td>
-					</tr>
-					{% for k, v in config.items %}
-					{% if k != "para_cat" %}
-					<tr>
-						<td class="title">{{ k }}</td>
-						<td><span class="{{ v|car_config_css }}">{{ v|car_config_value }}</span></td>
-					</tr>
-					{% endif %}
-					{% endfor %}
-				</table>
-				{% if forloop.counter|divisibleby:"3" %}
-				<div class="clear"></div>
-				{% endif %}
-				{% endfor %}
-				<div class="clear"></div>
-			</div>
-			
+		<!-- 价格分析 end -->
+		<!-- 配置&参数 begin -->
+		<div id="config-info" class="config-info info">
+			<!-- 参数 begin -->
 			<div class="i-title">参数</div>
 			
 			<div class="config-data">
@@ -284,9 +313,52 @@
 				{% endfor %}
 				<div class="clear"></div>
 			</div>
+			<!-- 参数 end -->
+			<!-- 配置 begin -->
+			<div class="i-title">配置</div>
+			<div class="legend f-gray" >
+				<dl>
+					<dt>图示说明：</dt>
+					<dd>
+						<i class="b-lake-blue"></i>
+						<span class="f-lake-blue">标配</span>
+						表示车辆标准配置
+					</dd>
+					<dd>
+						<i class="b-orange"></i>
+						<span class="f-orange">选配</span>
+						表示您在购车时可以选购此项配置
+					</dd>
+				</dl>
+				
+				<div class="clear"></div>
+			</div>
+			<div class="config-data">
+				{% for config in configs %}
+				<table>
+					<tr>
+						<td colspan="2" class="t-title">{{ config.para_cat }}</td>
+					</tr>
+					{% for k, v in config.items %}
+					{% if k != "para_cat" %}
+					<tr>
+						<td class="title">{{ k }}</td>
+						<td><span class="{{ v|car_config_css }}">{{ v|car_config_value }}</span></td>
+					</tr>
+					{% endif %}
+					{% endfor %}
+				</table>
+				{% if forloop.counter|divisibleby:"3" %}
+				<div class="clear"></div>
+				{% endif %}
+				{% endfor %}
+				<div class="clear"></div>
+			</div>
+			<!-- 配置 end -->
 		</div>
-		
-		<div class="dealer-address info">
+		<!-- 配置&参数 end -->
+		<!-- 商家地址 begin -->
+		<div id="dealer-address" class="dealer-address info">
 			<div class="i-title">商家地址</div>
 			
 			<div class="dealer-address-content">
@@ -303,7 +375,22 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		
+		<!-- 商家地址 end -->
+		<!-- 图片列表 begin -->
+		<div id="car-img-list" class="car-img-list info">
+			<div class="i-title">车辆图片</div>
+			
+			<div class="dealer-address-content">
+				<ul>
+				{% for image in car.image_urls %}
+				<li>
+				 	<img src="{{ image }}" alt="搜车啦 {{ car.title }} 图片"/>
+				</li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<!-- 图片列表 end -->
 		<div class="recommend-list info">
 			<div class="i-title">看过的人又看了</div>
 			
@@ -352,70 +439,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript">
-$(function(){
-	var evalURL = $("#eval-api").val();
-	var evalData = {
-		brand: $("#brand").val(),
-		model: $("#model").val(),
-		d_model: $("#detail-model").val(),
-		volume: $("#volume").val(),
-		year: $("#year").val(),
-		month: $("#month").val(),
-		mile: $("#mile").val(),
-		color: $("#color").val(),
-		city: $("#city").val(),
-		condition: $("#condition").val(),
-		intent: "buy"
-	};
-	var getEvaluationPrice = function() {};
-	var updateEvaluationPrice = function(evalPrice, evalReportURL) {
-		var evalPriceMin = parseFloat(evalPrice*0.975/10000).toFixed(1),
-			evalPriceMax = parseFloat(evalPrice*1.025/10000).toFixed(1),
-			evalPriceRangeStr = "￥"+evalPriceMin+"万-"+"￥"+evalPriceMax+"万";
-		var carPrice = $("#car-price").text(),
-			$listPrice = $("#list-price"),
-			evalPriceRange = evalPriceMax - evalPriceMin,
-			width = 215,
-			widthRate = width / evalPriceRange,
-			leftPosition = 0;
-		var $evalPriceRange = $("#eval-range"),
-			$evalPriceRangeReport = $("#eval-range-report");
-		carPrice = parseFloat(carPrice);
-
-		$evalPriceRange.text(evalPriceRangeStr).attr("href", evalReportURL);
-		$evalPriceRangeReport.text(evalPriceRangeStr);
-
-		leftPosition = (carPrice - evalPriceMin) * widthRate;
-		if (leftPosition < -40) {
-			leftPosition = -40;
-		} else if (leftPosition > 255) {
-			leftPosition = 255;
-		}
-		$listPrice.css("margin-left", leftPosition);
-	};
-	$.ajax({
-		url: evalURL,
-		dataType: "jsonp",
-		data: evalData,
-		jsonpCallback: "getEvaluationPrice",
-		success: function(response){
-			if (response.status === "success") {
-				var evalPrice = response.deal_price;
-				var evalReportURL = response.url;
-				updateEvaluationPrice(evalPrice, evalReportURL);
-			} else {
-				console.log(response.message);
-			}
-		},
-		error: function() {
-			console.log("request evaluation failed!");
-		}
-	});
-
-});
-</script>
 <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/car_info.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
 	$('.flexslider').flexslider({
@@ -425,3 +450,4 @@ $(window).load(function() {
 });
 </script>
 {% endblock %}
+

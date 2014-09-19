@@ -131,3 +131,32 @@ function jsonLength(jsonData) {
 
 	return length;
 }
+
+//监控窗口滚动事件封装
+function layerScroll(offset,event1,event2) {
+	$(window).scroll(function() {
+		if($(window).scrollTop() > offset) {
+			(event1)();
+		}else {
+			(event2)();
+		}
+	});
+}
+
+//Tip
+var Tip = function(control,tipBox) {
+	this.control = control;
+	this.tipBox = tipBox;
+}
+
+Tip.prototype.selfClosing = function () {
+	this._selfClosing(this.tipBox);
+}
+
+Tip.prototype._selfClosing = function (tipBox) {
+	$(this.control).hover(function(e){
+		$(tipBox).fadeIn("fast");
+	},function(){
+		$(tipBox).fadeOut("fast");
+	});
+}

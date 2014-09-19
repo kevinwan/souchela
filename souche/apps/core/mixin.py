@@ -5,6 +5,12 @@ from django.utils import simplejson
 
 
 
+__all__ = [
+    'JSONResponseMixin',
+    'AJAXResponseMixin'
+]
+
+
 class JSONResponseMixin(object):
 
     status = 'success'
@@ -36,3 +42,8 @@ class JSONResponseMixin(object):
 
         return self.render_to_json(context)
 
+
+class AJAXResponseMixin(JSONResponseMixin):
+
+    def ajax_response(self, context=None, **kwargs):
+        return super(AJAXResponseMixin, self).json_response(context, **kwargs)

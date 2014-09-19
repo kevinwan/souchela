@@ -14,10 +14,10 @@ from souche.apps.carmodel.rules import TRANSMISSION
 from souche.apps.carmodel.rules import CAR_PARAMETERS
 from souche.apps.carmodel.rules import CAR_CONFIGURATIONS
 
-
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
 from souche.apps.carsource.tasks import record_car_source_access
+
 
 from souche.apps.utils.paginator import paginate
 
@@ -136,7 +136,10 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
 
 
 class CarSourceDetailView(TemplateView, CarCostDetailMixin):
-    ''' Car source detail information view.'''
+    ''' Car source detail information view.
+
+    Request method: GET
+    '''
 
     http_method_names = ['get', ]
     template_name = 'car_info.html'
@@ -229,3 +232,4 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
             else:
                 re_car['total_cost'] = ''
         return re_cars
+

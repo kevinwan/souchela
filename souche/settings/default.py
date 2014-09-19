@@ -117,7 +117,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'souche.apps.core.middlewares.SetSessionIdInCookieMiddleware',
+    'souche.apps.core.middlewares.SoucheSessionMiddleware',
 )
 
 ROOT_URLCONF = 'souche.urls'
@@ -160,6 +160,11 @@ IMG_URL = IMG_DOMAIN + '/img/'
 # Evaluation API URL
 EVALUATION_DOMAIN = 'http://www.eyelee.cn'
 EVALUATION_API_URL = EVALUATION_DOMAIN + '/api/cars/evaluation/souchela/'
+
+# Car contrast session name.
+CAR_CONTRAST_SESSION_NAME = 'car_contrast'
+# Car contrast amount limit.
+CAR_CONTRAST_AMOUNT = 4
 
 # Site information
 SITE_INFO = {

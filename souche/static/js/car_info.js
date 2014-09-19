@@ -58,7 +58,7 @@ $(function(){
 			
 			$loadInInfo.find("img").hide();
 			$evaDiagramLoad.hide();
-	}
+	};
 	$.ajax({
 		url: evalURL,
 		dataType: "jsonp",

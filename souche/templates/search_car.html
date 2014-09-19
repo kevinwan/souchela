@@ -14,7 +14,7 @@
 			<div class="status">
 				<h4 class="fl">共有{{ amount }}辆车</h4>
 				
-				<div class="filter fr">
+				<div class="filter sort-btn-ground fr">
 					<ul>
 						<li>默认<i class="default"></i></li>
 						<li>价格<i class="default"></i></li>
@@ -208,11 +208,11 @@
 							<ul class="slides">
 								{% for image in car.image_urls %}
 								<li>
-								 	<img src="{{ image }}" alt="搜车啦 {{ car.title }} 图片"/>
+									<a href="{% url car_detail car.pk %}" target="_blank" ><img src="{{ image }}" alt="搜车啦 {{ car.title }} 图片" /></a>
 								</li>
 								{% endfor %}
 						  </ul>
-							<h4 class="car-title">{{ car.title }}</h4>
+							<h4 class="car-title"><a href="{% url car_detail car.pk %}" title="{{ car.title }}" target="_blank">{{ car.title }}</a></h4>
 						</div>
 						
 						<div class="car-description">
@@ -253,6 +253,95 @@
 			</div>
 		</div>
 	</div>
+	
+	<!--搜索条件显示 bengin-->
+	<div id="filter-field-bar" class="filter-field-bar">
+		<!--已过滤的条件 begin-->
+		<div class="f-content">
+			<div class="fl filter-field">
+				<dl>
+					<dt>您的选择：</dt>
+					<dd>
+						<a href="#">
+							<span class="label">宝马</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">5-8万</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">SUV</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">白色</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">5万公里内</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">手动</span>
+							<span class="closed"></span>
+							
+							<div class="clear"></div>
+						</a>
+					</dd>
+					
+					<dd>
+						<a href="#">
+							<span class="label">清除所有</span>
+							<div class="clear"></div>
+						</a>
+					</dd>
+					<div class="clear"></div>
+				</dl>
+			</div>
+			<!--已过滤的条件 end-->
+			
+			<!-- 排序 begin -->
+			<div class="fr sort-btn-ground">
+				<ul>
+						<li>默认<i class="default"></i></li>
+						<li>价格<i class="default"></i></li>
+						<li>里程<i class="default"></i></li>
+						
+						<div class="clear"></div>
+				</ul>
+			</div>
+			<!-- 排序 end -->
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+	<!--搜索条件显示 end-->
 
 {% endblock %}
 

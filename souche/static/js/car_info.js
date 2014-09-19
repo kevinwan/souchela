@@ -14,7 +14,9 @@ $(function(){
 		condition: $("#condition").val(),
 		intent: "buy"
 	};
+	
 	var getEvaluationPrice = function() {};
+	//请求成功
 	var updateEvaluationPrice = function(evalPrice, evalReportURL) {
 		var evalPriceMin = parseFloat(evalPrice*0.975/10000).toFixed(1),
 			evalPriceMax = parseFloat(evalPrice*1.025/10000).toFixed(1),
@@ -26,20 +28,37 @@ $(function(){
 			widthRate = width / evalPriceRange,
 			leftPosition = 0;
 		var $evalPriceRange = $("#eval-range"),
-			$evalPriceRangeReport = $("#eval-range-report");
+			$evalPriceRangeReport = $("#eval-range-report"),
+			$evaDiagramLoad = $("#evalua-load-in-diagram");
+		
 		carPrice = parseFloat(carPrice);
-
+		//概述信息估值结果操作
 		$evalPriceRange.text(evalPriceRangeStr).attr("href", evalReportURL);
-		$evalPriceRangeReport.text(evalPriceRangeStr);
-
+		
+		$("#load-in-info").fadeOut("normal",function(){
+			$evalPriceRangeReport.text(evalPriceRangeStr);
+			$(".evaluate-price").fadeIn("normal");
+		});
+		//价格趋势图操作
 		leftPosition = (carPrice - evalPriceMin) * widthRate;
 		if (leftPosition < -40) {
 			leftPosition = -40;
 		} else if (leftPosition > 255) {
 			leftPosition = 255;
 		}
-		$listPrice.css("margin-left", leftPosition);
+		$evaDiagramLoad.hide();
+		$("#diagram-bg").attr("class","diagram");
+		$listPrice.animate({"margin-left":leftPosition});
 	};
+	//请求失败
+	var evalError = function() {
+		var $evalPriceRangeReport = $(".evaluate-price"),
+			$evaDiagramLoad = $("#evalua-load-in-diagram"),
+			$loadInInfo = $("#load-in-info");
+			
+			$loadInInfo.find("img").hide();
+			$evaDiagramLoad.hide();
+	}
 	$.ajax({
 		url: evalURL,
 		dataType: "jsonp",
@@ -51,11 +70,11 @@ $(function(){
 				var evalReportURL = response.url;
 				updateEvaluationPrice(evalPrice, evalReportURL);
 			} else {
-				console.log(response.message);
+				evalError();
 			}
 		},
 		error: function() {
-			console.log("request evaluation failed!");
+			evalError();
 		}
 	});
 	

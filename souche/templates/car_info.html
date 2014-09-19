@@ -43,9 +43,18 @@
 					</div>
 					
 					<div class="evaluate-price">
-						<span class="f-bright-red price-range"><i></i><a id="eval-range" href="" target="_blank"></a></span>
-						<span class="f-dark-gray">公平价估值区间</span>
+						<span class="f-bright-red price-range fl">
+							<i class="fl"></i>
+							<a id="eval-range" href="#" target="_blank" class="fl"></a>
+							<div class="clear"></div>
+						</span>
+						
+						<span class="f-dark-gray fl">公平价估值区间</span>
+						
+						<div class="clear"></div>
 					</div>
+					
+					<div id="load-in-info"><img src="{{ STATIC_URL }}/image/evaluate_load_1.gif" alt="" /></div>
 					
 					<div class="base-info">
 						<ul>
@@ -261,8 +270,8 @@
 			<div class="i-title">价格分析</div>
 			<div class="analysis-content">
 				<div class="analysis-diagram fl">
-					<div class="diagram">
-						<div class="evaluate-range f-lake-blue tac" id="eval-range-report">￥0.0万-￥0.0万</div>
+					<div id="diagram-bg" class="diagram-loading">
+						<div class="evaluate-range f-lake-blue tac" id="eval-range-report"></div>
 						
 						<div class="total-cost f-light-green tac">￥{{ car.total_cost }}万</div>
 						
@@ -285,6 +294,8 @@
 				
 				<div class="clear"></div>
 			</div>
+				
+			<div id="evalua-load-in-diagram"><img src="{{ STATIC_URL }}image/evaluate_load_2.gif" alt="" ></div>
 		</div>
 		<!-- 价格分析 end -->
 		<!-- 配置&参数 begin -->

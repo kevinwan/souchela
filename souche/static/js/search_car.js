@@ -138,6 +138,12 @@ $(function(){
 		$(this).hide();
 	});
 	
+	layerScroll(170,function(){
+		$(".filter-field-bar").show();
+	},function(){
+		$(".filter-field-bar").hide();
+	});
+	
 	(function() {
 		$(".car-img").flexslider({
 			animation: "slide",

@@ -13,7 +13,7 @@
 	text-align: center;
 }
 
-.status .filter li {
+.sort-btn-ground li {
 	float: left;
 	border-left: 1px solid #b1b1b1;
 	width: 70px;
@@ -22,7 +22,7 @@
 	cursor: pointer;
 }
 
-.status .filter i {
+.sort-btn-ground i {
 	display: inline-block;
 	width: 12px;
 	height: 15px;
@@ -31,15 +31,15 @@
 	top: 2px;
 }
 
-.status .filter .default {
+.sort-btn-ground .default {
 	background-position: -3px -45px;
 }
 
-.status .filter .asc {
+.sort-btn-ground .asc {
 	background-position: -16px -45px;
 }
 
-.status .filter .des {
+.sort-btn-ground .des {
 	background-position: -29px -45px;
 }
 
@@ -237,9 +237,12 @@
 	position: absolute;
 	margin-top: 300px;
 	z-index: 9;
-	color: #FFF;
 	text-align: center;
 	width: 100%;
+}
+
+.car-list .car-bar .car-img h4 a {
+	color: #FFF;
 }
 
 .car-list .car-bar .car-info {
@@ -486,4 +489,79 @@
 .flexslider {
 	box-shadow:none;
 	border:none;
+}
+
+.filter-field-bar {
+	width: 100%;
+	height: 58px;
+	background: url(../image/search_car_fix.png) repeat-x;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	display: none;
+}
+
+.filter-field-bar .f-content {
+	width: 1190px;
+	height: 90%;
+	line-height: 50px;
+	margin: 0 auto;
+}
+
+.filter-field-bar .filter-field {
+	width: 773px;
+	height: 100%;
+	font-size: 14px;
+}
+
+.filter-field-bar .filter-field dt,
+.filter-field-bar .filter-field dd{
+	float: left;
+}
+
+.filter-field-bar .filter-field dd {
+	margin-right: 20px;
+}
+
+.filter-field-bar .filter-field dt {
+	margin-left: 10px;
+}
+
+.filter-field-bar .filter-field a {
+	display: block;
+	border: 1px solid #fff;
+	height: 25px;
+	margin-top: 13px;
+	line-height: 25px;
+	background: #f0f0f0;
+	padding: 0 5px;
+}
+
+.filter-field-bar .filter-field a:hover {
+	border: 1px solid #2DA3D3
+}
+
+.filter-field-bar .filter-field span {
+	display: block;
+	float: left;
+}
+
+.filter-field-bar .filter-field .closed {
+	height: 100%;
+	width: 20px;
+	background: url(../image/souchela1.png) scroll -105px -40px;
+}
+
+.filter-field-bar .filter-field .label {
+	padding: 0 5px;
+}
+
+.filter-field-bar .sort-btn-ground {
+	height: 100%;
+	width: 213px;
+}
+
+.filter-field-bar .sort-btn-ground ul {
+	margin-top: 14px;
+	text-align: center;
 }

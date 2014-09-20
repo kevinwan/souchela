@@ -10,6 +10,7 @@ from django.views.generic import View
 
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
+from souche.apps.carsource.tasks import record_car_source_contrast
 
 from souche.apps.core.mixin import AJAXResponseMixin
 
@@ -61,9 +62,10 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
 
     def get_context_data(self, **kwargs):
         context = {}
-        car_contrast = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
-        cars = CarSource.sale_cars.filter(pk__in=car_contrast)
+        car_ids = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
+        cars = CarSource.sale_cars.filter(pk__in=car_ids)
         context.update({'contast_cars': cars})
+        record_car_source_contrast(car_ids)
         return context
 
 
@@ -94,6 +96,7 @@ class AddCarContrastView(View, AJAXResponseMixin):
         else:
             ret = self.add_car_contrast(request, car_id)
             context.update(ret)
+            record_car_source_contrast(car_id)
         return self.ajax_response(context)
 
     def add_car_contrast(self, request, car_id):

@@ -19,5 +19,6 @@ def record_car_source_access(car_id):
 @async
 def record_car_source_contrast(car_ids):
     if not (isinstance(car_ids, tuple) and isinstance(car_ids, list)):
-        CarSource.objects.filter(pk__in=car_ids) \
-                            .update(compare_num=F('compare_num')+1)
+        car_ids = (car_ids, )
+    CarSource.objects.filter(pk__in=car_ids) \
+                    .update(compare_num=F('compare_num')+1)

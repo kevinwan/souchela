@@ -65,7 +65,6 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
         car_ids = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
         cars = CarSource.sale_cars.filter(pk__in=car_ids)
         context.update({'contast_cars': cars})
-        record_car_source_contrast(car_ids)
         return context
 
 
@@ -96,7 +95,6 @@ class AddCarContrastView(View, AJAXResponseMixin):
         else:
             ret = self.add_car_contrast(request, car_id)
             context.update(ret)
-            record_car_source_contrast(car_id)
         return self.ajax_response(context)
 
     def add_car_contrast(self, request, car_id):
@@ -112,6 +110,7 @@ class AddCarContrastView(View, AJAXResponseMixin):
                 context.update({
                     'car_id': car_id
                 })
+                record_car_source_contrast(car_id)
         else:
             self.update_errors(self.err_msg['car_not_exist'])
         return context

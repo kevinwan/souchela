@@ -175,6 +175,8 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
         car.image_urls = car.imgurls.split(' ')
         car.condition = self.get_condition(car.condition_level)
         car.age = self.get_car_age(car.year, car.month)
+        car_contrast = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
+        car.in_contrast = True if car.pk in car_contrast else False
         return car
 
     def get_car_age(self, year, month):

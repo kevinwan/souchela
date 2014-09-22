@@ -1,0 +1,15 @@
+$(function(){
+	layerScroll("240",function(){
+		$(".first-title").css({
+			"position":"fixed",
+			"top":"0",
+			"z-index":"999",
+			"text-indent":"2%"
+		});
+	},function(){
+		$(".first-title").css({
+			"position":"static",
+			"text-indent":"20%"
+		});
+	});
+});

@@ -192,8 +192,11 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
             months = (today - buy_date).days / 30
             age = months / 12
             months = months % 12
-            if months >= 6:
+            if age > 0 and months >= 6:
                 age += 1
+                age = u'{age}年'.format(age=age)
+            else:
+                age = u'{month}个月'.format(month=month)
         return age
 
     def get_condition(self, condition_level):

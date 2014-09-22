@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
 import re
 from operator import itemgetter
 
@@ -33,7 +34,7 @@ class CarContrastPreviewListView(TemplateView):
     '''
 
     http_method_names = ['get', ]
-    template_name = 'compare_car_preview.html'
+    template_name = 'car_contrast_preview.html'
 
     def get_context_data(self, **kwargs):
         car_ids = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
@@ -58,14 +59,44 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
     '''
 
     http_method_names = ['get', ]
-    template_name = 'compare_car.html'
+    template_name = 'car_contrast.html'
 
     def get_context_data(self, **kwargs):
         context = {}
         car_ids = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
         cars = CarSource.sale_cars.filter(pk__in=car_ids)
-        context.update({'contast_cars': cars})
+        cars = self.get_car_detail_info(cars)
+        context.update({'contrast_cars': cars})
         return context
+
+    def get_car_detail_info(self, cars):
+        for car in cars:
+            detail_model = self.get_detail_model(car.model_slug, \
+                    car.detail_model_slug, car.volume, car.year)
+            car.detail_model = detail_model
+            car.emission_standard = car.detail_model.emission_standard
+            if not car.price_bn:
+                car.price_bn = detail_model.price_bn
+            car.tax = self.get_purchase_tax(car.price_bn)
+            car.total_cost = self.get_total_cost(car.price_bn, car.tax)
+            car.save_money = self.get_save_money(car.total_cost, car.price)
+            car.age = self.get_car_age(car.year, car.month)
+        return cars
+
+    def get_car_age(self, year, month):
+        today = date.today()
+        buy_date = date(year, month, 1)
+        age = 0
+        if buy_date < today:
+            months = (today - buy_date).days / 30
+            age = months / 12
+            months = months % 12
+            if age > 0 and months >= 6:
+                age += 1
+                age = u'{age}年'.format(age=age)
+            else:
+                age = u'{month}个月'.format(month=month)
+        return age
 
 
 class AddCarContrastView(View, AJAXResponseMixin):

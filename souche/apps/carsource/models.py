@@ -13,6 +13,7 @@ from souche.apps.carsource.managers import SaleCarManager
 
 __all__ = [
     'CarSource',
+    'CarOrderRecord'
 ]
 
 class CarSource(models.Model):
@@ -120,3 +121,19 @@ class CarSource(models.Model):
                     Q(year__range=(year-1, year+1))]
         re_cars = CarSource.sale_cars.filter(*criteria)
         return re_cars
+
+
+class CarOrderRecord(models.Model):
+    ''' Order to see car detail.'''
+
+    car = models.ForeignKey('CarSource', related_name='order_records', \
+                verbose_name=u'车源')
+    phone = models.CharField(max_length=11, verbose_name=u'预约电话')
+    create_time = models.DateTimeField(auto_now_add=True, \
+                verbose_name=u'创建时间')
+
+    class Meta:
+        app_label = 'carsource'
+        db_table = 'carsource_car_order_record'
+        verbose_name = u'预约看车记录'
+        verbose_name_plural = u'预约看车记录'

@@ -5,7 +5,10 @@ from datetime import date
 from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from django.views.generic import FormView
 from django.views.generic import TemplateView
+
+from souche.apps.core.mixin import AJAXResponseMixin
 
 from souche.apps.carmodel.models import Brand
 from souche.apps.carmodel.models import ConfigParameter
@@ -14,6 +17,7 @@ from souche.apps.carmodel.rules import TRANSMISSION
 from souche.apps.carmodel.rules import CAR_PARAMETERS
 from souche.apps.carmodel.rules import CAR_CONFIGURATIONS
 
+from souche.apps.carsource.forms import OrderCarForm
 from souche.apps.carsource.mixin import CarCostDetailMixin
 from souche.apps.carsource.models import CarSource
 from souche.apps.carsource.tasks import record_car_source_access
@@ -27,6 +31,7 @@ from souche.apps.utils.paginator import paginate
 __all__ = [
     'CarSourceDetailView',
     'SearchCarView',
+    'OrderCarView',
 ]
 
 
@@ -234,4 +239,26 @@ class CarSourceDetailView(TemplateView, CarCostDetailMixin):
             else:
                 re_car['total_cost'] = ''
         return re_cars
+
+
+class OrderCarView(FormView, AJAXResponseMixin):
+    ''' Order a car.
+
+    Request method: POST
+    Parameters:
+    -car_id: car source id.
+    -phone: mobile phone number.
+    '''
+
+    http_method_names = ['post', ]
+    form_class = OrderCarForm
+
+    def form_valid(self, form):
+        form.save()
+        return self.ajax_response()
+
+    def form_invalid(self, form):
+        error = form.errors.popitem()[-1][0]
+        self.update_errors(error)
+        return self.ajax_response()
 

@@ -4,8 +4,9 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from souche.apps.carsource.views.car_source import SearchCarView
 from souche.apps.carsource.views.car_source import CarSourceDetailView
+from souche.apps.carsource.views.car_source import SearchCarView
+from souche.apps.carsource.views.car_source import OrderCarView
 
 from souche.apps.carsource.views.car_contrast import AddCarContrastView
 from souche.apps.carsource.views.car_contrast import CarContrastDetailView
@@ -16,8 +17,9 @@ from souche.apps.carsource.views.car_contrast import EmptyCarContrastView
 
 
 urlpatterns = patterns('',
-    url(r'^$', SearchCarView.as_view(), name='car_search'),
+    url(r'^$', SearchCarView.as_view(), name='search_car'),
     url(r'^(?P<car_id>\d+)/$', CarSourceDetailView.as_view(), name='car_detail'),
+    url(r'^order/add/$', OrderCarView.as_view(), name='order_car'),
 
     # Car contrast.
     url(r'^contrast/preview/$', CarContrastPreviewListView.as_view(), \

@@ -132,17 +132,6 @@ function jsonLength(jsonData) {
 	return length;
 }
 
-//监控窗口滚动事件封装
-function layerScroll(offset,event1,event2) {
-	$(window).scroll(function() {
-		if($(window).scrollTop() > offset) {
-			(event1)();
-		}else {
-			(event2)();
-		}
-	});
-}
-
 //Tip
 var Tip = function(control,tipBox) {
 	this.control = control;
@@ -159,4 +148,20 @@ Tip.prototype._selfClosing = function (tipBox) {
 	},function(){
 		$(tipBox).fadeOut("fast");
 	});
+}
+
+//监控窗口滚动事件封装
+function layerScroll(offset,event1,event2) {
+	$(window).scroll(function() {
+		if($(window).scrollTop() > offset) {
+			(event1)();
+		}else {
+			(event2)();
+		}
+	});
+}
+
+//滚动窗口封装
+function scrollPage(yAxis) {
+	$("html, body").animate({scrollTop: yAxis});
 }

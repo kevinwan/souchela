@@ -45,11 +45,16 @@
         </div>
     </div>
     {% block content %}{% endblock%}
+    
+    {% include 'includes/right_suspension_bar.html'%}
     <div class="footer"></div>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/class/layer.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/class/debug.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/right_suspension_bar.js"></script>
     {% block extra_js %}{% endblock %}
+    
+    
 </body>
 
 </html>

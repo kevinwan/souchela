@@ -1,0 +1,96 @@
+.suspension-content {
+	position: fixed;
+	top: 30%;
+	right: 0;
+	height: 348px;
+}
+
+.suspension-content .go-top,
+.suspension-content .sidebar li {
+	width: 48px;
+	border-bottom: 1px solid #E5E5E5;
+	cursor: pointer;
+	text-align: center;
+}
+
+.suspension-content .go-top {
+	height: 40px;
+	background: #313131;
+	color: #fff;
+}
+
+.suspension-content .sidebar ul {
+	border-top: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
+}
+
+.suspension-content .sidebar li {
+	height: 54px;
+	background: #FAF8F9;
+	padding-top: 10px;
+}
+
+.suspension-content .go-top {
+	border-left: 1px solid #E5E5E5;
+	color: #fff;
+	display: none;
+}
+
+.suspension-content .sidebar-hide-layer {
+	width: 849px;
+	height: 308px;
+	background: #fff;
+	border-left: 1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5;
+	display: none;
+}
+
+.suspension-content .sidebar-hide-layer .layer-title {
+	height: 36px;
+	background: #2FA3D4;
+}
+
+.suspension-content .sidebar-hide-layer iframe {
+	height: 274px;
+	width: 849px;
+	border: 0;
+}
+
+.suspension-content .go-top i,
+.suspension-content .take-of-qq i,
+.suspension-content .sidebar-hide-layer .closed {
+	background: url(../image/suspensionbar_ico.png) no-repeat;
+}
+
+.suspension-content .sidebar-hide-layer .closed {
+	width: 13px;
+	height: 13px;
+	margin: 14px;
+	cursor: pointer;
+	background-position: -69px -4px;
+}
+
+.suspension-content .go-top i,
+.suspension-content .sidebar i {
+	display: block;
+	margin: 0 auto;
+	font-style: normal;
+}
+
+.suspension-content .go-top i {
+	height: 8px;
+	width: 12px;
+	background-position: -69px -25px;
+	margin-bottom: 2px;
+	margin-top: 6px;
+}
+
+.suspension-content .sidebar i {
+	height: 15px;
+	width:20px;
+}
+
+.suspension-content .take-of-qq i {
+	height: 24px;
+	background-position: -88px -1px;
+}

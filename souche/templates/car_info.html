@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="content">
-	<div class="main">
+	<div class="main" id="{{ car.pk }}">
 		<!--信息概括 begin-->
 		<div class="car-info">
 			<div class="survey">
@@ -455,6 +455,7 @@
 {% block extra_js %}
 <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/car_info.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/compare.js"></script>
 <script type="text/javascript">
 $(window).load(function() {
 	$('.flexslider').flexslider({

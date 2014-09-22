@@ -102,18 +102,25 @@ $(function(){
 		$(contentEle).css("padding-top","50px");
 	});
 	
+	//加入对比
 	$("#select-contrast").find("span").click(function(){
-		var $mark = $("#contrast-mark"),
-			flag = $mark.css("display");
-			
-		flag=="none" ? $mark.show() : $mark.hide();
+		carCompare();
 	});
 	
 	$("#contrast-mark").click(function(){
-		var flag = $(this).css("display");
-		flag=="none" ? $(this).show() : $(this).hide();
+		carCompare();
 	});
 	
+	function carCompare() {
+		var $mark = $("#contrast-mark"),
+			flag = $mark.css("display"),
+			carId = $(".main").attr("id");
+		
+		flag=="none" ? $mark.show() : $mark.hide();
+		flag=="none" ? addCompare(carId) : delCompare(carId);
+	}
+	
+	//Tip
 	var Transfer = new Tip("#transfer","#transfer-tip");
 	var Mandatory = new Tip("#mandatory","#mandatory-tip");
 	var Business = new Tip("#business","#business-tip");

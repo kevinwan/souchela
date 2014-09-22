@@ -11,7 +11,7 @@
 		</div>
 		<div class="content">
 			{% for car in contrast_cars %}
-				<div class="contrast-box">
+				<div id="{{ car.pk }}" class="contrast-box">
 					<div class="car-list">
 						<div class="car-pic">
 							<a href="{% url car_detail car.pk %}" target="_blank"><img src="{{ IMG_URL }}{{ car.thumbnail }}?imageView2/1/w/240"alt="{{ car.tilte }}图片"></a>
@@ -25,7 +25,7 @@
 							</div>
 							
 							<div class="fr">
-								<a href="javascript:;">删除</a>
+								<a href="javascript:;" class="delete-compare">删除</a>
 							</div>
 							
 							<div class="clear"></div>
@@ -42,16 +42,14 @@
 			</div>
 			{% endfor %}
 		</div>
+		
+		{% csrf_token %}
 	</body>
+	
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/class/layer.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/class/debug.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/compare.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}js/compare_preview.js"></script>
 </html>
 
-<!--
-{% for num in empty_cars %}
-<div class="contrast-box">
-	<div class="car-num">
-		<div class="num">{{ num }}</div>
-	</div>
-	<div class="addcar">您还可以继续添加</div>
-</div>
-{% endfor %}
--->

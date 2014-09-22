@@ -1,0 +1,153 @@
+.content {
+	background: #fff;
+}
+
+.main {
+	width: 1187px;
+}
+
+.contrast-data {
+	margin-bottom: 30px;
+}
+
+.contrast-title {
+	margin: 0 0 24px 40px;
+}
+
+.contrast-title h4 {
+	margin-right: 32px;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+.contrast-title .check-box {
+	font-size: 13px;
+}
+
+.contrast-title .check-box i {
+	border: 1px solid #9F9F9F;
+	width: 13px;
+	height: 13px;
+	position: relative;
+	display: inline-block;
+	top: 3px;
+}
+
+.contrast-data li {
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 14px;
+}
+
+.contrast-data .last {
+	border: 
+}
+
+.base-info {
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+.base-info .main-title .first-title {
+	text-indent: 20%;
+	background: #fff;
+}
+
+.base-info .main-title .car-pic,
+.base-info .main-title .default {
+	text-indent: 14px;
+	border-right: 1px solid #ddd;
+}
+
+.base-info .main-title .car-name {
+	height: 60px;
+	line-height: 60px;
+}
+
+.base-info .first-title {
+	width: 185px
+}
+
+.base-info .main-title .first-title i {
+	display: inline-block;
+	position: relative;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	background: #2EA2D3;
+	left: -4px;
+	top: 2px;
+}
+
+.contrast-data .car-pic,
+.contrast-data .default {
+	background: #FBFBFB;
+	width: 185px;
+	color: #666;
+}
+
+
+.base-info .car-name {
+	height: 60px;
+	line-height: 60px;
+}
+
+.base-info .car-pic {
+	padding-bottom: 80px;
+	padding-top: 80px;
+}
+
+.base-info .item li,
+.other-info .item li {
+	text-align: left;
+	text-indent: 10%;
+	background: #fff;
+	width: 248.5px
+}
+
+.base-info .item .default,
+.base-info .item .car-pic {
+	border-left: none;
+	border-right: none;
+}
+
+.base-info .item .car-pic {
+	padding-top: 12px;
+	padding-bottom:  12px;
+	text-indent: 14px;
+}
+
+.base-info .item .car-pic img {
+	width: 90%;
+}
+
+.other-info .other-title {
+	height: 50px;
+	line-height: 50px;
+	background: #E8E8E8;
+	border: 1px solid #ddd;
+	border-top:  none;
+}
+
+.other-info .other-title i {
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+	background: #B4B4B4;
+	margin: 0 5px 0 15px;
+}
+
+.other-info .main-title .default {
+	text-indent: 14px;
+	border-right: 1px solid #ddd;
+}
+
+.other-info .item .default {
+	border-right: 1px solid #ddd;
+	border-left: none;
+	width: 249px
+}

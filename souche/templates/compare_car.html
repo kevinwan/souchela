@@ -1,37 +1,160 @@
 {% extends 'base.html'%}
 
 {% block title %}我的对比车辆 个人中心 搜车啦{% endblock %}
-
+{% block extra_css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/car_compare.css" />
+{% endblock %}
 
 {% block content %}
 <div class="content">
-	<div class="contrast-title">
-		车辆对比
-		<input type="checkbox" id="hide-same">
-		<label>隐藏相同项</label>
-	</div>
-	<div class="contrast-table">
-		<table class="basic-info">
-			<tbody>
-				<tr class="car-title">
-					<th class="tab-tit">
-						<div><span>车辆基本信息</span></div>
-					</th>
-					{% for car in contrast_cars %}
-					<th class="title carname">
-						<div>
-							<a href="{% url car_detail car.pk %}" target="_blank">{{ car.title }}</a>
-						</div>
-					</th>
-					{% endfor %}
-				</tr>
-			</tbody>
-		</table>
+	<div class="main">
+		<!--标题 begin-->
+		<div class="contrast-title">
+			<h4 class="fl">车辆对比</h4>
+			
+			<div class="op-bar fl">
+				<div class="check-box">
+					<i></i>
+					<span>隐藏相同项</span>
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+		<!--标题 end-->
+		<!-- 对比参数配置 begin -->
+		<div class="contrast-data">
+			<div class="base-info">
+				<ul class="main-title fl">
+					<li class="first-title car-name">
+						<i></i>车辆基本信息
+					</li>
+					<li class="car-pic">车辆图片</li>
+					<li class="default">大搜车价</li>
+					<li class="default">新车价</li>
+					<li class="default">为你省了</li>
+					<li class="default">已经优惠</li>
+					<li class="default">分期付款</li>
+					<li class="default">首次上牌</li>
+					<li class="default">行驶里程</li>
+				</ul>
+				<ul class="item fl">
+					<li class="first-title car-name">
+						<i></i>车辆基本信息
+					</li>
+					<li class="car-pic"><img src="http://img.souche.com/files/carpicture/B84A2DC0CB3A5C251BA98CE351EF1F2E_690x460.jpg@240w" alt="" /></li>
+					<li class="default">大搜车价</li>
+					<li class="default">新车价</li>
+					<li class="default">为你省了</li>
+					<li class="default">已经优惠</li>
+					<li class="default">分期付款</li>
+					<li class="default">首次上牌</li>
+					<li class="default">行驶里程</li>
+				</ul>
+				<ul class="item fl">
+					<li class="first-title car-name">
+						<i></i>车辆基本信息
+					</li>
+					<li class="car-pic"><img src="http://img.souche.com/files/carpicture/B84A2DC0CB3A5C251BA98CE351EF1F2E_690x460.jpg@240w" alt="" /></li>
+					<li class="default">大搜车价</li>
+					<li class="default">新车价</li>
+					<li class="default">为你省了</li>
+					<li class="default">已经优惠</li>
+					<li class="default">分期付款</li>
+					<li class="default">首次上牌</li>
+					<li class="default">行驶里程</li>
+				</ul>
+				<ul class="item fl">
+					<li class="first-title car-name">
+						<i></i>车辆基本信息
+					</li>
+					<li class="car-pic"><img src="http://img.souche.com/files/carpicture/B84A2DC0CB3A5C251BA98CE351EF1F2E_690x460.jpg@240w" alt="" /></li>
+					<li class="default">大搜车价</li>
+					<li class="default">新车价</li>
+					<li class="default">为你省了</li>
+					<li class="default">已经优惠</li>
+					<li class="default">分期付款</li>
+					<li class="default">首次上牌</li>
+					<li class="default">行驶里程</li>
+				</ul>
+				<ul class="item fl">
+					<li class="first-title car-name">
+						<i></i>车辆基本信息
+					</li>
+					<li class="car-pic"><img src="http://img.souche.com/files/carpicture/B84A2DC0CB3A5C251BA98CE351EF1F2E_690x460.jpg@240w" alt="" /></li>
+					<li class="default">大搜车价</li>
+					<li class="default">新车价</li>
+					<li class="default">为你省了</li>
+					<li class="default">已经优惠</li>
+					<li class="default">分期付款</li>
+					<li class="default">首次上牌</li>
+					<li class="default">行驶里程</li>
+				</ul>
+				
+				<div class="clear"></div>
+			</div>
+			<div class="other-info">
+				<div class="other-title">
+					<i></i>
+					<span>基本参数</span>
+				</div>
+				<div class="other-content">
+					<ul class="main-title fl">
+						<li class="default">大搜车价</li>
+						<li class="default">新车价</li>
+						<li class="default">为你省了</li>
+						<li class="default">已经优惠</li>
+						<li class="default">分期付款</li>
+						<li class="default">首次上牌</li>
+						<li class="default">行驶里程</li>
+					</ul>
+					<ul class="item fl">
+						<li class="default">大搜车价</li>
+						<li class="default">新车价</li>
+						<li class="default">为你省了</li>
+						<li class="default">已经优惠</li>
+						<li class="default">分期付款</li>
+						<li class="default">首次上牌</li>
+						<li class="default">行驶里程</li>
+					</ul>
+					<ul class="item fl">
+						<li class="default">大搜车价</li>
+						<li class="default">新车价</li>
+						<li class="default">为你省了</li>
+						<li class="default">已经优惠</li>
+						<li class="default">分期付款</li>
+						<li class="default">首次上牌</li>
+						<li class="default">行驶里程</li>
+					</ul>
+					<ul class="item fl">
+						<li class="default">大搜车价</li>
+						<li class="default">新车价</li>
+						<li class="default">为你省了</li>
+						<li class="default">已经优惠</li>
+						<li class="default">分期付款</li>
+						<li class="default">首次上牌</li>
+						<li class="default">行驶里程</li>
+					</ul>
+					<ul class="item fl">
+						<li class="default">大搜车价</li>
+						<li class="default">新车价</li>
+						<li class="default">为你省了</li>
+						<li class="default">已经优惠</li>
+						<li class="default">分期付款</li>
+						<li class="default">首次上牌</li>
+						<li class="default">行驶里程</li>
+					</ul>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 对比参数配置 end -->
 	</div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-
+<script type="text/javascript" src="{{ STATIC_URL }}js/car_compare.js"></script>
 {% endblock %}
 

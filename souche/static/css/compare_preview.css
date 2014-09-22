@@ -1,0 +1,35 @@
+@import url(public.css);
+
+body {
+	font-size: 12px;
+}
+
+.header {
+	height: 30px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+
+.header .compare-btn {
+	background: #2FA3D2;
+	color: #fff;
+	width: 94px;
+	height: 100%;
+	font-weight: bold;
+	margin:0 15px;
+}
+
+.content {
+	height: 197px;
+	width: 100%;
+	border: 1px solid #666;
+	padding: 10px 0 22px 0;
+}
+
+.content .contrast-box {
+	width: 180px;
+	height: 100%;
+	background: #F5F5F5;
+	float: left;
+}
+

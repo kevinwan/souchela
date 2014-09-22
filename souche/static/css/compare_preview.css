@@ -11,25 +11,75 @@ body {
 }
 
 .header .compare-btn {
+	height: 100%;
+	margin:0 15px;
+}
+
+.header .compare-btn a {
 	background: #2FA3D2;
 	color: #fff;
 	width: 94px;
 	height: 100%;
 	font-weight: bold;
-	margin:0 15px;
+	display: block;
 }
 
 .content {
 	height: 197px;
 	width: 100%;
-	border: 1px solid #666;
-	padding: 10px 0 22px 0;
+	padding: 10px 0 22px 27px;
 }
 
-.content .contrast-box {
+.content .contrast-box,
+.content .car-list {
 	width: 180px;
 	height: 100%;
 	background: #F5F5F5;
 	float: left;
+	margin-right: 20px;
+	text-align: center;
 }
 
+.content .contrast-box .empty_cars {
+	width: 180px;
+	height: 110px;
+	margin-top: 48px;
+}
+
+.content .contrast-box .empty_cars .contrast-num {
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	background: #fff;
+	margin: 0 auto;
+	color: #EBEBED;
+	font-size: 40px;
+	line-height: 60px;
+}
+
+.content .contrast-box .empty_cars .contrast-title {
+	width: 96px;
+	height: 15px;
+	margin: 36px auto auto;
+	color: #878986;
+}
+
+.content .car-list .car-pic {
+	height: 120px;
+}
+
+.content .car-list .car-pic img {
+	width: 100%;
+	height: 100%;
+}
+
+.content .car-list .car-name {
+	height: 45px;
+	line-height: 20px;
+	padding: 0 6px;
+}
+
+.content .car-list .car-btn-ground {
+	margin-top: 10px;
+	padding: 0 10px;
+}

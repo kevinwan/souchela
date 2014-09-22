@@ -217,6 +217,11 @@
 	background: #fff;
 }
 
+.car-list .car-bar input {
+	position: relative;
+	top: 3px;
+}
+
 .car-list .car-bar .car-img {
 	height: 340px;
 	overflow: hidden;

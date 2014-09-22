@@ -119,7 +119,7 @@ class CarSource(models.Model):
         year = self.year
         criteria = [Q(price__range=(price*0.85, price*1.15)), \
                     Q(year__range=(year-1, year+1))]
-        re_cars = CarSource.sale_cars.filter(*criteria)
+        re_cars = CarSource.sale_cars.filter(*criteria).exclude(pk=self.pk)
         return re_cars
 
 

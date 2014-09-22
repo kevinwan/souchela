@@ -402,6 +402,7 @@
 			</div>
 		</div>
 		<!-- 图片列表 end -->
+		{% if re_cars %}
 		<div class="recommend-list info">
 			<div class="i-title">看过的人又看了</div>
 			
@@ -432,6 +433,7 @@
 			
 			<div class="clear"></div>
 		</div>
+		{% endif %}
 		<div class="car-data">
 			<input type="hidden" id="eval-api" value="{{ EVAL_API_URL }}"/>
 			<input type="hidden" id="brand" value="{{ car.brand_slug }}"/>

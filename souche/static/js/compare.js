@@ -1,6 +1,6 @@
 function Compare(iframeName) {
 	this.iframeName = iframeName;
-	this.csrfValue = $("input[name='csrfmiddlewaretoken']").val();
+	this.csrfValue = $.cookie("csrftoken");
 }
 
 Compare.prototype.add = function(carId) {
@@ -32,7 +32,7 @@ Compare.prototype.setData = function(carId) {
 
 Compare.prototype.refresh = function() {
 	typeof this.iframeName === "undefined" ?
-		location.reload(true) :
+		location.reload(true):
 		top.frames[this.iframeName].location.reload(true);
 };
 
@@ -40,11 +40,11 @@ Compare.prototype.post = function(postUrl,postData) {
 	var refresh = this.refresh();
 	
 	$.ajax({
-		url:postUrl,
-		type:'post',
-		dataType:"json",
-		data:postData,
-		success:function(response) {
+		url: postUrl,
+		type: 'post',
+		dataType: "json",
+		data: postData,
+		success: function(response) {
 			if (response.success) {
 				(refresh)();
 			}

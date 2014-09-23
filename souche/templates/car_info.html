@@ -446,7 +446,6 @@
 			<input type="hidden" id="city" value="{{ car.city }}"/>
 			<input type="hidden" id="condition" value="{{ car.condition }}"/>
 		</div>
-		{% csrf_token %}
 	</div>
 		
 	<div id="order" class="order-content">
@@ -485,7 +484,6 @@ $(window).load(function() {
 	$('.flexslider').flexslider({
 		animation: "slide",
 	});
-
 });
 </script>
 {% endblock %}

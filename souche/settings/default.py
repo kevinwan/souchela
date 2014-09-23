@@ -118,6 +118,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'souche.apps.core.middlewares.SoucheSessionMiddleware',
+    'souche.apps.core.middlewares.EnsureCsrfCookieMiddleware',
 )
 
 ROOT_URLCONF = 'souche.urls'

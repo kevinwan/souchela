@@ -141,10 +141,10 @@ $(function(){
 			userPhone = $("#user-phone").val();
 			
 		var orderInfo = {
-			car_id : carId,
-			phone  : userPhone,
-			csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
-		}
+			car_id: carId,
+			phone: userPhone,
+			csrfmiddlewaretoken: $.cookie("csrftoken")
+		};
 			
 		var successTip = function() {
 			$("#order-form").hide();

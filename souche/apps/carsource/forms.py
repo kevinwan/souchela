@@ -18,8 +18,7 @@ class OrderCarForm(forms.Form):
 
     error_messages = {
         'car_not_exist': u'该车源不存在或已下线',
-        'car_not_object': u'车源不存在',
-        'order_already_exist': u'您已预约过该车源,请耐心等候，客服会尽快联系您！'
+        'car_not_object': u'车源不存在'
     }
 
     car_id = forms.IntegerField(required=True, \
@@ -40,18 +39,17 @@ class OrderCarForm(forms.Form):
 
     def clean(self):
         car = self.cleaned_data.pop('car_id')
-        phone = self.cleaned_data['phone']
         if not isinstance(car, CarSource):
             raise forms.ValidationError(self.error_messages['car_not_object'])
-        car_order = CarOrderRecord.objects.filter(car=car, phone=phone)
-        if car_order.exists():
-            raise forms.ValidationError(self.error_messages['order_already_exist'])
-
         self.cleaned_data.update({'car': car})
         return self.cleaned_data
         
     def save(self, commit=True):
-        car_order = CarOrderRecord(**self.cleaned_data)
-        if commit:
-            car_order.save()
+        car_order = CarOrderRecord.objects.filter(**self.cleaned_data)
+        if not car_order.exists():
+            car_order = CarOrderRecord(**self.cleaned_data)
+            if commit:
+                car_order.save()
+        else:
+            car_order = car_order[0]
         return car_order

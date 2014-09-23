@@ -66,7 +66,10 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
         car_ids = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
         cars = CarSource.sale_cars.filter(pk__in=car_ids)
         cars = self.get_car_detail_info(cars)
-        context.update({'contrast_cars': cars})
+        context.update({
+            'contrast_cars': cars,
+            'EVAL_API_URL': settings.EVALUATION_API_URL,
+        })
         return context
 
     def get_car_detail_info(self, cars):
@@ -81,6 +84,7 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
             car.total_cost = self.get_total_cost(car.price_bn, car.tax)
             car.save_money = self.get_save_money(car.total_cost, car.price)
             car.age = self.get_car_age(car.year, car.month)
+            car.condition = self.get_condition(car.condition_level)
         return cars
 
     def get_car_age(self, year, month):
@@ -97,6 +101,14 @@ class CarContrastDetailView(TemplateView, CarCostDetailMixin):
             else:
                 age = u'{month}个月'.format(month=month)
         return age
+
+    def get_condition(self, condition_level):
+        level = {
+            'A': u'优秀',
+            'B': u'较好',
+            'C': u'一般',
+        }
+        return level.get(condition_level, u'较好')
 
 
 class AddCarContrastView(View, AJAXResponseMixin):

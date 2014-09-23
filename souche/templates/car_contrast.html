@@ -2,7 +2,7 @@
 
 {% block title %}我的对比车辆 个人中心 搜车啦{% endblock %}
 {% block extra_css %}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/car_compare.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/car_contrast.css" />
 {% endblock %}
 
 {% block content %}
@@ -30,7 +30,7 @@
 						<i></i>车辆基本信息
 					</li>
 					<li class="car-pic">车辆图片</li>
-					<li class="default">大搜车价</li>
+					<li class="default">销售价格</li>
 					<li class="default">新车价</li>
 					<li class="default">为你省了</li>
 					<li class="default">公平价估值</li>
@@ -38,14 +38,26 @@
 					<li class="default">行驶里程</li>
 					<li class="default">排放标准</li>
 				</ul>
+				<input type="hidden" id="eval-api" value="{{ EVAL_API_URL }}"/>
 				{% for car in contrast_cars %}
-				<ul class="item fl">
+				<ul class="item fl car-data car{{ forloop.counter }}">
+					<input type="hidden" name="brand" value="{{ car.brand_slug }}"/>
+					<input type="hidden" name="model" value="{{ car.model_slug }}"/>
+					<input type="hidden" name="detail-model" value="{{ car.detail_model.slug }}"/>
+					<input type="hidden" name="volume" value="{{ car.volume }}"/>
+					<input type="hidden" name="year" value="{{ car.year }}"/>
+					<input type="hidden" name="month" value="{{ car.month }}"/>
+					<input type="hidden" name="mile" value="{{ car.mile|floatformat:"1" }}"/>
+					<input type="hidden" name="color" value="{{ car.color }}"/>
+					<input type="hidden" name="city" value="{{ car.city }}"/>
+					<input type="hidden" name="condition" value="{{ car.condition }}"/>
+
 					<li class="first-title car-name"><a href="{% url car_detail car.pk %}" target="_blank">{{ car.title }}</a></li>
 					<li class="car-pic"><img src="{{ IMG_URL }}{{ car.thumbnail }}?imageView/2/w/240" alt="{{ car.title }}" /></li>
 					<li class="default">{{ car.price }}万</li>
 					<li class="default">{{ car.price_bn }}万+{{ car.tax }}万（购置税）</li>
 					<li class="default">{{ car.save_money }}万</li>
-					<li class="default">——</li>
+					<li class="default"><a class="eval-price" href="#" target="_blank" class="fl"></a><img class="load-price" src="{{ STATIC_URL }}image/evaluate_load_1.gif" alt="公平价估值价格加载图片" /></li>
 					<li class="default">{{ car.year }}年{{ car.month }}月（{{ car.age }}车龄）</li>
 					<li class="default">{{ car.mile }}万公里</li>
 					<li class="default">{{ car.emission_standard|default:"——" }}</li>
@@ -116,6 +128,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script type="text/javascript" src="{{ STATIC_URL }}js/car_compare.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/car_contrast.js"></script>
 {% endblock %}
 

@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% load souche_filters %}
 
 {% block title %}我的对比车辆 个人中心 搜车啦{% endblock %}
 {% block extra_css %}
@@ -37,6 +38,10 @@
 					<li class="default">首次上牌</li>
 					<li class="default">行驶里程</li>
 					<li class="default">排放标准</li>
+					<li class="default">年检到期时间</li>
+					<li class="default">交强险到期时间</li>
+					<li class="default">商业险到期时间</li>
+					<li class="default">过户次数</li>
 				</ul>
 				<input type="hidden" id="eval-api" value="{{ EVAL_API_URL }}"/>
 				{% for car in contrast_cars %}
@@ -61,6 +66,10 @@
 					<li class="default">{{ car.year }}年{{ car.month }}月（{{ car.age }}车龄）</li>
 					<li class="default">{{ car.mile }}万公里</li>
 					<li class="default">{{ car.emission_standard|default:"——" }}</li>
+					<li class="default">{{ car.examine_insurance|year_month_zh }}</li>
+					<li class="default">{{ car.mandatory_insurance|year_month_zh }}</li>
+					<li class="default">{{ car.business_insurance|year_month_zh }}</li>
+					<li class="default">{% if car.transfer_owner == 0 %}{{ car.transfer_owner }}{% else %}{{ car.transfer_owner|default:"--" }}{% endif %}</li>
 				</ul>
 				{% endfor %}
 			

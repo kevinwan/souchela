@@ -9,7 +9,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.generic import View
 
-from souche.apps.carsource.mixin import CarCostDetailMixin
+from souche.apps.carsource.mixin import CarDetailInfoMixin
 from souche.apps.carsource.models import CarSource
 from souche.apps.carsource.tasks import record_car_source_contrast
 
@@ -52,7 +52,7 @@ class CarContrastPreviewListView(TemplateView):
         return context
 
 
-class CarContrastDetailView(TemplateView, CarCostDetailMixin):
+class CarContrastDetailView(TemplateView, CarDetailInfoMixin):
     ''' Compare car detail page.
 
     Request method: GET

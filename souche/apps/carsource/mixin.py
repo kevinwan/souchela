@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date
+
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
@@ -9,7 +11,8 @@ from souche.apps.carmodel.models import Model
 
 
 __all__ = [
-    'CarCostDetailMixin'
+    'CarCostDetailMixin',
+    'CarDetailInfoMixin'
 ]
 
 
@@ -56,3 +59,30 @@ class CarCostDetailMixin(object):
         discount_rate = float(list_price) / float(total_cost)
         discount_rate *= 100
         return round(discount_rate, 2)
+
+
+class CarDetailInfoMixin(CarCostDetailMixin):
+    ''' Get more detail information about car.'''
+
+    def get_car_age(self, year, month):
+        today = date.today()
+        buy_date = date(year, month, 1)
+        age = 0
+        if buy_date < today:
+            months = (today - buy_date).days / 30
+            age = months / 12
+            months = months % 12
+            if age > 0 and months >= 6:
+                age += 1
+                age = u'{age}年'.format(age=age)
+            else:
+                age = u'{month}个月'.format(month=month)
+        return age
+
+    def get_condition(self, condition_level):
+        level = {
+            'A': u'优秀',
+            'B': u'较好',
+            'C': u'一般',
+        }
+        return level.get(condition_level, u'较好')

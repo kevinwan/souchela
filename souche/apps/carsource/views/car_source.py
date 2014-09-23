@@ -18,7 +18,7 @@ from souche.apps.carmodel.rules import CAR_PARAMETERS
 from souche.apps.carmodel.rules import CAR_CONFIGURATIONS
 
 from souche.apps.carsource.forms import OrderCarForm
-from souche.apps.carsource.mixin import CarCostDetailMixin
+from souche.apps.carsource.mixin import CarDetailInfoMixin
 from souche.apps.carsource.models import CarSource
 from souche.apps.carsource.tasks import record_car_source_access
 
@@ -36,7 +36,7 @@ __all__ = [
 
 
 
-class SearchCarView(TemplateView, CarCostDetailMixin):
+class SearchCarView(TemplateView, CarDetailInfoMixin):
     ''' Search Car View.
 
     Request method: GET
@@ -140,7 +140,7 @@ class SearchCarView(TemplateView, CarCostDetailMixin):
         return model_dic
 
 
-class CarSourceDetailView(TemplateView, CarCostDetailMixin):
+class CarSourceDetailView(TemplateView, CarDetailInfoMixin):
     ''' Car source detail information view.
 
     Request method: GET

@@ -31,6 +31,10 @@
 	padding-top: 10px;
 }
 
+.suspension-content .sidebar li:hover {
+	color: #30A2D6;
+}
+
 .suspension-content .go-top {
 	border-left: 1px solid #E5E5E5;
 	color: #fff;
@@ -89,6 +93,7 @@
 .suspension-content .sidebar i {
 	height: 15px;
 	width:20px;
+	margin-bottom: 10px;
 }
 
 .suspension-content .take-of-qq i {

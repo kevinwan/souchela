@@ -143,6 +143,18 @@ $(function(){
 	},function(){
 		$(".filter-field-bar").hide();
 	});
+		
+	//加入对比
+	$(".car-list").find("input[name='add-compare']").click(function(){
+		var carId = $(this).parents(".car-bar").attr("id");
+		var compare = new Compare("car-compera");
+		
+		if ($(this).prop("checked")) {
+			compare.add(carId);
+		} else {
+			compare.del(carId);
+		}
+	});
 	
 	(function() {
 		$(".car-img").flexslider({
@@ -150,15 +162,4 @@ $(function(){
 			slideshow: false,
 		});
 	})();
-	
-	//加入对比
-	$(".car-list").find("input[name='add-compare']").click(function(){
-		var carId = $(this).parents(".car-bar").attr("id");
-		
-		if ($(this).prop("checked")) {
-			addCompare(carId);
-		} else {
-			delCompare(carId);
-		}
-	});
 });

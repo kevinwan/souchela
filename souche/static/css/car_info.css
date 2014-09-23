@@ -520,17 +520,20 @@ background-position: -211px -2px;
 	font-size: 14px;
 }
 
-.car-info .survey .car-surver-content .dealer-info .dealer-name {
-	width: 84px;
-	height: 57px;
-	border-right: 1px solid #d9d9d9;
-	padding: 8px 16px 0 0;
+.car-info .survey .car-surver-content .dealer-info .appointment-btn {
+	width: 160px;
+	height: 40px;
+	background: #2FA3D4;
+	color: #fff;
+	font-weight: bold;
+	line-height: 40px;
+	margin: 5px 18px 0 24px;
+	cursor: pointer;
 }
 
 .car-info .survey .car-surver-content .contact-dealer {
-	height: 56px;
-	width: 314px;
-	padding: 8px 0 0 36px;
+	border-left: 1px solid #ddd;
+	padding-left: 15px;
 }
 
 .car-info .survey .car-surver-content .dealer-info p {
@@ -763,4 +766,120 @@ background-position: -211px -2px;
 	top: 1px;
 	height: 22px;
 	line-height: 22px;
+}
+
+.order-content {
+	width: 436px;
+	height: 280px;
+	background: #fff;
+	position: fixed;
+	top: 40%;
+	left: 38%;
+	z-index: 9999;
+	display: none;
+}
+
+.order-content .order-title {
+	margin: 15px 12px 0 20px;
+}
+
+.order-content .order-title .cancel-order {
+	width: 12px;
+	height: 12px;
+	background: url(../image/order_car.png) scroll -21px -5px;;
+	cursor: pointer;
+	
+}
+
+.order-content .order-form p {
+	margin: 32px 0 40px 0;
+}
+
+.order-content .order-form input {
+	width: 258px;
+	height: 35px;
+}
+
+.input-phone {
+	display: block;
+	position: relative;
+	background: url(../image/order_car.png);
+	width: 16px;
+	height: 25px;
+	top: -102px;
+	left: 325px;
+}
+
+.order-content .order-submit {
+	width: 94px;
+	height: 40px;
+	background: #2FA3D4;
+	margin: 30px 0 0 88px;
+	line-height: 40px;
+	color: #fff;
+}
+
+.modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	z-index: 8888;
+	display: none;
+}
+
+.order-content .order-success {
+	margin: 0 auto;
+	width: 78%;
+	text-align: center;
+	display: none;
+}
+
+.order-content .order-success h1 {
+	margin-bottom: 12px;
+}
+
+.order-content .order-success p {
+	
+}
+
+.order-content .order-success .success-bg {
+	width: 48px;
+	height: 75px;
+	background: #FFFDAF;
+	margin: 32px auto 40px auto;
+}
+
+.order-content .error-info {
+	max-width: 320px;
+	height: 40px;
+	border: 1px solid #EA5E06;
+	background: #FFEFD5;
+	position: relative;
+	top: -67px;
+	left: 87px;
+	display: none;
+	font-size: 10px;
+}
+
+.order-content .error-info i {
+	display: inline-block;
+	position: relative;
+	width: 17px;
+	height: 17px;
+	background: url(../image/order_car.png) scroll -73px -28px;
+	top: 13px;
+	left: 10px;
+}
+
+.order-content .error-info span {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: 8px;
+	left: 16px;
 }

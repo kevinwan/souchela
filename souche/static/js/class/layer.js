@@ -106,13 +106,13 @@ SetGetParameter.prototype.setUrl = function(currentUrl,key,value) {
 		
 		for (var i in currentPara) {
 			kv = currentPara[i].split("=");
-			getPara[kv[0]] = kv[1] ? kv[1] : "";		
+			getPara[kv[0]] = kv[1] ? kv[1] : "";
 		}
 	}
 	
 	getPara[key] = value;
-	length = jsonLength(getPara);	
-			
+	length = jsonLength(getPara);
+	
 	for (var i in getPara) {
 		length = --length<0 ? 0 : length;
 		
@@ -132,6 +132,49 @@ function jsonLength(jsonData) {
 	return length;
 }
 
+//监控窗口滚动事件封装
+function layerScroll(offset,event1,event2) {
+	$(window).scroll(function() {
+		if($(window).scrollTop() > offset) {
+			(event1)();
+		}else {
+			(event2)();
+		}
+	});
+}
+
+//滚动窗口封装
+function scrollPage(yAxis) {
+	$("html, body").animate({scrollTop: yAxis});
+}
+
+//对话框
+function Dialog() {};
+
+Dialog.prototype.run = function(dialogEle,cancelBtn,modalEle) {
+	this.dialogEle = dialogEle;
+	this.cancelBtn = cancelBtn;
+	this.modalEle = modalEle;
+	
+	this.showDialog();
+	this.cancel();
+};
+
+Dialog.prototype.showDialog = function() {
+	$(this.dialogEle).show();
+	$(this.modalEle).show();
+};
+
+Dialog.prototype.cancel = function() {
+	var modal = this.modalEle,
+		dialogEle = this.dialogEle;
+	
+	$(this.cancelBtn).click(function(){
+		$(modal).hide();
+		$(dialogEle).hide();
+	});
+};
+
 //Tip
 var Tip = function(control,tipBox) {
 	this.control = control;
@@ -148,20 +191,4 @@ Tip.prototype._selfClosing = function (tipBox) {
 	},function(){
 		$(tipBox).fadeOut("fast");
 	});
-}
-
-//监控窗口滚动事件封装
-function layerScroll(offset,event1,event2) {
-	$(window).scroll(function() {
-		if($(window).scrollTop() > offset) {
-			(event1)();
-		}else {
-			(event2)();
-		}
-	});
-}
-
-//滚动窗口封装
-function scrollPage(yAxis) {
-	$("html, body").animate({scrollTop: yAxis});
 }

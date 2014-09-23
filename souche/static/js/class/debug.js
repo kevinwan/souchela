@@ -1,4 +1,4 @@
-function print(info) {
+function printf(info) {
 	var isIE6= !!window.ActiveXObject&&!window.XMLHttpRequest;
 	
 	if (!isIE6) {

@@ -115,9 +115,10 @@ $(function(){
 		var $mark = $("#contrast-mark"),
 			flag = $mark.css("display"),
 			carId = $(".main").attr("id");
+		var compare = new Compare("car-compera");
 		
 		flag=="none" ? $mark.show() : $mark.hide();
-		flag=="none" ? addCompare(carId) : delCompare(carId);
+		flag=="none" ? compare.add(carId) : compare.del(carId);
 	}
 	
 	//Tip
@@ -128,4 +129,58 @@ $(function(){
 	Transfer.selfClosing();
 	Mandatory.selfClosing();
 	Business.selfClosing();
+	
+	//预约
+	$("#appointment").click(function(){
+		var dialog = new Dialog();
+		dialog.run("#order","#cancel-order",".modal");
+	});
+	
+	$("#order-submit").click(function(){
+		var carId = $(".main").attr("id"),
+			userPhone = $("#user-phone").val();
+			
+		var orderInfo = {
+			car_id : carId,
+			phone  : userPhone,
+			csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
+		}
+			
+		var successTip = function() {
+			$("#order-form").hide();
+			$("#order-success").show();
+			
+			setTimeout(function(){
+				$("#order").hide();
+				$(".modal").hide();
+			},3000);
+		};
+		
+		var showError = function(errInfo) {
+			var $errEle = $("#order").find(".error-info");
+			$errEle.show();
+			$errEle.find("span").text(errInfo);
+			
+			setTimeout(function(){
+				$("#order").find(".error-info").fadeOut("normal");
+			},2000);
+		};
+		
+		$.ajax({
+			url:"/car/order/add/",
+			type:"post",
+			dataType:"json",
+			data:orderInfo,
+			success:function(response){
+				if (response.status === "success") {
+					successTip();
+				} else {
+					showError(response.msg);
+				}
+			},
+			error:function(){
+				showError("请稍后再试！");
+			}
+		});
+	});
 });

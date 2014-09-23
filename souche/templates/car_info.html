@@ -87,13 +87,12 @@
 					
 					<div class="dealer-info f-gray">
 						<div class="fl dealer-name tar">
-							<p>商家</p>
-							<p>{{ car.company_name }}</p>
+							<div id="appointment" class="appointment-btn tac">预约</div>
 						</div>
 						
 						<div class="contact-dealer fl tal">
-							<p class="phone"><i></i>{{ car.phone }}</p>
-							<p class="address"><i></i>看车地点：{{ car.region }}</p>
+							<p>商家</p>
+							<p><strong class="f-dark">{{ car.company_name }}</strong></p>
 						</div>
 						
 						<div class="clear"></div>
@@ -449,6 +448,31 @@
 		</div>
 		{% csrf_token %}
 	</div>
+		
+	<div id="order" class="order-content">
+		<div class="order-title">
+			<h4 class="fl">预约看车</h4>
+			
+			<div id="cancel-order" class="cancel-order fr"></div>
+			
+			<div class="clear"></div>
+		</div>
+
+		<div id="order-form" class="order-form tac">
+			<p>留下您的号码，搜车啦客服将会在30分钟内联系</p>
+			<input type="text" id="user-phone" value="" />
+			<div id="order-submit" class="order-submit">预约</div>
+		</div>
+		<i class="input-phone"></i>
+		<div id="order-success" class="order-success">
+			<div class="success-bg"></div>
+			<h1>预约成功！</h1>
+			<p class="f-gray">搜车啦客服会联系您，与您确定最方便的时间！</p>
+		</div>
+		
+		<div class="error-info"><i></i><span class="f-orange"></span></div>
+	</div>
+	<div class="modal"></div>
 </div>
 {% endblock %}
 

@@ -64,7 +64,8 @@
 }
 
 .filter-bar a {
-	color: #3c3c3c;
+	font-size: 12px;
+	color: #666666;
 }
 
 .filter-bar dl {
@@ -73,6 +74,7 @@
 }
 
 .filter-bar dt {
+	font-size: 14px;
 	line-height: 35px;
 	height: 35px;
 }
@@ -181,6 +183,9 @@
 }
 .select-color .cj {
 	background: #fff;
+	border-top: 1px solid #E5E5E7;
+	border-bottom: 1px solid #E5E5E7;
+	height: 14px;
 }
 .select-color .ck {
 	background: #000;
@@ -199,12 +204,12 @@
 }
 
 .mile input,
-.volume input {
+.control input {
 	width: 218px;
 	height: 25px;
 }
 
-.filter-bar .volume {
+.filter-bar .control {
 	border: none;
 }
 
@@ -240,10 +245,11 @@
 
 .car-list .car-bar .car-img h4 {
 	position: absolute;
-	margin-top: 300px;
+	margin-top: 295px;
 	z-index: 9;
 	text-align: center;
 	width: 100%;
+	font-weight: 100;
 }
 
 .car-list .car-bar .car-img h4 a {
@@ -306,7 +312,7 @@
 }
 
 .car-list .car-bar .sell-price strong {
-	font-size: 24px;
+	font-size: 30px;
 	margin:  0 2px;
 }
 
@@ -514,7 +520,7 @@
 }
 
 .filter-field-bar .filter-field {
-	width: 773px;
+	width: 950px;
 	height: 100%;
 	font-size: 14px;
 }
@@ -534,11 +540,12 @@
 
 .filter-field-bar .filter-field a {
 	display: block;
-	border: 1px solid #fff;
+	border: 1px solid #d9d9d9;
+	color: #666666;
 	height: 25px;
 	margin-top: 13px;
 	line-height: 25px;
-	background: #f0f0f0;
+	background: #f9f9f9;
 	padding: 0 5px;
 }
 

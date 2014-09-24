@@ -191,10 +191,10 @@
 						</dd>
 					</dl>
 					
-					<dl class="volume">
+					<dl class="control">
 						<dt>变速箱</dt>
 						<dd>
-							<input text="text" id="car-volume"/><i></i>
+							<input text="text" id="car-control"/><i></i>
 						</dd>
 					</dl>
 					
@@ -219,7 +219,7 @@
 							<div class="car-info fl">
 								<ul>
 									<li>
-										<span>{{ car.year }}/{{ car.month }}上牌</span>|
+										<span>{{ car.year }}年{{ car.month }}月上牌</span>|
 										<span>{{ car.mile }}万公里</span>|
 										<span>{{ car.control }}</span>
 									</li>
@@ -260,68 +260,28 @@
 		<div class="f-content">
 			<div class="fl filter-field">
 				<dl>
+					{% if filter_conditions %}
 					<dt>您的选择：</dt>
+					{% for filter in filter_conditions %}
 					<dd>
-						<a href="#">
-							<span class="label">宝马</span>
+						<a href="{% generate_search_link filter.slug "" %}">
+							<span class="label">{{ filter.condition }}</span>
 							<span class="closed"></span>
 							
 							<div class="clear"></div>
 						</a>
 					</dd>
-					
+					{% endfor %}					
 					<dd>
-						<a href="#">
-							<span class="label">5-8万</span>
-							<span class="closed"></span>
-							
-							<div class="clear"></div>
-						</a>
-					</dd>
-					
-					<dd>
-						<a href="#">
-							<span class="label">SUV</span>
-							<span class="closed"></span>
-							
-							<div class="clear"></div>
-						</a>
-					</dd>
-					
-					<dd>
-						<a href="#">
-							<span class="label">白色</span>
-							<span class="closed"></span>
-							
-							<div class="clear"></div>
-						</a>
-					</dd>
-					
-					<dd>
-						<a href="#">
-							<span class="label">5万公里内</span>
-							<span class="closed"></span>
-							
-							<div class="clear"></div>
-						</a>
-					</dd>
-					
-					<dd>
-						<a href="#">
-							<span class="label">手动</span>
-							<span class="closed"></span>
-							
-							<div class="clear"></div>
-						</a>
-					</dd>
-					
-					<dd>
-						<a href="#">
+						<a href="{% url search_car %}">
 							<span class="label">清除所有</span>
 							<div class="clear"></div>
 						</a>
 					</dd>
 					<div class="clear"></div>
+					{% else %}
+					<dt>共有{{ amount }}辆车</dt>
+					{% endif %}
 				</dl>
 			</div>
 			<!--已过滤的条件 end-->
@@ -329,11 +289,23 @@
 			<!-- 排序 begin -->
 			<div class="fr sort-btn-ground">
 				<ul>
-						<li>默认<i class="default"></i></li>
-						<li>价格<i class="default"></i></li>
-						<li>里程<i class="default"></i></li>
-						
-						<div class="clear"></div>
+					<li><a href="{% generate_search_link "sort" "" %}" {% if sort not in sort_type %}class=""{% endif %}>默认</a></li>
+					{% if sort == "price" %}
+					<li><a href="{% generate_search_link "sort" "-price" %}" title="价格从低到高排序">价格</a><i class="asc"></i></li>
+					{% elif sort == "-price" %}
+					<li><a href="{% generate_search_link "sort" "price" %}" title="价格从高到低排序">价格</a><i class="des"></i></li>
+					{% else %}
+					<li><a href="{% generate_search_link "sort" "price" %}" title="价格从低到高排序">价格</a><i class="default"></i></li>
+					{% endif %}
+					{% if sort == "mile" %}
+					<li><a href="{% generate_search_link "sort" "-mile" %}" title="里程从低到高排序">里程</a><i class="asc"></i></li>
+					{% elif sort == "-mile" %}
+					<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从高到低排序">里程</a><i class="des"></i></li>
+					{% else %}
+					<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从低到高排序">里程</a><i class="default"></i></li>
+					{% endif %}
+					
+					<div class="clear"></div>
 				</ul>
 			</div>
 			<!-- 排序 end -->

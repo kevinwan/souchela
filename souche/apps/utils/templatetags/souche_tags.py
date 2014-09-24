@@ -24,7 +24,7 @@ def pagination_for(context, page):
 @register.simple_tag(takes_context=True)
 def generate_search_link(context, param, value):
     ''''''
-    search_params = ('brand', 'model', 'price', 'min_year', 'max_year', 'category', \
+    search_params = ('brand', 'model', 'price', 'year', 'category', \
                 'color', 'mile', 'control', 'sort')
     if param not in search_params:
         return ''

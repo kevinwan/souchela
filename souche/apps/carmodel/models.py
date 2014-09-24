@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
+from django.core.cache import cache
 from django.db import models
+from django.db.models import Q
 
 from souche.apps.carmodel.fields import PriceField
 from souche.apps.carmodel.fields import VolumeField
@@ -63,6 +65,18 @@ class Brand(models.Model):
     def get_models_by_brand_slug(cls, brand_slug):
         brand = cls.objects.get(slug=brand_slug)
         return brand.models.all().order_by('pinyin')
+
+    @classmethod
+    def get_brand_by_slug(cls, brand_slug):
+        cache_key = 'brand_' + brand_slug
+        brand = cache.get(cache_key, None)
+        if brand is None:
+            try:
+                brand = cls.objects.get(slug=brand_slug)
+            except cls.DoesNotExist:
+                pass
+            cache.set(cache_key, brand)
+        return brand
 
 
 class Model(models.Model):
@@ -133,6 +147,23 @@ class Model(models.Model):
         else:
             models = cls.objects.filter(classification=classification)
         return models
+
+    @classmethod
+    def get_model_by_slug(cls, brand, model_slug):
+        cache_key = 'model_' + model_slug
+        model = cache.get(cache_key, None)
+        if model is None:
+            criteria = [Q(slug=model_slug)]
+            if isinstance(brand, Brand):
+                criteria.append(Q(brand=brand))
+            else:
+                criteria.append(Q(brand__slug=brand))
+            try:
+                model = cls.objects.get(*criteria)
+            except cls.DoesNotExist:
+                pass
+            cache.set(cache_key, model)
+        return model
 
 
 class DetailModel(models.Model):

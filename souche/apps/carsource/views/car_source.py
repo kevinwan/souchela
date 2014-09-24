@@ -3,6 +3,7 @@
 from datetime import date
 
 from django.conf import settings
+from django.core.cache import cache
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.generic import FormView
@@ -12,6 +13,7 @@ from souche.apps.core.mixin import AJAXResponseMixin
 
 from souche.apps.carmodel.models import Brand
 from souche.apps.carmodel.models import ConfigParameter
+from souche.apps.carmodel.models import Model
 from souche.apps.carmodel.rules import CLASSIFICATION
 from souche.apps.carmodel.rules import TRANSMISSION
 from souche.apps.carmodel.rules import CAR_PARAMETERS
@@ -44,8 +46,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
     -brand: brand slug.
     -model: model slug.
     -price: price range, e.g. 4-10, 0-5.
-    -min_year: year min range.
-    -max_year: year max range.
+    -year: year range, e.g. 2011-2014.
     -category: car category => classification.
     -color: color Chinese.
     -mile: mileage range, e.g. 0-5.
@@ -63,11 +64,12 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         model_dic = {}
         get_param = self.request.GET.copy()
         criteria = []
-        brand = get_param.get('brand', '')
-        model = get_param.get('model', '')
+        filter_conditions = []
+        brand = None
+        brand_slug = get_param.get('brand', '')
+        model_slug = get_param.get('model', '')
         price = get_param.get('price', '')
-        min_year = get_param.get('min_year', '')
-        max_year = get_param.get('max_year', '')
+        year = get_param.get('year', '')
         classification = get_param.get('category', '')
         color = get_param.get('color', '')
         mile = get_param.get('mile', '')
@@ -75,32 +77,69 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         sort = get_param.get('sort', '-time')
         page = get_param.get('page', '')
 
-        if brand:
-            criteria.append(Q(brand_slug=brand))
-            model_dic = self.get_models_of_brand(brand)
-        if model:
-            criteria.append(Q(model_slug=model))
+        if brand_slug:
+            brand = Brand.get_brand_by_slug(brand_slug)
+            if brand:
+                criteria.append(Q(brand_slug=brand_slug))
+                model_dic = self.get_models_of_brand(brand)
+                filter_conditions.append({
+                    'condition': brand.name,
+                    'slug': 'brand'
+                })
+        if brand and model_slug:
+            model = Model.get_model_by_slug(brand, model_slug)
+            if model:
+                criteria.append(Q(model_slug=model_slug))
+                filter_conditions.append({
+                    'condition': model.name,
+                    'slug': 'model'
+                })
         if price:
             price_range = price.split('-')
             min_price, max_price = map(int, price_range)
             criteria.append(price__range=(min_price, max_price))
-        if min_year:
-            criteria.append(year__gte=min_year)
-        if max_year:
-            criteria.append(year__lte=max_year)
+            filter_conditions.append({
+                'condition': u'{price}万'.format(price=price),
+                'slug': 'price'
+            })
+        if year:
+            year_range = year.split('-')
+            min_year, max_year = map(int, year_range)
+            criteria.append(Q(year__range=(min_year, max_year)))
+            filter_conditions.append({
+                'condition': year,
+                'slug': 'year'
+            })
         classifications = CLASSIFICATION.get(classification, '')
         if classifications:
             criteria.append(Q(classification__in=classifications))
+            filter_conditions.append({
+                'condition': classification,
+                'slug': 'category'
+            })
         if color:
             criteria.append(Q(color=color))
+            filter_conditions.append({
+                'condition': color,
+                'slug': 'color'
+            })
         if mile:
             mile_range = mile.split('-')
             min_mile, max_mile = map(int, mile_range)
             criteria.append(Q(mile__range=(min_mile, max_mile)))
+            filter_conditions.append({
+                'condition': u'{min_mile}-{max_mile}万公里'.format(\
+                            min_mile=min_mile, max_mile=max_mile),
+                'slug': 'mile'
+            })
         if control:
-            control = TRANSMISSION.get(control, None)
-            if control:
-                criteria.append(Q(control__in=control))
+            controls = TRANSMISSION.get(control, None)
+            if controls:
+                criteria.append(Q(control__in=controls))
+            filter_conditions.append({
+                'condition': control,
+                'slug': 'control'
+            })
         if sort not in self.SORT_TYPE:
             sort = '-time'
         fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \
@@ -119,23 +158,31 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         context.update({
             'cars': cars,
             'amount': cars.paginator.count,
+            'filter_conditions': filter_conditions,
             'brand': brand,
-            'model_dic': model_dic
+            'model_dic': model_dic,
+            'sort': sort,
+            'sort_type': self.SORT_TYPE[:-2]
         })
 
         return context
 
     def get_models_of_brand(self, brand):
-        if isinstance(brand, Brand):
-            models = brand.get_models()
-        else:
-            models = Brand.get_models_by_brand_slug(brand)
-        model_dic = {}
-        for m in models:
-            if m.manufactor in model_dic:
-                model_dic[m.manufactor].append(m)
+        brand_slug = brand.slug if hasattr(brand, 'slug') else brand
+        cache_key = brand_slug + '_models'
+        model_dic = cache.get(cache_key, None)
+        if model_dic is None:
+            if isinstance(brand, Brand):
+                models = brand.get_models()
             else:
-                model_dic[m.manufactor] = [m, ]
+                models = Brand.get_models_by_brand_slug(brand)
+            model_dic = {}
+            for m in models:
+                if m.manufactor in model_dic:
+                    model_dic[m.manufactor].append(m)
+                else:
+                    model_dic[m.manufactor] = [m, ]
+            cache.set(cache_key, model_dic)
 
         return model_dic
 

@@ -2,7 +2,7 @@ $(function(){
 	var plateStart =  "#plate-start-time .start-time";
 	var plateEnd = "#plate-end-time .end-time";
 	var carMileEle = "#car-mile";
-	var volumeEle = "#car-volume";
+	var controlEle = "#car-control";
 	
 	//上牌时间下拉框生成
 	var TimePlate = function(inputEle) {
@@ -61,12 +61,12 @@ $(function(){
 		$(this.listBox).append(li);
 	};
 	
-	var CarVolumeList = function(inputEle) {
+	var CarControlList = function(inputEle) {
 		this.init(inputEle);
 	};
 
-	CarVolumeList.prototype = new DropDownList();
-	CarVolumeList.prototype.setList = function() {
+	CarControlList.prototype = new DropDownList();
+	CarControlList.prototype.setList = function() {
 		var html;
 		
 		for (var i=0; i<3; i++) {
@@ -79,7 +79,7 @@ $(function(){
 			}
 			
 			var a = $("<a>",{
-				"href": this.SetATag.setUrl(this.url,"volume",html),
+				"href": this.SetATag.setUrl(this.url,"control",html),
 				"html": html
 			});
 			
@@ -91,14 +91,14 @@ $(function(){
 	var StartTimePlate = new TimePlate(plateStart);
 	var EndTimePlate = new TimePlate(plateEnd);
 	var CarMile = new CarMileList(carMileEle);
-	var CarVolume = new CarVolumeList(volumeEle);
+	var CarControl = new CarControlList(controlEle);
 	var BrandList = new SetBrandList();
 	var SelectSlug = new DropDownList();
 	
 	StartTimePlate.setList("start");
 	EndTimePlate.setList("end");	
 	CarMile.setList(1,8,2);
-	CarVolume.setList();
+	CarControl.setList();
 	
 	SelectSlug.init("#select-slug",".slug-list dl");
 	

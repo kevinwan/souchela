@@ -97,7 +97,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         if price:
             price_range = price.split('-')
             min_price, max_price = map(int, price_range)
-            criteria.append(price__range=(min_price, max_price))
+            criteria.append(Q(price__range=(min_price, max_price)))
             filter_conditions.append({
                 'condition': u'{price}万'.format(price=price),
                 'slug': 'price'

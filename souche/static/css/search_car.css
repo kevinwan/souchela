@@ -113,12 +113,18 @@
 .range-price .price-btn li {
 	height: 7px;
 	width: 11%;
-	background: #ccc;
 	margin-right: 2.5px;
 }
 
-.range-price .price-btn li:hover,
-.range-price .price-btn focus {
+.range-price .price-btn li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+}
+
+.range-price .price-btn a:hover,
+.range-price .price-btn .focus {
 	background: #2da3d3;
 	cursor: pointer;
 }
@@ -351,11 +357,10 @@
 	overflow: auto;
 	top: -788px;
 	left: 232px;
-	z-index: 1;
 	border: 1px solid #006599;
 	padding-left: 20px;
 	display: none;
-	z-index: 1;
+	z-index: 10;
 }
 
 .brand-list dd {
@@ -396,7 +401,7 @@
 	margin-left: -10px;
 	padding-left: 10px;
 	width: 231px;
-	z-index: 2;
+	z-index: 12;
 	background: #fff;
 }
 
@@ -404,16 +409,18 @@
 	position: absolute;
 	border: 1px solid #DDD;
 	background: #FFF;
-	height: 200px;
+	max-height: 300px;
 	overflow: auto;
-	width: 220px;
-	z-index: 7;
+	width: 500px;
+	z-index: 10;
+	padding: 0 10px;
 	display: none;
 }
 
 .slug-list dt {
 	float: none;
 	clear: both;
+	border-top: 1px solid #ddd;
 }
 
 .slug-list dd {
@@ -519,26 +526,32 @@
 	margin: 0 auto;
 }
 
-.filter-field-bar .filter-field {
+.filter-field-bar .filter-field,
+.filter-field {
 	width: 950px;
 	height: 100%;
 	font-size: 14px;
 }
 
 .filter-field-bar .filter-field dt,
-.filter-field-bar .filter-field dd{
+.filter-field-bar .filter-field dd,
+.filter-field dt ,
+.filter-field dd {
 	float: left;
 }
 
-.filter-field-bar .filter-field dd {
+.filter-field-bar .filter-field dd,
+.filter-field dd {
 	margin-right: 20px;
 }
 
-.filter-field-bar .filter-field dt {
+.filter-field-bar .filter-field dt
+.filter-field dt {
 	margin-left: 10px;
 }
 
-.filter-field-bar .filter-field a {
+.filter-field-bar .filter-field a,
+.filter-field a {
 	display: block;
 	border: 1px solid #d9d9d9;
 	color: #666666;
@@ -549,22 +562,26 @@
 	padding: 0 5px;
 }
 
-.filter-field-bar .filter-field a:hover {
+.filter-field-bar .filter-field a:hover,
+.filter-field a {
 	border: 1px solid #2DA3D3
 }
 
-.filter-field-bar .filter-field span {
+.filter-field-bar .filter-field span,
+.filter-field span {
 	display: block;
 	float: left;
 }
 
-.filter-field-bar .filter-field .closed {
+.filter-field-bar .filter-field .closed,
+.filter-field .closed {
 	height: 100%;
 	width: 20px;
 	background: url(../image/souchela1.png) scroll -105px -40px;
 }
 
-.filter-field-bar .filter-field .label {
+.filter-field-bar .filter-field .label,
+.filter-field .label {
 	padding: 0 5px;
 }
 
@@ -576,4 +593,22 @@
 .filter-field-bar .sort-btn-ground ul {
 	margin-top: 14px;
 	text-align: center;
+}
+
+a:hover {
+	color: #2FA3D4;
+}
+
+.filter-active {
+	color: #2FA3D4;
+}
+
+.status .filter-field {
+	width: 850px;
+	line-height: 45px;
+	
+}
+
+.status .filter-field a {
+	margin-top: 10px;
 }

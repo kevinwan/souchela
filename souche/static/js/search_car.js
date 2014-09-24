@@ -4,6 +4,15 @@ $(function(){
 	var carMileEle = "#car-mile";
 	var controlEle = "#car-control";
 	
+	(function(){
+		if ($(plateEnd).val() === '') {
+			var date = new Date(),
+				thisYear = date.getFullYear();
+				
+			$(plateEnd).val(thisYear)
+		}
+	})();
+	
 	//上牌时间下拉框生成
 	var TimePlate = function(inputEle) {
 		this.init(inputEle);
@@ -19,6 +28,7 @@ $(function(){
 		if (type !== "end" || $("#plate-start-time .start-time").val()==="") {
 			lastYear = thisYear - 15;
 		} else {
+			$(this.inputEle).val(thisYear);
 			lastYear = $("#plate-start-time .start-time").val();
 		}
 		
@@ -155,6 +165,17 @@ $(function(){
 			compare.del(carId);
 		}
 	});
+	
+	$("#custom-price").click(function(){
+		var minPrice = $("input[name='start_price']").val(),
+			maxPrice = $("input[name='end_price']").val(),
+			thisUrl = window.location.href;
+		
+		var jumpUrl = new SetGetParameter();
+		jumpLink = jumpUrl.setUrl(thisUrl, "price", minPrice+"-"+maxPrice);
+		
+		window.location.href = jumpLink;
+	})
 	
 	(function() {
 		$(".car-img").flexslider({

@@ -87,7 +87,7 @@
 					
 					<div class="dealer-info f-gray">
 						<div class="fl dealer-name tar">
-							<div id="appointment" class="appointment-btn tac">预约</div>
+							<div id="appointment" class="appointment-btn tac">预约看车</div>
 						</div>
 						
 						<div class="contact-dealer fl tal">
@@ -165,6 +165,8 @@
 					<li class="nav-btn"><a class="lasta" href="#car-img-list">车辆图片</a></li>
 					<li class="last"></li>
 				</ul>
+				
+				<div class="clear"></div>
 			</div>
 			
 			<div class="clear"></div>
@@ -416,7 +418,7 @@
 						<div class="car-price f-orange">
 							<span class="price">￥<strong class="tangerine">{{ re_car.price }}</strong>万</span>
 							{% if re_car.total_cost %}
-							<span class="f-gray">新车价<del>￥{{ re_car.total_cost }}万</del></span>
+							<span class="f-gray sale">新车价<del>￥{{ re_car.total_cost }}万</del></span>
 							{% endif %}
 						</div>
 						

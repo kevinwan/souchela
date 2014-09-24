@@ -140,38 +140,34 @@
 	width: 145px;
 	float: left;
 	height: 50px;
-	border-top: 2px solid #efefef;
+	line-height: 50px;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.base-info .nav li:hover,
+.base-info .nav .focus {
+	border-bottom: 1px solid #fff;
+}
+
+.base-info .nav .focus a,
+.base-info .nav a:hover {
+	border-top: 5px solid #2fa3d4;
+	background: #fff;
+	border-bottom: 5px solid #FFF;
 }
 
 .base-info .nav a {
 	display: block;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 5px;
 	border-right: 1px solid #ddd;
+	border-top: 5px solid #F6F6F6;
+	border-bottom: 5px solid #F6F6F6;
+	height: 40px;
 }
 
-.base-info .nav li .lasta {
-	border: none;
+.base-info .nav .last {
+	width: 463px;
 }
 
-.base-info .nav .focus,
-.base-info .nav .nav-btn:hover {
-	background: #fff;
-	border: none;
-	border-top: 2px solid #2fa3d4;
-	border-right: 1px solid #dcdcdc;
-}
-
-.base-info .nav .last,
-.base-info .nav .last:hover {
-	width: 461px;
-}
-
-.base-info .nav .focus a,
-.base-info .nav li:hover a {
-	border: none;
-}
 
 .base-info .base-content {
 	height: 316px;
@@ -291,7 +287,7 @@ background-position: -211px -2px;
 }
 
 .price-info .price strong {
-	font-size: 24px;
+	font-size: 32px;
 	margin: 0 5px;
 }
 
@@ -374,7 +370,6 @@ background-position: -211px -2px;
 	height: 280px;
 	border: 1px solid #ddd;
 	background: #fff;
-	padding-right: 332px;
 }
 
 .dealer-address .dealer-address-content {
@@ -433,11 +428,12 @@ background-position: -211px -2px;
 
 .price-analysis .analysis-content .evaluate-range {
 	position: relative;
-	width: 131px;
+	width: 153px;
 	height:25px;
 	line-height: 25px;
 	top: 109px;
-	left: 233px;
+	left: 220px;
+	font-size: 14px;
 }
 
 .price-analysis .analysis-content .analysis-diagram .total-cost {
@@ -514,10 +510,13 @@ background-position: -211px -2px;
 	border-left: 1px solid #C4C4C4;
 	text-align: left;
 	height: 45px;
-	width: 19%;
+	width: auto;
+	margin: 0 8px;
 	line-height: 24px;
 	text-indent: 10px;
 	font-size: 14px;
+	word-break: keep-all;
+	overflow: hidden;
 }
 
 .car-info .survey .car-surver-content .dealer-info .appointment-btn {
@@ -530,6 +529,11 @@ background-position: -211px -2px;
 	margin: 5px 18px 0 24px;
 	cursor: pointer;
 }
+
+.car-info .survey .car-surver-content .dealer-info .appointment-btn:hover {
+	background:#40BAF5;
+}
+
 
 .car-info .survey .car-surver-content .contact-dealer {
 	border-left: 1px solid #ddd;
@@ -564,6 +568,7 @@ background-position: -211px -2px;
 .recommend-list .recommend-content .car-img {
 	width: 266px;
 	height: 215px;
+	overflow: hidden;
 }
 
 .recommend-list .recommend-content .car-img img {
@@ -573,10 +578,15 @@ background-position: -211px -2px;
 .recommend-list .recommend-content .car-name {
 	font-weight: bold;
 	margin-bottom: 10px;
+	height: 36px;
 }
 
 .recommend-list .recommend-content .car-price strong {
-	font-size: 20px;
+	font-size: 22px;
+}
+
+.recommend-list .recommend-content .car-price .sale {
+	font-size: 14px;
 }
 
 .recommend-list .recommend-content .car-price .price {
@@ -590,7 +600,7 @@ background-position: -211px -2px;
 .recommend-list .recommend-content .introduction span {
 	border-right: 1px solid #BDBDBD;
 	display: inline-block;
-	padding: 0 8px;
+	padding: 0px 4px;
 	font-size: 14px;
 	color: #3C3C3C;
 }
@@ -719,7 +729,7 @@ background-position: -211px -2px;
 
 #mandatory-tip {
 	top: -145px;
-	left: 200px;
+	left: 168px;
 }
 
 #mandatory-tip i {
@@ -728,7 +738,7 @@ background-position: -211px -2px;
 }
 
 #business-tip {
-	left: 215px;
+	left: 182px;
 	top: -95px;
 }
 
@@ -817,6 +827,11 @@ background-position: -211px -2px;
 	margin: 30px 0 0 88px;
 	line-height: 40px;
 	color: #fff;
+	cursor: pointer;
+}
+
+.order-content .order-submit:hover {
+	background:#40BAF5;
 }
 
 .modal {
@@ -850,7 +865,7 @@ background-position: -211px -2px;
 .order-content .order-success .success-bg {
 	width: 48px;
 	height: 75px;
-	background: #FFFDAF;
+	background: url(../image/order_success.png) no-repeat;
 	margin: 32px auto 40px auto;
 }
 

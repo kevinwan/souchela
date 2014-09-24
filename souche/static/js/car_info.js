@@ -77,7 +77,7 @@ $(function(){
 			evalError();
 		}
 	});
-	
+		
 	//悬浮导航
 	layerScroll(900,function(){
 		$(".base-info .nav").css({
@@ -92,7 +92,7 @@ $(function(){
 			});
 		}
 	);
-	
+		
 	$(".base-info .nav").find("li").click(function(){
 		var contentEle = $(this).find("a").attr("href");
 		
@@ -103,22 +103,18 @@ $(function(){
 	});
 	
 	//加入对比
-	$("#select-contrast").find("span").click(function(){
+	$("#select-contrast").click(function(){
 		carCompare();
 	});
-	
-	$("#contrast-mark").click(function(){
-		carCompare();
-	});
-	
+		
 	function carCompare() {
 		var $mark = $("#contrast-mark"),
 			flag = $mark.css("display"),
 			carId = $(".main").attr("id");
 		var compare = new Compare("car-compera");
 		
-		flag=="none" ? $mark.show() : $mark.hide();
-		flag=="none" ? compare.add(carId) : compare.del(carId);
+		flag == "none" ? $mark.show() && compare.add(carId)
+			: $mark.hide() && compare.del(carId);;
 	}
 	
 	//Tip
@@ -132,8 +128,14 @@ $(function(){
 	
 	//预约
 	$("#appointment").click(function(){
-		var dialog = new Dialog();
-		dialog.run("#order","#cancel-order",".modal");
+		if ($("#appointment").text() !== "已预约") {
+			var dialog = new Dialog();
+			dialog.run("#order","#cancel-order",".modal",function(){
+				$("#appointment").text("预约中...");
+			},function(){
+				$("#appointment").text() !== "已预约" ? $("#appointment").text("预约车量") : false;
+			});
+		}
 	});
 	
 	$("#order-submit").click(function(){
@@ -154,6 +156,8 @@ $(function(){
 				$("#order").hide();
 				$(".modal").hide();
 			},3000);
+			
+			$("#appointment").text("已预约");
 		};
 		
 		var showError = function(errInfo) {
@@ -164,6 +168,8 @@ $(function(){
 			setTimeout(function(){
 				$("#order").find(".error-info").fadeOut("normal");
 			},2000);
+			
+			$("#appointment").text("预约看车");
 		};
 		
 		$.ajax({
@@ -172,11 +178,7 @@ $(function(){
 			dataType:"json",
 			data:orderInfo,
 			success:function(response){
-				if (response.status === "success") {
-					successTip();
-				} else {
-					showError(response.msg);
-				}
+				response.status === "success" ? successTip() : showError(response.msg);
 			},
 			error:function(){
 				showError("请稍后再试！");

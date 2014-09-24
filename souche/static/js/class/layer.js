@@ -151,27 +151,43 @@ function scrollPage(yAxis) {
 //对话框
 function Dialog() {};
 
-Dialog.prototype.run = function(dialogEle,cancelBtn,modalEle) {
+Dialog.prototype.run = function(dialogEle,cancelBtn,modalEle,showFun,hideFun) {
 	this.dialogEle = dialogEle;
 	this.cancelBtn = cancelBtn;
 	this.modalEle = modalEle;
+	this.showFun = showFun;
+	this.hideFun = hideFun;
 	
 	this.showDialog();
 	this.cancel();
 };
 
 Dialog.prototype.showDialog = function() {
+	var windowWidth = $(document).width(),
+		windowHeight = $(window).height(),
+		dialogWidth = $(this.dialogEle).width(),
+		dialogheight = $(this.dialogEle).height();
+		
+	$(this.dialogEle).css({
+		"top" : (windowHeight-dialogheight)/2,
+		"left": (windowWidth-dialogWidth)/2
+	});
+	
 	$(this.dialogEle).show();
 	$(this.modalEle).show();
+	
+	(this.showFun)();
 };
 
 Dialog.prototype.cancel = function() {
 	var modal = this.modalEle,
-		dialogEle = this.dialogEle;
+		dialogEle = this.dialogEle,
+		hideFun = this.hideFun;
 	
 	$(this.cancelBtn).click(function(){
 		$(modal).hide();
 		$(dialogEle).hide();
+		(hideFun)();
 	});
 };
 

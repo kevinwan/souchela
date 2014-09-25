@@ -83,3 +83,13 @@ body {
 	margin-top: 10px;
 	padding: 0 10px;
 }
+
+a:hover {
+	transition: all .5s ease-in-out;
+	color: #2FA3D4;
+}
+
+.header .compare-btn a:hover {
+	transition: all .5s ease-in-out;
+	text-shadow: -1px 0px 1px #fff;
+}

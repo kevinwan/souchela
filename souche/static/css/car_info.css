@@ -153,6 +153,7 @@
 .base-info .nav a:hover {
 	border-top: 3px solid #2fa3d4;
 	border-bottom: 1px solid #FFFFFF;
+	transition: all .5s ease-in-out;
 	background: #fff;
 }
 
@@ -798,7 +799,11 @@ background-position: -211px -2px;
 	height: 12px;
 	background: url(../image/order_car.png) scroll -21px -5px;;
 	cursor: pointer;
-	
+}
+
+.order-content .order-title .cancel-order:hover {
+	transition: all 1s ease-in-out;
+	transform : rotate(360deg);
 }
 
 .order-content .order-form p {

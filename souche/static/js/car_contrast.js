@@ -76,4 +76,12 @@ $(function(){
 			"text-indent":"20%"
 		});
 	});
+	
+	var setMain = function(){
+		var itemTotal = $(".base-info .item").length,
+			itemWidth = $(".base-info .item").width();
+			
+		$(".main").width(itemWidth*itemTotal+188);
+	}();
+	
 });

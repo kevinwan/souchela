@@ -11,6 +11,10 @@
 }
 
 .pagination li:hover {
+	-webkit-transition:background-color 0.4s linear;
+	-moz-transition:background-color 0.4s linear;
+	-o-transition:background-color 0.4s linear;
+	transition:background-color 0.4s linear;
 	background-color: #006599;
 }
 
@@ -22,6 +26,7 @@
 	margin: 0 auto;
 	text-align: center;
 	color: #5f5f5f;
+	transition:color .4s ease-in-out;
 }
 
 .pagination a:hover {
@@ -76,5 +81,14 @@
 
 #dump-btn {
 	background: #336799;
+	color: #fff;
+}
+
+.pagination .current {
+	background-color: #006599;
+	color: #fff;
+}
+
+.pagination .current a {
 	color: #fff;
 }

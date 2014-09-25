@@ -60,7 +60,7 @@
 .car-list {
 	width: 928px;
 	color: #3c3c3c;
-	border: 1px solid #ddd;
+	margin-bottom: 30px;
 }
 
 .filter-bar a {

@@ -54,7 +54,7 @@ $(function(){
 		step = step ? step : 1;
 		for (var i=start; i<=end; i+=step) {
 			var a = $("<a>",{
-				"html" : i+"万里",
+				"html" : i+"万公里内",
 				"href" : this.SetATag.setUrl(this.url,"mile","0-"+i)
 			});
 			
@@ -175,7 +175,7 @@ $(function(){
 		jumpLink = jumpUrl.setUrl(thisUrl, "price", minPrice+"-"+maxPrice);
 		
 		window.location.href = jumpLink;
-	})
+	});
 	
 	(function() {
 		$(".car-img").flexslider({

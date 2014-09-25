@@ -32,7 +32,9 @@
 }
 
 .suspension-content .sidebar li:hover {
+	transition: all .5s ease-in-out;
 	color: #30A2D6;
+	background: #FFF;
 }
 
 .suspension-content .go-top {
@@ -73,6 +75,11 @@
 	margin: 14px;
 	cursor: pointer;
 	background-position: -69px -4px;
+}
+
+.suspension-content .sidebar-hide-layer .closed:hover {
+	transition: all 1s ease-in-out;
+	transform: rotate(360deg);
 }
 
 .suspension-content .go-top i,

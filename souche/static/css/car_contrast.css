@@ -95,8 +95,9 @@
 }
 
 .base-info .car-pic {
-	padding-bottom: 80px;
-	padding-top: 80px;
+	height: 160px;
+	line-height: 160px;
+	overflow: hidden;
 }
 
 .base-info .item li,
@@ -105,6 +106,11 @@
 	text-indent: 10%;
 	background: #fff;
 	width: 248.5px
+}
+
+.base-info .item .car-name {
+	line-height: 24px;
+	text-align: center;
 }
 
 .base-info .item .default,

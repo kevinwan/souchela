@@ -23,7 +23,8 @@ def pagination_for(context, page):
 
 @register.simple_tag(takes_context=True)
 def generate_search_link(context, param, value):
-    ''''''
+    ''' Generate search link.'''
+
     search_params = ('brand', 'model', 'price', 'year', 'category', \
                 'color', 'mile', 'control', 'sort')
     if param not in search_params:
@@ -38,3 +39,13 @@ def generate_search_link(context, param, value):
         querystring.pop('model')
 
     return ''.join(('?', querystring.urlencode()))
+
+
+@register.simple_tag(takes_context=True)
+def activate_filter_condition(context, param, value):
+    ''' Activate filter condition.'''
+
+    querystring = context['request'].GET.copy()
+    if (param in querystring) and (value == querystring.pop(param)[0]):
+        return 'class="focus"'
+    return ''

@@ -42,18 +42,18 @@
 				
 				<div class="filter sort-btn-ground fr">
 					<ul>
-						<li><a href="{% generate_search_link "sort" "" %}" {% if sort not in sort_type %}class="filter-active"{% endif %}>默认</a></li>
+						<li><a href="{% generate_search_link "sort" "" %}" {% if sort not in sort_type %}class="focus"{% endif %}>默认</a></li>
 						{% if sort == "price" %}
-						<li><a href="{% generate_search_link "sort" "-price" %}" title="价格从低到高排序">价格</a><i class="asc"></i></li>
+						<li><a href="{% generate_search_link "sort" "-price" %}" title="价格从低到高排序" class="focus">价格</a><i class="asc"></i></li>
 						{% elif sort == "-price" %}
-						<li><a href="{% generate_search_link "sort" "price" %}" title="价格从高到低排序">价格</a><i class="des"></i></li>
+						<li><a href="{% generate_search_link "sort" "price" %}" title="价格从高到低排序" class="focus">价格</a><i class="des"></i></li>
 						{% else %}
 						<li><a href="{% generate_search_link "sort" "price" %}" title="价格从低到高排序">价格</a><i class="default"></i></li>
 						{% endif %}
 						{% if sort == "mile" %}
-						<li><a href="{% generate_search_link "sort" "-mile" %}" title="里程从低到高排序">里程</a><i class="asc"></i></li>
+						<li><a href="{% generate_search_link "sort" "-mile" %}" title="里程从低到高排序" class="focus">里程</a><i class="asc"></i></li>
 						{% elif sort == "-mile" %}
-						<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从高到低排序">里程</a><i class="des"></i></li>
+						<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从高到低排序" class="focus">里程</a><i class="des"></i></li>
 						{% else %}
 						<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从低到高排序">里程</a><i class="default"></i></li>
 						{% endif %}
@@ -76,29 +76,29 @@
 						</dt>
 						
 						<dd>
-							<span><a href="{% generate_search_link "brand" DAZHONG %}" title="大众">大众</a></span>
-							<span><a href="{% generate_search_link "brand" BENCHI %}" title="奔驰">奔驰</a></span>
-							<span><a href="{% generate_search_link "brand" AODI %}" title="奥迪">奥迪</a></span>
-							<span><a href="{% generate_search_link "brand" BAOMA %}" title="宝马">宝马</a></span>
+							<span><a {% activate_filter_condition "brand" DAZHONG %} href="{% generate_search_link "brand" DAZHONG %}" title="大众">大众</a></span>
+							<span><a {% activate_filter_condition "brand" BENCHI %} href="{% generate_search_link "brand" BENCHI %}" title="奔驰">奔驰</a></span>
+							<span><a {% activate_filter_condition "brand" AODI %} href="{% generate_search_link "brand" AODI %}" title="奥迪">奥迪</a></span>
+							<span><a {% activate_filter_condition "brand" BAOMA %} href="{% generate_search_link "brand" BAOMA %}" title="宝马">宝马</a></span>
 						</dd>
 						<dd>
-							<span><a href="{% generate_search_link "brand" BENTIAN %}" title="本田">本田</a></span>
-							<span><a href="{% generate_search_link "brand" FENGTIAN %}" title="丰田">丰田</a></span>
-							<span><a href="{% generate_search_link "brand" RICHAN %}" title="日产">日产</a></span>
-							<span><a href="{% generate_search_link "brand" MAZIDA %}" title="马自达">马自达</a></span>
+							<span><a {% activate_filter_condition "brand" BENTIAN %} href="{% generate_search_link "brand" BENTIAN %}" title="本田">本田</a></span>
+							<span><a {% activate_filter_condition "brand" FENGTIAN %} href="{% generate_search_link "brand" FENGTIAN %}" title="丰田">丰田</a></span>
+							<span><a {% activate_filter_condition "brand" RICHAN %} href="{% generate_search_link "brand" RICHAN %}" title="日产">日产</a></span>
+							<span><a {% activate_filter_condition "brand" MAZIDA %} href="{% generate_search_link "brand" MAZIDA %}" title="马自达">马自达</a></span>
 						</dd>
 						<dd>
-							<span><a href="{% generate_search_link "brand" XIANDAI %}" title="现代">现代</a></span>
-							<span><a href="{% generate_search_link "brand" LINGMU %}" title="铃木">铃木</a></span>
-							<span><a href="{% generate_search_link "brand" BIAOZHI %}" title="标致">标致</a></span>
-							<span><a href="{% generate_search_link "brand" XUETIELONG %}" title="雪铁龙">雪铁龙</a></span>
+							<span><a {% activate_filter_condition "brand" XIANDAI %} href="{% generate_search_link "brand" XIANDAI %}" title="现代">现代</a></span>
+							<span><a {% activate_filter_condition "brand" LINGMU %} href="{% generate_search_link "brand" LINGMU %}" title="铃木">铃木</a></span>
+							<span><a {% activate_filter_condition "brand" BIAOZHI %} href="{% generate_search_link "brand" BIAOZHI %}" title="标致">标致</a></span>
+							<span><a {% activate_filter_condition "brand" XUETIELONG %} href="{% generate_search_link "brand" XUETIELONG %}" title="雪铁龙">雪铁龙</a></span>
 						</dd>
 					</dl>
 					{% if brand %}
 					<dl class="select-slug" style="padding-bottom: 0px;">
 						<dt>选择型号</dt>
 						<dd>
-							<input type="text" id="select-slug" value="" placeholder="请选择车型" /><i></i>
+							<input type="text" id="select-slug" value="{{ model_zh|default:"" }}" placeholder="请选择车型" /><i></i>
 							<div class="slug-list">
 								<dl>
 								{% for manufactor, models in model_dic.items %}
@@ -133,14 +133,14 @@
 						
 						<dd class="range-price">
 							<ul class="price-btn">
-							<li><a class="focus" href="{% generate_search_link "price" "0-5" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "5-8" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "8-10" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "10-15" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "15-20" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "20-25" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "25-30" %}"></a></li>
-							<li><a href="{% generate_search_link "price" "30-999" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "0-5" %} href="{% generate_search_link "price" "0-5" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "5-8" %} href="{% generate_search_link "price" "5-8" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "8-10" %} href="{% generate_search_link "price" "8-10" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "10-15" %} href="{% generate_search_link "price" "10-15" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "15-20" %} href="{% generate_search_link "price" "15-20" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "20-25" %} href="{% generate_search_link "price" "20-25" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "25-30" %} href="{% generate_search_link "price" "25-30" %}"></a></li>
+							<li><a {% activate_filter_condition "price" "30-999" %} href="{% generate_search_link "price" "30-999" %}"></a></li>
 							</ul>
 							
 							<div class="clear"></div>
@@ -154,7 +154,7 @@
 								<li style="margin-left: 5px;">20</li>
 								<li style="margin-left: 6px;">25</li>
 								<li style="margin-left: 6px;">30</li>
-								<li style="margin-left: -2.4px;">^</li>
+								<li style="margin-left: -2.4px;">∞</li>
 							</ul>
 							
 							<div class="clear"></div>
@@ -166,15 +166,15 @@
 						</dt>
 						
 						<dd>
-							<span><a href="{% generate_search_link "category" SUV %}">SUV</a></span>
-							<span><a href="{% generate_search_link "category" MPV %}">MPV</a></span>
-							<span><a href="{% generate_search_link "category" SMALL_CAR %}">微小型车</a></span>
-							<span><a href="{% generate_search_link "category" COMPACT_CAR %}">紧凑型车</a></span>
+							<span><a {% activate_filter_condition "category" SUV %} href="{% generate_search_link "category" SUV %}">SUV</a></span>
+							<span><a {% activate_filter_condition "category" MPV %} href="{% generate_search_link "category" MPV %}">MPV</a></span>
+							<span><a {% activate_filter_condition "category" SMALL_CAR %} href="{% generate_search_link "category" SMALL_CAR %}">微小型车</a></span>
+							<span><a {% activate_filter_condition "category" COMPACT_CAR %} href="{% generate_search_link "category" COMPACT_CAR %}">紧凑型车</a></span>
 						</dd>
 						<dd>
-							<span><a href="{% generate_search_link "category" MID_CAR %}">中型车</a></span>
-							<span><a href="{% generate_search_link "category" LARGE_CAR %}">中大型车</a></span>
-							<span><a href="{% generate_search_link "category" SPORTS_CAR %}">跑车</a></span>
+							<span><a {% activate_filter_condition "category" MID_CAR %} href="{% generate_search_link "category" MID_CAR %}">中型车</a></span>
+							<span><a {% activate_filter_condition "category" LARGE_CAR %} href="{% generate_search_link "category" LARGE_CAR %}">中大型车</a></span>
+							<span><a {% activate_filter_condition "category" SPORTS_CAR %} href="{% generate_search_link "category" SPORTS_CAR %}">跑车</a></span>
 							<span><a href="{% generate_search_link "category" "" %}">不限</a></span>
 						</dd>
 					</dl>
@@ -184,19 +184,19 @@
 						
 						<dd>
 							<ul>
-								<li class="focus"><a href="{% generate_search_link "color" "紫色" %}" class="ca" title="紫色"></a></li>
-								<li><a href="{% generate_search_link "color" "蓝色" %}" class="cb" title="蓝色"></a></li>
-								<li><a href="{% generate_search_link "color" "绿色" %}" class="cc" title="绿色"></a></li>
-								<li><a href="{% generate_search_link "color" "黄色" %}" class="cd" title="黄色"></a></li>
-								<li><a href="{% generate_search_link "color" "橙色" %}" class="ce" title="橙色"></a></li>
-								<li><a href="{% generate_search_link "color" "红色" %}" class="cf" title="红色"></a></li>
-								<li><a href="{% generate_search_link "color" "粉红色" %}" class="cg" title="粉红色"></a></li>
-								<li><a href="{% generate_search_link "color" "咖啡色" %}" class="ch" title="咖啡色"></a></li>
-								<li><a href="{% generate_search_link "color" "香槟色" %}" class="ci" title="香槟色"></a></li>
-								<li><a href="{% generate_search_link "color" "白色" %}" class="cj" title="白色"></a></li>
-								<li><a href="{% generate_search_link "color" "黑色" %}" class="ck" title="黑色"></a></li>
-								<li><a href="{% generate_search_link "color" "深灰色" %}" class="cl" title="深灰色"></a></li>
-								<li><a href="{% generate_search_link "color" "银灰色" %}" class="cm" title="银灰色"></a></li>
+								<li {% activate_filter_condition "color" "紫色" %}><a href="{% generate_search_link "color" "紫色" %}" id="ca" class="ca" title="紫色"></a></li>
+								<li {% activate_filter_condition "color" "蓝色" %}><a href="{% generate_search_link "color" "蓝色" %}" class="cb" title="蓝色"></a></li>
+								<li {% activate_filter_condition "color" "绿色" %}><a href="{% generate_search_link "color" "绿色" %}" class="cc" title="绿色"></a></li>
+								<li {% activate_filter_condition "color" "黄色" %}><a href="{% generate_search_link "color" "黄色" %}" class="cd" title="黄色"></a></li>
+								<li {% activate_filter_condition "color" "橙色" %}><a href="{% generate_search_link "color" "橙色" %}" class="ce" title="橙色"></a></li>
+								<li {% activate_filter_condition "color" "红色" %}><a href="{% generate_search_link "color" "红色" %}" class="cf" title="红色"></a></li>
+								<li {% activate_filter_condition "color" "粉红色" %}><a href="{% generate_search_link "color" "粉红色" %}" class="cg" title="粉红色"></a></li>
+								<li {% activate_filter_condition "color" "咖啡色" %}><a href="{% generate_search_link "color" "咖啡色" %}" class="ch" title="咖啡色"></a></li>
+								<li {% activate_filter_condition "color" "香槟色" %}><a href="{% generate_search_link "color" "香槟色" %}" class="ci" title="香槟色"></a></li>
+								<li {% activate_filter_condition "color" "白色" %}><a href="{% generate_search_link "color" "白色" %}" class="cj" title="白色"></a></li>
+								<li {% activate_filter_condition "color" "黑色" %}><a href="{% generate_search_link "color" "黑色" %}" class="ck" title="黑色"></a></li>
+								<li {% activate_filter_condition "color" "深灰色" %}><a href="{% generate_search_link "color" "深灰色" %}" class="cl" title="深灰色"></a></li>
+								<li {% activate_filter_condition "color" "银灰色" %}><a href="{% generate_search_link "color" "银灰色" %}" class="cm" title="银灰色"></a></li>
 
 								<div class="clear"></div>
 							</ul>
@@ -208,13 +208,13 @@
 						
 						<dd>
 							<span id="plate-start-time">
-								<input placeholder="上牌时间" type="text" class="start-time" /><i></i>
+								<input placeholder="起始时间" type="text" value="{{ min_year }}" class="start-time" /><i></i>
 							</span>
 							
 							<span class="symbol">-</span>
 							
 							<span id="plate-end-time">
-								<input placeholder="上牌时间" type="text" class="end-time" /><i></i>
+								<input placeholder="上牌时间" type="text" value="{{ max_year }}" class="end-time" /><i></i>
 							</span>
 						</dd>
 					</dl>
@@ -224,7 +224,7 @@
 						
 						<dd>
 							<span>
-								<input text="text" id="car-mile" placeholder="请选择里程数" /><i></i>
+								<input text="text" id="car-mile" placeholder="请选择里程数" value="{{ mile_zh }}" /><i></i>
 							</span>
 						</dd>
 					</dl>
@@ -232,7 +232,7 @@
 					<dl class="control">
 						<dt>变速箱</dt>
 						<dd>
-							<input text="text" id="car-control" placeholder="请选择变速箱类型" /><i></i>
+							<input text="text" id="car-control" placeholder="请选择变速箱类型" value="{{ control }}"/><i></i>
 						</dd>
 					</dl>
 					
@@ -327,19 +327,19 @@
 			<!-- 排序 begin -->
 			<div class="fr sort-btn-ground">
 				<ul>
-					<li><a href="{% generate_search_link "sort" "" %}" {% if sort not in sort_type %}class="f-lake-blue"{% endif %}>默认</a></li>
+					<li><a href="{% generate_search_link "sort" "" %}" {% if sort not in sort_type %}class="focus"{% endif %}>默认</a></li>
 					
 					{% if sort == "price" %}
-					<li><a href="{% generate_search_link "sort" "-price" %}" title="价格从低到高排序">价格</a><i class="asc"></i></li>
+					<li><a href="{% generate_search_link "sort" "-price" %}" title="价格从低到高排序" class="focus">价格</a><i class="asc"></i></li>
 					{% elif sort == "-price" %}
-					<li><a href="{% generate_search_link "sort" "price" %}" title="价格从高到低排序">价格</a><i class="des"></i></li>
+					<li><a href="{% generate_search_link "sort" "price" %}" title="价格从高到低排序" class="focus">价格</a><i class="des"></i></li>
 					{% else %}
 					<li><a href="{% generate_search_link "sort" "price" %}" title="价格从低到高排序">价格</a><i class="default"></i></li>
 					{% endif %}
 					{% if sort == "mile" %}
-					<li><a href="{% generate_search_link "sort" "-mile" %}" title="里程从低到高排序">里程</a><i class="asc"></i></li>
+					<li><a href="{% generate_search_link "sort" "-mile" %}" title="里程从低到高排序" class="focus">里程</a><i class="asc"></i></li>
 					{% elif sort == "-mile" %}
-					<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从高到低排序">里程</a><i class="des"></i></li>
+					<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从高到低排序" class="focus">里程</a><i class="des"></i></li>
 					{% else %}
 					<li><a href="{% generate_search_link "sort" "mile" %}" title="里程从低到高排序">里程</a><i class="default"></i></li>
 					{% endif %}

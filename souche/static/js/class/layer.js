@@ -32,12 +32,11 @@ SetBrandList.prototype.getList = function(successMethod) {
 						var letterLi = $("<dt>", {"class":"letter-"+data[i].first_letter , "html": tmp});
 						$(ele).append(letterLi);
 					
-					}					
-					
-					var brandA = $("<a>" , {"href":setUrl(currentUrl,"brand",data[i].slug) , "html":data[i].name});
+					}
+					currentUrl = setUrl(currentUrl,"brand",data[i].slug);
+					var brandA = $("<a>" , {"href":setUrl(currentUrl,"model",""), "html":data[i].name});
 					var brandLi = $("<dd>" , {"html":brandA});
 					$(ele).append(brandLi);
-				
 				}
 				
 				(successMethod)();

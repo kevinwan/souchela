@@ -66,6 +66,10 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         criteria = []
         filter_conditions = []
         brand = None
+        model_zh = ""
+        mile_zh = ""
+        min_year = ""
+        max_year = date.today().year
         brand_slug = get_param.get('brand', '')
         model_slug = get_param.get('model', '')
         price = get_param.get('price', '')
@@ -90,8 +94,9 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
             model = Model.get_model_by_slug(brand, model_slug)
             if model:
                 criteria.append(Q(model_slug=model_slug))
+                model_zh = model.name
                 filter_conditions.append({
-                    'condition': model.name,
+                    'condition': model_zh,
                     'slug': 'model'
                 })
         if price:
@@ -132,6 +137,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
                             min_mile=min_mile, max_mile=max_mile),
                 'slug': 'mile'
             })
+            mile_zh  = u'{max_mile}万公里以内'.format(max_mile=max_mile)
         if control:
             controls = TRANSMISSION.get(control, None)
             if controls:
@@ -162,7 +168,12 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
             'brand': brand,
             'model_dic': model_dic,
             'sort': sort,
-            'sort_type': self.SORT_TYPE[:-2]
+            'sort_type': self.SORT_TYPE[:-2],
+            'model_zh': model_zh,
+            'min_year': min_year,
+            'max_year': max_year,
+            'mile_zh': mile_zh,
+            'control': control,
         })
 
         return context

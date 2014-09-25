@@ -63,7 +63,7 @@
 	margin-bottom: 30px;
 }
 
-.filter-bar a {
+.filter-bar {
 	font-size: 12px;
 	color: #666666;
 }
@@ -85,12 +85,16 @@
 }
 
 .filter-bar dd span {
-		display: inline-block;
-	font-size: 14px;
+	display: inline-block;
+	font-size: 12px;
 }
 
 .filter-bar .select-brand dd span {
 	width: 23%;
+}
+
+dd span a {
+	color: #666;
 }
 
 .filter-bar dl .fr {
@@ -138,7 +142,7 @@
 
 
 .filter-bar .select-type dd span {
-	margin: 0 4px;
+	margin: 0 6px;
 }
 
 .select-color li {
@@ -345,7 +349,7 @@
 	background: url(../image/souchela1.png);
 	position: absolute;
 	margin-left: -20px;
-	margin-top: 3px;
+	margin-top: 5px;
 	background-position: -55px -44px;
 }
 
@@ -418,6 +422,7 @@
 }
 
 .slug-list dt {
+	color: #000;
 	float: none;
 	clear: both;
 	border-top: 1px solid #ddd;
@@ -425,7 +430,7 @@
 
 .slug-list dd {
 	float: left;
-	width: 202px;
+	width: 160px;
 	text-indent: 10px;
 	overflow: hidden;
 	font-size: 14px;
@@ -433,11 +438,16 @@
 
 .slug-list dd a,
 .list-box a {
-	display: block;
-	overflow: hidden;
+    color: #666666;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
 }
 
-.slug-list dd a:hover,
+.slug-list dd a:hover {
+	color: #2FA3D4;
+}
+
 .list-box a:hover {
 	background: #006599;
 	color: #fff;	
@@ -491,7 +501,10 @@
 }
 
 .filter-bar input {
+	background-color: #FFFFFF;
+	color: #AAAAAA;
 	cursor: pointer;
+	font-size: 12px;
 }
 
 
@@ -597,7 +610,7 @@ a:hover {
 	color: #2FA3D4;
 }
 
-.filter-active {
+.focus {
 	color: #2FA3D4;
 }
 

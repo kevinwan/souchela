@@ -65,7 +65,7 @@ DropDownList.prototype.init = function(inputEle,selectBox) {
 	}
 	
 	this._event(this.inputEle,this.listBox);
-}
+};
 
 DropDownList.prototype._event = function(btn,box) {
 	$(btn).click(function(){
@@ -87,7 +87,7 @@ DropDownList.prototype._select = function(checkOption,inputEle) {
 		$(inputEle).val(selectVal);
 		$(checkOption).hide();
 	});
-}
+};
 
 function SetGetParameter() {};
 

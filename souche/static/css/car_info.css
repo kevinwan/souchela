@@ -146,22 +146,22 @@
 
 .base-info .nav li:hover,
 .base-info .nav .focus {
-	border-bottom: 1px solid #fff;
+	border-bottom: medium none;
 }
 
 .base-info .nav .focus a,
 .base-info .nav a:hover {
-	border-top: 5px solid #2fa3d4;
+	border-top: 3px solid #2fa3d4;
+	border-bottom: 1px solid #FFFFFF;
 	background: #fff;
-	border-bottom: 5px solid #FFF;
 }
 
 .base-info .nav a {
 	display: block;
 	border-right: 1px solid #ddd;
-	border-top: 5px solid #F6F6F6;
-	border-bottom: 5px solid #F6F6F6;
-	height: 40px;
+	border-top: 3px solid #F6F6F6;
+	border-bottom: 1px solid #F6F6F6;
+	height: 46px;
 }
 
 .base-info .nav .last {

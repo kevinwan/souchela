@@ -95,11 +95,12 @@ $(function(){
 		
 	$(".base-info .nav").find("li").click(function(){
 		var contentEle = $(this).find("a").attr("href");
-		
+
 		$(this).parent().find("li").removeClass("focus");
 		$(this).addClass("focus");
-		
 		$(contentEle).css("padding-top","50px");
+		printf($(contentEle).offset().top);
+		printf(window.scrollY);
 	});
 	
 	//加入对比

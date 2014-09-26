@@ -64,16 +64,28 @@ $(function(){
 	}
 
 	layerScroll("240",function(){
-		$(".first-title").css({
+		$(".item .first-title").css({
 			"position":"fixed",
 			"top":"0",
 			"z-index":"999",
+			"text-indent":"0",
+			"padding":"0 5px",
+			"windth":"238.5px"
+		});
+		$(".main-title .first-title").css({
+			"position":"fixed",
+			"top":"0",
 			"text-indent":"2%"
 		});
 	},function(){
-		$(".first-title").css({
+		$(".item .first-title").css({
 			"position":"static",
-			"text-indent":"20%"
+			"text-indent":"2%"
+		});
+		$(".main-title .first-title").css({
+			"position":"static",
+			"text-indent":"20%",
+			"windth":"248.5px"
 		});
 	});
 	
@@ -84,4 +96,55 @@ $(function(){
 		$(".main").width(itemWidth*itemTotal+188);
 	}();
 	
+	
+	//删除基本信息相同项目
+	$("#irreducible-list").click(function(){
+		if ($(this).attr("name") !== "true") {
+			irreducible();
+			$(this).attr("name","true");
+			$(".mark").show();
+		} else {
+			$(".base-info").find("li").show();
+			$(this).attr("name","false");
+			$(".mark").hide();
+		}
+	});
+	
+	function irreducible() {
+		var $baseItem = $(".base-info .item"),
+			$baseItemLI = $(".base-info .item").find("li"),
+			$baseTitle = $(".base-info .main-title").find("li"),
+			$baseUl = $(".base-info").find("ul");
+		
+		var baseLiLength =  $baseTitle.length,
+			itemLength = $(".base-info .item").length,
+			baseUlLength = $(".base-info").find("ul").length;
+			
+			
+		for (var i=0; i<baseLiLength; i++) {
+			var matchCount = 0;
+			
+			for (var j=0; j<itemLength-1; j++) {
+				
+				var thisItem = $baseItem.eq(j).find("li"),
+					nextItem = $baseItem.eq(j+1).find("li");
+					
+				if (thisItem.eq(i).text() === nextItem.eq(i).text()) {
+					if (thisItem.eq(i).find("img").attr("alt") !== '') {
+						if (thisItem.eq(i).find("img").attr("alt") === nextItem.eq(i).find("img").attr("alt")) {
+							matchCount++;
+						}
+					} else {
+						matchCount++;
+					}
+				}
+			}
+			
+			if (matchCount === itemLength-1) {
+				for (var k=0; k<baseUlLength; k++) {
+					$baseUl.eq(k).find("li").eq(i).hide();
+				}
+			}
+		}
+	}
 });

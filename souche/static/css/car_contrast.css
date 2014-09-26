@@ -4,6 +4,7 @@
 
 .main {
 	width: 1187px;
+	overflow: hidden;
 }
 
 .contrast-data {
@@ -22,6 +23,7 @@
 
 .contrast-title .check-box {
 	font-size: 13px;
+	cursor: pointer;
 }
 
 .contrast-title .check-box i {
@@ -111,6 +113,10 @@
 .base-info .item .car-name {
 	line-height: 24px;
 	text-align: center;
+	text-indent: 0;
+	padding: 0 5px;
+	width: 238.5px;
+	height: 88px;
 }
 
 .base-info .item .default,
@@ -121,7 +127,7 @@
 
 .base-info .item .car-pic {
 	padding-top: 12px;
-	padding-bottom:  12px;
+	padding-bottom:  16px;
 	text-indent: 14px;
 }
 
@@ -156,4 +162,30 @@
 	border-right: 1px solid #ddd;
 	border-left: none;
 	width: 249px
+}
+
+.contrast-data .evaluate {
+	padding: 0;
+	height: 44px;
+	line-height: 44px;
+}
+
+.contrast-data .evaluate img {
+	width: 64%;
+	margin-top: 5px;
+}
+
+.mark {
+	width: 15px;
+	height: 15px;
+	background: url(../image/mark.png) scroll 0px -10px;
+	position: absolute;
+	margin-top: -15px;
+	display: none;
+	cursor: pointer;
+}
+
+.default .price {
+	font-weight: bold;
+	margin-right: 5px;
 }

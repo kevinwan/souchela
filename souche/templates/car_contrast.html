@@ -60,7 +60,7 @@
 
 					<li class="first-title car-name"><a href="{% url car_detail car.pk %}" target="_blank">{{ car.title }}</a></li>
 					<li class="car-pic"><img src="{{ IMG_URL }}{{ car.thumbnail }}?imageView/2/w/240" alt="{{ car.title }}" /></li>
-					<li class="default"><span class="f-orange price">{{ car.price }}</span>万</li>
+					<li class="default gpj-evaluate"><span class="f-orange price">{{ car.price }}</span>万</li>
 					<li class="default">{{ car.price_bn }}万+{{ car.tax }}万（购置税）</li>
 					<li class="default">{{ car.save_money }}万</li>
 					<li class="default evaluate"><a class="eval-price" href="#" target="_blank" class="fl"></a><img class="load-price" src="{{ STATIC_URL }}image/evaluate_load_1.gif" alt="{{ car.title }}" /></li>

@@ -5,6 +5,7 @@
 .main {
 	width: 1187px;
 	overflow: hidden;
+	padding-top: 28px;
 }
 
 .contrast-data {
@@ -107,7 +108,7 @@
 	text-align: left;
 	text-indent: 10%;
 	background: #fff;
-	width: 248.5px
+	width: 248.5px;
 }
 
 .base-info .item .car-name {
@@ -117,6 +118,11 @@
 	padding: 0 5px;
 	width: 238.5px;
 	height: 88px;
+	margin-left: -1px;
+}
+
+.base-info .item .gpj-evaluate {
+	height: 16px;
 }
 
 .base-info .item .default,
@@ -188,4 +194,5 @@
 .default .price {
 	font-weight: bold;
 	margin-right: 5px;
+	font-size: 18px;
 }

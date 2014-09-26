@@ -2,7 +2,7 @@
 
 .header {
 	height:160px;
-	border-bottom: 3px solid #01669a;
+	border-bottom: 1px solid #ddd;
 }
 
 .header .header-content {
@@ -12,18 +12,82 @@
 }
 
 .header-content .logo {
-	width: 214px;
-	height: 100%;
+	width: 218px;
+	padding: 44px 0;
+}
+
+.header-content .logo a {
+	display: block;
+}
+
+.header-content .logo-description {
+	margin-top: 10px;
 }
 
 .header-content .mid {
 	height: 100%;
-	width: 811px;
+	width: 760px;
 }
 
 .header-content .contact {
 	width: 165px;
 	height: 100%;
+}
+
+.header-content .contact .phone {
+	margin-top: 50px;
+	font-weight: bold;
+}
+
+.wx-weibo {
+	width: 96px;
+	height: 56px;
+}
+
+ .wx-weibo a {
+	display: block;
+	background: url(../image/souchela1.png) no-repeat;
+	width: 32px;
+	height: 32px;
+	margin: 10px 5px 0 5px;
+}
+
+.wx a {
+	background-position: -129px -2px;
+}
+
+.wx a:hover {
+	background-position:-129px -36px;
+}
+
+.weibo a {
+	background-position: -165px -2px;
+}
+
+.weibo a:hover {
+	background-position:-165px -36px;
+}
+
+.show-wx {
+	border: 1px solid #ddd;
+	width: 135px;
+	position: relative;
+	display: none;
+	z-index: 999;
+}
+
+#header-td-code {
+	top: 5px;
+	left: -20px;
+}
+
+#footer-td-code {
+	top:-175px;
+	left: -20px;
+}
+
+.show-wx img {
+	width: 100%;
 }
 
 .header-content .mid .mid-content {
@@ -34,9 +98,9 @@
 
 .header-content .mid .search-box .search-key {
 	width: 428px;
-	height: 43px;
-	line-height: 43px;
-	border: 1px solid #006599;
+	height: 41px;
+	line-height: 41px;
+	border: 2px solid #0A85C1;
 	border-right: none;
 	display: block;
 	font-size: 16px;
@@ -48,9 +112,9 @@
 	width: 50px;
 	height: 45px;
 	display: block;
-	background-color: #006599;
+	background-color: #0A85C1;
 	background-image: url(../image/souchela1.png);
-	background-position: 9px 0;
+	background-position: 8px 0;
 	cursor: pointer;
 }
 
@@ -62,6 +126,7 @@
 
 .header-content .mid .nav li {
 	float: left;
+	font-weight: bold;
 }
 
 .header-content .mid .nav li a {
@@ -71,8 +136,8 @@
 }
 
 .header-content .mid .nav li a:hover {
-	background: #006697;
-	color: #fff;
+	color: #0984C0;
+	border-bottom: 2px solid #0984C0;
 }
 
 .content {
@@ -86,9 +151,8 @@
 }
 
 .main-info {
-	padding-top: 13px;
 	background: #efefef;
-	
+	padding: 13px 0 30px 0;
 }
 
 .main .status {
@@ -100,6 +164,38 @@
 }
 
 .footer {
-	height: 80px;
+	height: 127px;
 	background: #313131;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.footer .footer-content {
+	width: 645px;
+	height: 116px;
+	margin: 0 auto;
+}
+
+.footer .footer-content a {
+	color: #999;
+	margin: 0 8px;
+	font-size: 14px;
+}
+
+.footer .links-column {
+	width: 246px;
+	height: 100%;
+	padding-top: 5px;
+	border-right: 1px solid #999;
+	margin-right: 70px;
+}
+
+.footer .links-column li {
+	float: left;
+	border-right: 2px solid #999;
+}
+
+.footer .badge-column {
+	width: 328px;
+	height: 100%;
 }

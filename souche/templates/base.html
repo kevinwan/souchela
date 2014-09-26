@@ -13,12 +13,17 @@
     <div class="header">
         <div class="header-content">
             
-            <div class="logo fl"></div>
+            <div class="logo fl">
+                <a class="fl" href="#" target="_blank"><img src="{{ STATIC_URL }}image/logo.png" alt="搜车啦 专注二手车认证" /></a>
+                <a class="logo-description fl" href="#" target="_blank"><img src="{{ STATIC_URL }}image/logo_description.png" alt="专注二手车认证" /></a>
+                
+                <div class="clear"></div>
+            </div>
             
             <div class="mid fl">
                 <div class="mid-content">
                     <div class="search-box">
-                        <input type="text" name="search_key" class="search-key fl" value="搜索您想要的车" />
+                        <input type="text" name="search_key" class="search-key fl" placeholder="搜索您想要的车" />
                         <input type="submit" value="" class="submit fl"/>
                         
                         <div class="clear"></div>
@@ -34,10 +39,24 @@
                 </div>
             </div>
             
-            <div class="contact fr">
-                <div class="phone">
-                    <i></i>                    
+            <div class="contact fl">
+                <div class="phone">             
                     400-025-3500 
+                </div>
+                <div class="wx-weibo">                    
+                    <div id="header-show-wx-btn" class="wx fl">
+                        <a href="javascript:;"></a>
+                    </div>
+                    
+                    <div class="weibo fl">
+                        <a href="http://weibo.com/souchela" target="_blank"></a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div id="header-td-code" class="show-wx">
+                        <i></i><div class="wx-code"><img src="{{ STATIC_URL }}image/qrcode_for_head.jpg" alt="" /></div>
+                    </div>
                 </div>
             </div>
             
@@ -47,11 +66,41 @@
     {% block content %}{% endblock%}
     
     {% include 'includes/right_suspension_bar.html'%}
-    <div class="footer"></div>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <div class="links-column fl">
+                <ul>
+                    <li><a href="#" target="_blank" title="关于我们">关于我们</a></li>
+                    <li><a href="#" target="_blank" title="联系我们">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="badge-column fl">
+                <div class="wx-weibo">                    
+                    <div id="footer-wx-btn" class="wx fl">
+                        <a href="javascript:;"></a>
+                    </div>
+                    
+                    <div class="weibo fl">
+                        <a href="http://weibo.com/souchela" target="_blank"></a>
+                    </div>
+                    
+                    <div class="clear"></div>
+                    
+                    <div id="footer-td-code" class="show-wx">
+                        <i></i><div class="wx-code"><img src="{{ STATIC_URL }}image/qrcode_for_head.jpg" alt="" /></div>
+                    </div>
+                </div>
+                <p class="tal f-gray">Copyright © 2014 南京价公信息技术有限公司 版权所有 苏 ICP备14023068号</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.cookie.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/class/debug.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/class/layer.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/base.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/right_suspension_bar.js"></script>
     {% block extra_js %}{% endblock %}
     

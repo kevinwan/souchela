@@ -19,29 +19,7 @@ $(function(){
 	};
 	
 	TimePlate.prototype = new DropDownList();
-//	
-	TimePlate.prototype.setList = function(type) {
-		var date = new Date(),
-			thisYear = date.getFullYear(),
-			para = type=="end" ? "max-year" : "min-year";
-			
-		if (type !== "end" || $("#plate-start-time .start-time").val()==="") {
-			lastYear = thisYear - 15;
-		} else {
-			$(this.inputEle).val(thisYear);
-			lastYear = $("#plate-start-time .start-time").val();
-		}
-		
-		for (var year=thisYear; year>=lastYear; year--) {
-			var thisUrl = this.SetATag.setUrl(this.url,para,year);
-			var a = $("<a>",{"html":year, "href":thisUrl });
-			var li = $("<li>",{"html":a});
-			$(this.listBox).append(li);
-		}
-		
-		var li = $("<li>",{"html":"不限"});
-		$(this.listBox).append(li);
-	};
+
 	
 	//里程
 	var CarMileList = function(inputEle) {
@@ -97,7 +75,7 @@ $(function(){
 			$(this.listBox).append(li);
 		}
 	};
-
+		
 	var StartTimePlate = new TimePlate(plateStart);
 	var EndTimePlate = new TimePlate(plateEnd);
 	var CarMile = new CarMileList(carMileEle);
@@ -105,8 +83,45 @@ $(function(){
 	var BrandList = new SetBrandList();
 	var SelectSlug = new DropDownList();
 	
-	StartTimePlate.setList("start");
-	EndTimePlate.setList("end");	
+	function setPlateYear() {
+		var $endYear = $("#plate-end-time .end-time"),
+			$startYear = $("#plate-start-time .start-time"),
+			$endList = $("#plate-end-time .end-time").parent().find("div"),
+			$startList = $("#plate-start-time .start-time").parent().find("div");
+			
+		var myDate = new Date();
+		var thisYear = myDate.getFullYear();
+		var end = thisYear-15;
+		var setTag = new SetGetParameter();
+		var endYear = $("#plate-end-time .end-time").val();
+		var startYear = $("#plate-start-time .start-time").val();
+		var currentUrl = window.location.href;
+		
+		startYear = startYear === "" ? end : startYear;
+		
+		for (var i=endYear-1; i>=end; i--) {
+			var a = $("<a>",{
+				"html" : i+"年",
+				"href" : setTag.setUrl(currentUrl,"year",i+"-"+endYear)
+			});
+			
+			var li = $("<li>",{ "html":a });
+			$startList.append(li);
+		}
+		
+		for (var i=thisYear; i>startYear; i--) {
+			var a = $("<a>",{
+				"html" : i+"年",
+				"href" : setTag.setUrl(currentUrl,"year",startYear+"-"+i)
+			});
+			
+			var li = $("<li>",{ "html":a });
+			$endList.append(li);
+		}
+	}
+	
+	setPlateYear();
+		
 	CarMile.setList(1,8,2);
 	CarControl.setList();
 	
@@ -155,14 +170,17 @@ $(function(){
 	});
 		
 	//加入对比
-	$(".car-list").find("input[name='add-compare']").click(function(){
-		var carId = $(this).parents(".car-bar").attr("id");
-		var compare = new Compare("car-compera");
-		
-		if ($(this).prop("checked")) {
+	$(".car-list").find(".add-compare").click(function(){
+		var carId = $(this).parents(".car-bar").attr("id"),
+			compare = new Compare("car-compera"),
+			$checked = $(this).find("input");
+	
+		if (!$checked.prop("checked")) {
 			compare.add(carId);
+			$checked.prop("checked",true);
 		} else {
 			compare.del(carId);
+			$checked.prop("checked",false);
 		}
 	});
 	

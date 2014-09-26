@@ -75,7 +75,8 @@ $(function(){
 		$(".main-title .first-title").css({
 			"position":"fixed",
 			"top":"0",
-			"text-indent":"2%"
+			"text-indent":"2%",
+			"z-index":"999"
 		});
 	},function(){
 		$(".item .first-title").css({

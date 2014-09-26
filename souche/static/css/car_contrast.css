@@ -121,6 +121,10 @@
 	margin-left: -1px;
 }
 
+.base-info .item .car-name a {
+	line-height: 50px;
+}
+
 .base-info .item .gpj-evaluate {
 	height: 16px;
 }
@@ -195,4 +199,8 @@
 	font-weight: bold;
 	margin-right: 5px;
 	font-size: 18px;
+}
+
+a:hover {
+	color: #2EA2D3;
 }

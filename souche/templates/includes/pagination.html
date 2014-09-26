@@ -1,16 +1,21 @@
 {% if page.has_previous or page.has_next %}
 <div class="pagination">
+	{% with num_pages=page.paginator.num_pages %}
 	<ul>
 		<li><a class="prev-page {% if page.has_previous %}disable{% endif %}" {% if page.has_previous %}href="?page={{ page.previous_page_number }}{% if querstring %}&{{ querystring }}{% endif %}"  {% endif %}></a></li>
 		{% for page_number in page.visible_page_range %}
 		<li {% if page_number == page.number %}class="current"{% endif %}><a href="?page={{ page_number }}{% if querstring %}&{{ querystring }}{% endif %}">{{ page_number }}</a></li>
 		{% endfor %}
+		{% if num_pages > page.visible_page_range|length %}
+		<li>...</li>
+		<li><a href="?page={{ num_pages }}{% if querystring %}&{{ querystring }}{% endif %}">{{ num_pages }}</a></li>
+		{% endif %}
 		<li><a class="next-page {% if page.has_next %}disable{% endif %}" {% if page.has_next %}href="?page={{ page.next_page_number }}{% if querstring %}&{{ querystring }}{% endif %}"  {% endif %}></a></li>
 		<li class="set-page">到第<input type="text" id="dump-page" />页</li>
 		<li><a id="dump-btn" href="javascript:;">GO</a></li>
 	</ul>
-	
-	 <div class="clear"></div>
+	{% endwith %}
+	<div class="clear"></div>
 </div>
 {% endif %}
 

@@ -46,6 +46,7 @@ class CarContrastPreviewListView(TemplateView):
         cars = sorted(cars, key=itemgetter('priority'))
         context = {
             'contrast_cars': cars,
+            'car_amount': car_amount,
             'empty_cars': range(car_amount+1, settings.CAR_CONTRAST_AMOUNT+1)
         }
 

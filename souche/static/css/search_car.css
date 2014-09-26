@@ -587,8 +587,8 @@ dd span a {
 .filter-field-bar .filter-field .closed,
 .filter-field .closed {
 	height: 100%;
-	width: 20px;
-	background: url(../image/souchela1.png) scroll -105px -40px;
+	width: 15px;
+	background: url(../image/souchela1.png) scroll -108px -40px;
 }
 
 .filter-field-bar .filter-field .label,

@@ -37,14 +37,14 @@
 .pagination .prev-page {
 	background-image: url(../image/souchela1.png);
 	background-position: -83px -58px;
-	margin-top: 8px;
+	margin-top: 6px;
 	height: 20px;
 	width: 10px;
 }
 
 .pagination .prev-page:hover {
 	background-position: -83px -41px;;
-	margin-top: 3px;
+	margin-top: 2px;
 }
 
 

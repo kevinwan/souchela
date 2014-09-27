@@ -259,7 +259,7 @@
 									<li>
 										<span>{{ car.year }}年{{ car.month }}月上牌</span>|
 										<span>{{ car.mile }}万公里</span>|
-										<span>{{ car.control }}</span>
+										<span>{{ car.control|default:"default" }}</span>
 									</li>
 									<li>
 										<a href="javascript:;" class="add-compare"><input type="checkbox" />加入对比</a>

@@ -204,21 +204,21 @@
 							<td>交强险到期时间：</td>
 							<td>
 								{{ car.mandatory_insurance|year_month_zh }}
-								<i id="mandatory" class="show-tip"></i>
+								{% if car.mandatory_insurance %}<i id="mandatory" class="show-tip"></i>{% endif %}
 							</td>
 						</tr>
 						<tr>
 							<td>商业险到期时间：</td>
 							<td>
 								{{ car.business_insurance|year_month_zh }}
-								<i id="business" class="show-tip"></i>
+								{% if car.business_insurance %}<i id="business" class="show-tip"></i>{% endif %}
 							</td>
 						</tr>
 						<tr>
 							<td>过户次数：</td>
 							<td>
 								{% if car.transfer_owner == 0 %}{{ car.transfer_owner }}{% else %}{{ car.transfer_owner|default:"--" }}{% endif %}
-								<i id="transfer" class="show-tip"></i>
+								{% if car.transfer_owner >= 0 %}<i id="transfer" class="show-tip"></i>{% endif %}
 							</td>
 						</tr>
 						<tr>

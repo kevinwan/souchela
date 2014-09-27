@@ -219,9 +219,10 @@
 
 .base-info .base-content .grade-desc {
 	border-right: 1px solid #d9d9d9;
-	height: 236px;
+	height: 215px;
 	width: 412px;
-	padding: 80px 10px 0 20px;
+	margin-top: 20px;
+	padding: 65px 10px 0 20px;
 }
 
 .base-info .base-content .grade-data {

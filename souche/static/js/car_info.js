@@ -94,13 +94,14 @@ $(function(){
 	);
 		
 	$(".base-info .nav").find("li").click(function(){
-		var contentEle = $(this).find("a").attr("href");
+		var contentEle = $(this).find("a").attr("href"),
+			$contentEle = $(contentEle);
 
 		$(this).parent().find("li").removeClass("focus");
 		$(this).addClass("focus");
-		$(contentEle).css("padding-top","50px");
-		printf($(contentEle).offset().top);
-		printf(window.scrollY);
+		if (contentEle != "#base-content") {
+			$contentEle.css("padding-top","50px");
+		}
 	});
 	
 	//加入对比

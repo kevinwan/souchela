@@ -155,7 +155,8 @@ INSTALLED_APPS = (
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 # Set image server domain.
-IMG_DOMAIN = 'http://souchela.qiniudn.com'
+# IMG_DOMAIN = 'http://souchela.qiniudn.com'
+IMG_DOMAIN = 'http://gongpingjia.qiniudn.com'
 IMG_URL = IMG_DOMAIN + '/img/'
 
 # Evaluation API URL

@@ -9,7 +9,7 @@
 
 .status .filter {
 	border-right: 1px solid #b1b1b1;
-	margin-top: 10px;
+	margin-top: 14px;
 	text-align: center;
 }
 
@@ -555,7 +555,7 @@ dd span a {
 
 .filter-field-bar .filter-field dd,
 .filter-field dd {
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
 .filter-field-bar .filter-field dt
@@ -615,7 +615,7 @@ a:hover {
 }
 
 .status .filter-field {
-	width: 850px;
+	width: 954px;
 	line-height: 45px;
 	
 }

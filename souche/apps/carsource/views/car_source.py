@@ -148,6 +148,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
             })
         if sort not in self.SORT_TYPE:
             sort = '-time'
+        car_contrast = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
         fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \
                 'year', 'month', 'url', 'time', 'mile', 'volume', 'control', 'price', \
                 'price_bn', 'imgurls')
@@ -161,6 +162,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
             car['total_cost'] = self.get_total_cost(car['price_bn'])
             car['save_money'] = self.get_save_money(car['total_cost'], car['price'])
             car['image_urls'] = car['imgurls'].split(' ')
+            car['in_contrast'] = True if str(car['pk']) in car_contrast else False
         context.update({
             'cars': cars,
             'amount': cars.paginator.count,
@@ -239,7 +241,7 @@ class CarSourceDetailView(TemplateView, CarDetailInfoMixin):
         car.condition = self.get_condition(car.condition_level)
         car.age = self.get_car_age(car.year, car.month)
         car_contrast = self.request.session[settings.CAR_CONTRAST_SESSION_NAME]
-        car.in_contrast = True if car.pk in car_contrast else False
+        car.in_contrast = True if str(car.pk) in car_contrast else False
         return car
 
     def get_car_age(self, year, month):

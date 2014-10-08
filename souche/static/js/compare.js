@@ -30,24 +30,21 @@ Compare.prototype.setData = function(carId) {
 	return carJsonData;
 };
 
-Compare.prototype.refresh = function() {
-	typeof this.iframeName === "undefined" ?
-		location.reload(true):
-		top.frames[this.iframeName].location.reload(true);
-};
-
-Compare.prototype.post = function(postUrl,postData) {
-	var refresh = this.refresh();
-	
+Compare.prototype.post = function(postUrl,postData) {	
 	$.ajax({
 		url: postUrl,
 		type: 'post',
 		dataType: "json",
 		data: postData,
 		success: function(response) {
-			if (response.success) {
-				(refresh)();
-			}
-		},
+		}
 	});
 };
+
+function RefreshFrame(frameElement) {
+	$(frameElement).attr("src", $(frameElement).attr("src"));
+}
+
+function SetParentCheck(ele) {
+	$(window.parent.document).find("#"+ele).find(".contrast-mark").hide();
+}

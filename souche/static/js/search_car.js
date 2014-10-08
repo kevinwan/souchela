@@ -169,20 +169,43 @@ $(function(){
 		$(".filter-field-bar").hide();
 	});
 		
-	//加入对比
-	$(".car-list").find(".add-compare").click(function(){
-		var carId = $(this).parents(".car-bar").attr("id"),
-			compare = new Compare("car-compera"),
-			$checked = $(this).find("input");
+	////加入对比
+	//$(".car-list").find(".add-compare").click(function(){
+	//	var carId = $(this).parents(".car-bar").attr("id"),
+	//		compare = new Compare(),
+	//		$checked = $(this).find("input");
+	//
+	//	if (!$checked.prop("checked")) {
+	//		compare.add(carId);
+	//		$checked.prop("checked",true);
+	//	} else {
+	//		compare.del(carId);
+	//		$checked.prop("checked",false);
+	//	}
+	//});
 	
-		if (!$checked.prop("checked")) {
-			compare.add(carId);
-			$checked.prop("checked",true);
-		} else {
-			compare.del(carId);
-			$checked.prop("checked",false);
-		}
+	
+	//加入对比
+	$(".add-contrast").click(function(){
+		var carId = $(this).parents(".car-bar").attr("id");
+		carCompare(carId);
 	});
+	
+	$(".contrast-mark").click(function(){
+		var carId = $(this).parents(".car-bar").attr("id");
+		carCompare(carId);
+	});
+	
+	function carCompare(carId) {
+		var $mark = $("#"+carId).find(".contrast-mark"),
+			flag = $mark.css("display"),
+			compare = new Compare();
+		
+		flag == "none" ? $mark.show() && compare.add(carId)
+			: $mark.hide() && compare.del(carId);;
+	}
+	
+	
 	
 	$("#custom-price").click(function(){
 		var minPrice = $("input[name='start_price']").val(),

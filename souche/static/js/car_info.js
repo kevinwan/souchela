@@ -108,12 +108,16 @@ $(function(){
 	$("#select-contrast").click(function(){
 		carCompare();
 	});
-		
+	
+	$("#contrast-mark").click(function(){
+		carCompare();
+	});
+	
 	function carCompare() {
 		var $mark = $("#contrast-mark"),
 			flag = $mark.css("display"),
 			carId = $(".main").attr("id");
-		var compare = new Compare("car-compera");
+		var compare = new Compare();
 		
 		flag == "none" ? $mark.show() && compare.add(carId)
 			: $mark.hide() && compare.del(carId);;

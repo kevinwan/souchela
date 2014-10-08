@@ -657,18 +657,18 @@ background-position: -211px -2px;
 }
 
 
-.car-surver-content .page-op .mark {
+.car-surver-content .page-op .contrast-mark {
 	width: 15px;
 	height: 15px;
 	background: url(../image/mark.png) scroll 0px -10px;
 	position: relative;
 	top: -26px;
 	left: 318px;
-	display: none;
 	cursor: pointer;
+	display: none;
 }
 
-#select-contrast{
+#select-contrast {
 	cursor: pointer;
 }
 

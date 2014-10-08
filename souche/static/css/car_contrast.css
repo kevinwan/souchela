@@ -89,6 +89,7 @@
 	background: #FBFBFB;
 	width: 185px;
 	color: #666;
+	height: 18px;
 }
 
 
@@ -126,7 +127,7 @@
 }
 
 .base-info .item .gpj-evaluate {
-	height: 16px;
+	height: 18px;
 }
 
 .base-info .item .default,
@@ -176,8 +177,8 @@
 
 .contrast-data .evaluate {
 	padding: 0;
-	height: 44px;
-	line-height: 44px;
+	height: 46px;
+	line-height: 46px;
 }
 
 .contrast-data .evaluate img {

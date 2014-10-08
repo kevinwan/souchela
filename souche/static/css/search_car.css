@@ -623,3 +623,29 @@ a:hover {
 .status .filter-field a {
 	margin-top: 10px;
 }
+
+.add-contrast {
+	cursor: pointer;
+}
+
+.add-contrast span {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #999;
+	position: relative;
+	top: 3px;
+	left: 0px;
+	margin: 0 5px;
+}
+
+.mark {
+	width: 15px;
+	height: 15px;
+	background: url(../image/mark.png) scroll 0px -10px;
+	position: absolute;
+	cursor: pointer;
+	margin-top: -16px;
+	margin-left: 5px;
+	display: none;
+}

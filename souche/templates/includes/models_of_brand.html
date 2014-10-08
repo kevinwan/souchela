@@ -1,11 +1,12 @@
 <div class="slug-list">
-<dl>
-{% for manufactor, models in model_dic.items %}
-	<dt>{{ manufactor }}</dt>
-	{% for m in models %}
-	<dd><a href="" title="{{ m.name }}">{{ m.name }}</a></dd>
-	{% endfor %}
-{% endfor %}
-<div class="clear"></div>
-</dl>
+	<dl>
+		{% for manufactor, models in model_dic.items %}
+			<dt>{{ manufactor }}</dt>
+			{% for m in models %}
+			<dd><a href="" title="{{ m.name }}">{{ m.name }}</a></dd>
+			{% endfor %}
+		{% endfor %}
+		
+		<div class="clear"></div>
+	</dl>
 </div>

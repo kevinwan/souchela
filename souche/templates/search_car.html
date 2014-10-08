@@ -262,7 +262,9 @@
 										<span>{{ car.control|default:"default" }}</span>
 									</li>
 									<li>
-										<a href="javascript:;" class="add-compare"><input type="checkbox" />加入对比</a>
+										<div class="add-contrast f-dark-gray"><span></span>加入对比</div>
+										
+										<div class="contrast-mark" {% if car.in_contrast %}style="display: block"{% endif %}></div>
 									</li>
 									<li class="security">
 										<span class="security-a">7天退货</span>

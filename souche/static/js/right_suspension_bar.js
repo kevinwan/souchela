@@ -1,6 +1,7 @@
 $(function(){
 	$("#compare").click(function(){
 		$("#sidebar-window").show("slow");
+		RefreshFrame("#compare-list");
 	});
 	
 	$("#right-sidebar-closed").click(function(){
@@ -21,4 +22,8 @@ $(function(){
 			scrollPage(0);
 		});
 	})();
+	
+	$("#suspension-bar").mouseleave(function(){
+		$("#sidebar-window").hide("normal");
+	});
 });

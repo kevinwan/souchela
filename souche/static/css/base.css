@@ -168,6 +168,8 @@
 	background: #313131;
 	text-align: center;
 	padding-top: 15px;
+	position: absolute;
+	width: 100%;
 }
 
 .footer .footer-content {

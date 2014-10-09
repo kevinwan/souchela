@@ -1,14 +1,17 @@
 .pagination {
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
+	width: 74%;
 }
 
 .pagination li {
-	width: 30px;
-	height: 27px;
+	width: 32px;
+	height: 32px;
 	background-color: #fff;
 	float: left;
-	margin: 0 8px;
+	margin: 0 3px;
 	cursor: pointer;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 }
 
 .pagination li:hover {
@@ -16,18 +19,20 @@
 	-moz-transition:background-color 0.4s linear;
 	-o-transition:background-color 0.4s linear;
 	transition:background-color 0.4s linear;
-	background-color: #006599;
+	background-color: #2FA3D4;
 }
 
 .pagination a {
-	width: 30px;
-	height: 27px;
-	line-height: 27px;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
 	display: block;
 	margin: 0 auto;
 	text-align: center;
-	color: #5f5f5f;
-	transition:color .4s ease-in-out;
+	color: #A5A5A5;
+	transition: color .4s ease-in-out;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .pagination a:hover {
@@ -37,14 +42,14 @@
 .pagination .prev-page {
 	background-image: url(../image/souchela1.png);
 	background-position: -83px -58px;
-	margin-top: 6px;
+	margin-top: 8px;
 	height: 20px;
 	width: 10px;
 }
 
 .pagination .prev-page:hover {
 	background-position: -83px -41px;;
-	margin-top: 2px;
+	margin-top: 4px;
 }
 
 
@@ -53,25 +58,22 @@
 	background-position: -94px -41px;
 	width: 10px;
 	height: 20px;
-	margin-top: 2px;
+	margin-top: 4px;
 }
 
 .pagination .next-page:hover {
 	background-position: -94px -58px;
-	margin-top: 6px;
+	margin-top: 8px;
 }
 
 .pagination .set-page {
 	background: none;
 	width: 100px;
-	line-height: 29px;
-	text-align: center;
-	
-}
+	line-height: 35px;
+	border: none;}
 
 .pagination .set-page:hover {
 	background: none;
-	color: 
 }
 
 #dump-page {
@@ -83,15 +85,20 @@
 }
 
 #dump-btn {
-	background: #336799;
-	color: #fff;
+	background: #2FA3D4;
 }
 
 .pagination .current {
-	background-color: #006599;
-	color: #fff;
+	background-color: #2FA3D4;
 }
 
 .pagination .current a {
 	color: #fff;
+}
+
+.pagination .ellipsis,
+.pagination .ellipsis:hover {
+	background: transparent;
+	line-height: 44px;
+	border: none;
 }

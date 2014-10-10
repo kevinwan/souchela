@@ -246,7 +246,9 @@
 							<ul class="slides">
 								{% for image in car.image_urls %}
 								<li>
-									<a href="{% url car_detail car.pk %}" target="_blank" ><img src="{{ image }}" alt="搜车啦 {{ car.title }} 图片" /></a>
+									<a href="{% url car_detail car.pk %}" target="_blank" >
+										<img src="{{ STATIC_URL }}image/car_loading.gif" alt="搜车啦 {{ car.title }} 图片" data-url="{{ image }}" class="scrollLoading" />
+									</a>
 								</li>
 								{% endfor %}
 						  </ul>
@@ -360,5 +362,6 @@
 {% block extra_js %}
 <script type="text/javascript" src="{{ STATIC_URL }}js/search_car.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}plugins/jquery.scrollLoading-min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/compare.js"></script>
 {% endblock %}

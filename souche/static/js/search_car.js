@@ -168,22 +168,6 @@ $(function(){
 	},function(){
 		$(".filter-field-bar").hide();
 	});
-		
-	////加入对比
-	//$(".car-list").find(".add-compare").click(function(){
-	//	var carId = $(this).parents(".car-bar").attr("id"),
-	//		compare = new Compare(),
-	//		$checked = $(this).find("input");
-	//
-	//	if (!$checked.prop("checked")) {
-	//		compare.add(carId);
-	//		$checked.prop("checked",true);
-	//	} else {
-	//		compare.del(carId);
-	//		$checked.prop("checked",false);
-	//	}
-	//});
-	
 	
 	//加入对比
 	$(".add-contrast").click(function(){
@@ -218,10 +202,10 @@ $(function(){
 		window.location.href = jumpLink;
 	});
 	
-	(function() {
-		$(".car-img").flexslider({
-			animation: "slide",
-			slideshow: false,
-		});
-	})();
+	$(".car-img").flexslider({
+		animation: "slide",
+		slideshow: false,
+	});
+	
+	$(".scrollLoading").scrollLoading();
 });

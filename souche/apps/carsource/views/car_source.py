@@ -152,7 +152,7 @@ class SearchCarView(TemplateView, CarDetailInfoMixin):
         fields = ('pk', 'title', 'brand_slug', 'model_slug', 'detail_model_slug', \
                 'year', 'month', 'url', 'time', 'mile', 'volume', 'control', 'price', \
                 'price_bn', 'imgurls')
-        cars = CarSource.objects.filter(*criteria).values(*fields).order_by(sort)
+        cars = CarSource.sale_cars.filter(*criteria).values(*fields).order_by(sort)
         cars = paginate(cars, page, 10, 8)
         for car in cars.object_list:
             if not car['price_bn']:

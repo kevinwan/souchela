@@ -1,11 +1,13 @@
 $(function(){
 	$("#compare").click(function(){
-		$("#sidebar-window").show("slow");
-		RefreshFrame("#compare-list");
+		$(".sidebar").animate({"height":"309px"});
+		$("#sidebar-window").fadeIn();
+		refreshFrame("#compare-list");
 	});
 	
 	$("#right-sidebar-closed").click(function(){
-		$("#sidebar-window").hide("normal");
+		$("#sidebar-window").hide();
+		$(".sidebar").height("124px");
 	});
 	
 	var siderbar = (function(){
@@ -24,6 +26,7 @@ $(function(){
 	})();
 	
 	$("#suspension-bar").mouseleave(function(){
-		$("#sidebar-window").hide("normal");
+		$("#sidebar-window").hide();
+		$(".sidebar").height("124px");
 	});
 });

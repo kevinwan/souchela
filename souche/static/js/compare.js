@@ -41,10 +41,10 @@ Compare.prototype.post = function(postUrl,postData) {
 	});
 };
 
-function RefreshFrame(frameElement) {
+function refreshFrame(frameElement) {
 	$(frameElement).attr("src", $(frameElement).attr("src"));
 }
 
-function SetParentCheck(ele) {
+function setParentCheck(ele) {
 	$(window.parent.document).find("#"+ele).find(".contrast-mark").hide();
 }

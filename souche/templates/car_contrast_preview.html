@@ -5,10 +5,11 @@
 	</head>
 	<body>
 		<div class="header">
+			<h4 class="fl">对比车辆</h4>
 			{% if car_amount > 1 %}
 			<div class="fr compare-btn tac"><a href="{% url car_contrast_detail %}" target="_blank">开始对比</a></div>
 			{% endif %}
-			<div class="fr"><a href="javascript:;" id="empty-compare">清空对比车辆</a></div>
+			<div class="fr"><a href="javascript:;" id="empty-compare" {% if car_amount <= 1 %}style="margin-right: 40px;"{% endif %}>清空对比车辆</a></div>
 			<div class="clear"></div>
 		</div>
 		<div class="content">

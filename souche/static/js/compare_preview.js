@@ -6,7 +6,7 @@ $(function(){
 			var carId = $(this).parents(".contrast-box").attr("id");			
 			compare.del(carId);
 			location.reload();
-			SetParentCheck(carId);
+			setParentCheck(carId);
 		});
 		
 		$("#empty-compare").click(function(){

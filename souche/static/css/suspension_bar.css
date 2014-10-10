@@ -6,6 +6,10 @@
 	z-index: 999;
 }
 
+.suspension-content .sidebar {
+	background: #F9F9F9;
+}
+
 .suspension-content .go-top,
 .suspension-content .sidebar li {
 	width: 48px;
@@ -55,6 +59,15 @@
 .suspension-content .sidebar-hide-layer .layer-title {
 	height: 36px;
 	background: #2FA3D4;
+	line-height: 36px;
+	width: 900px;
+	position: relative;
+	top: -36px;
+	right: 50px;
+}
+
+.suspension-content .sidebar-hide-layer .layer-title h4 {
+	margin-left: 15px;
 }
 
 .suspension-content .sidebar-hide-layer iframe {
@@ -106,4 +119,9 @@
 .suspension-content .take-of-qq i {
 	height: 24px;
 	background-position: -88px -1px;
+}
+
+.compare-window {
+	position: relative;
+	top: -24px;
 }

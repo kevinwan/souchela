@@ -139,7 +139,7 @@ $(function(){
 			dialog.run("#order","#cancel-order",".modal",function(){
 				$("#appointment").text("预约中...");
 			},function(){
-				$("#appointment").text() !== "已预约" ? $("#appointment").text("预约车量") : false;
+				$("#appointment").text() !== "已预约" ? $("#appointment").text("预约看车") : false;
 			});
 		}
 	});

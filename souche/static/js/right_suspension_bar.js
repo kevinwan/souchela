@@ -1,13 +1,18 @@
 $(function(){
 	$("#compare").click(function(){
-		$(".sidebar").animate({"height":"309px"});
 		$("#sidebar-window").fadeIn();
+		$(this).css({
+			"border-right" : "none",
+			"background" : "#fff"
+		});
+		$(".blank-leaving").show();
+		
 		refreshFrame("#compare-list");
 	});
 	
 	$("#right-sidebar-closed").click(function(){
 		$("#sidebar-window").hide();
-		$(".sidebar").height("124px");
+		compareHide();
 	});
 	
 	var siderbar = (function(){
@@ -27,6 +32,15 @@ $(function(){
 	
 	$("#suspension-bar").mouseleave(function(){
 		$("#sidebar-window").hide();
-		$(".sidebar").height("124px");
+		compareHide();
 	});
+	
+	var compareHide = function() {
+		$("#compare").css({
+			"border-right" : "1px solid #E5E5E5",
+			"background" : "#FAF8F9"
+		});
+		
+		$(".blank-leaving").hide();
+	};
 });

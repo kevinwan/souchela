@@ -51,7 +51,6 @@
 	width: 849px;
 	height: 308px;
 	background: #fff;
-	border-left: 1px solid #E5E5E5;
 	border-bottom: 1px solid #E5E5E5;
 	display: none;
 }
@@ -124,4 +123,14 @@
 .compare-window {
 	position: relative;
 	top: -24px;
+}
+
+#suspension-bar .blank-leaving {
+	height: 167px;
+	display: none;
+}
+
+
+.suspension-content .sidebar li {
+	border-right: 1px solid #E5E5E5;
 }

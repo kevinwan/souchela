@@ -11,7 +11,7 @@
 		<li><a href="?page={{ num_pages }}{% if querystring %}&{{ querystring }}{% endif %}">{{ num_pages }}</a></li>
 		{% endif %}
 		<li><a class="next-page {% if page.has_next %}disable{% endif %}" {% if page.has_next %}href="?page={{ page.next_page_number }}{% if querstring %}&{{ querystring }}{% endif %}"  {% endif %}></a></li>
-		<li class="set-page tac">到第<input type="text" id="dump-page" />页</li>
+		<li class="set-page tac">到第<input type="text" id="dump-page" value="{{ page.number }}"/>页</li>
 		<li id="dump-btn" onclick="isPageDump()"><a href="javascript:;"><span class="f-white">GO</span></a></li>
 		
 		<input id="last-page" type="hidden" value="{{ num_pages }}">
@@ -42,13 +42,6 @@
 		pageNum > lastPageNum || pageNum < 0 ? alert("请输入页数\(1~" + lastPageNum +")!") :
 		dumpPage(pageNum);
 	}
-	
-	var getThisPage = (function(){
-		var re = /page/;
-		var locationUrl = window.location.href;
-		pageNum = re.test(locationUrl) ? locationUrl.split("=")[1] : 1;
-		document.getElementById("dump-page").value = pageNum;
-	})();
-	
+
 </script>
 {% endif %}

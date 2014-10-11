@@ -60,25 +60,25 @@
 						<ul>
 							<li>
 								<p class="f-gray">上牌时间</p>
-								<p>{{ car.year }}/{{ car.month }}</p>
+								<p><strong>{{ car.year }}/{{ car.month }}</strong></p>
 							</li>
 							<li>
 								<p class="f-gray">行驶里程</p>
-								<p>{{ car.mile|floatformat:"1" }}万公里</p>
+								<p><strong>{{ car.mile|floatformat:"1" }}</strong>万公里</p>
 							</li>
 							<li>
 								<p class="f-gray">变速箱</p>
-								<p>{{ car.control }}</p>
+								<p><strong>{{ car.control }}</strong></p>
 							</li>
 							{% if car.emission_standard %}
 							<li>
 								<p class="f-gray">排放标准</p>
-								<p>{{ car.emission_standard }}</p>
+								<p><strong>{{ car.emission_standard }}</strong></p>
 							</li>
 							{% endif %}
 							<li>
 								<p class="f-gray">归属地</p>
-								<p>{{ car.city }}</p>
+								<p><strong>{{ car.city }}</strong></p>
 							</li>
 						</ul>
 						
@@ -158,11 +158,11 @@
 		<div class="base-info">
 			<div class="nav tac">
 				<ul>
-					<li class="nav-btn focus"><a href="#base-content">基本信息</a></li>
-					<li class="nav-btn"><a href="#price-analysis">价格分析</a></li>
-					<li class="nav-btn"><a href="#config-info">配置参数</a></li>
-					<li class="nav-btn"><a href="#dealer-address">商家地址</a></li>
-					<li class="nav-btn"><a class="lasta" href="#car-img-list">车辆图片</a></li>
+					<li class="nav-btn focus"><a href="javascript:;" data-page-id="#base-content">基本信息</a></li>
+					<li class="nav-btn"><a href="javascript:;" data-page-id="#price-analysis">价格分析</a></li>
+					<li class="nav-btn"><a href="javascript:;" data-page-id="#config-info">配置参数</a></li>
+					<li class="nav-btn"><a href="javascript:;" data-page-id="#dealer-address">商家地址</a></li>
+					<li class="nav-btn"><a href="javascript:;" data-page-id="#car-img-list" class="lasta">车辆图片</a></li>
 					<li class="last"></li>
 				</ul>
 				
@@ -292,8 +292,6 @@
 					<p>新车总成本：{{ car.price_bn|floatformat:"1" }}万+{{ car.tax }}万（购置税）</p>
 					<p class="f-orange">省：{{ car.save_money }}万</p>
 				</div>
-				
-				<div class="clear"></div>
 			</div>
 				
 			<div id="evalua-load-in-diagram"><img src="{{ STATIC_URL }}image/evaluate_load_2.gif" alt="" ></div>
@@ -319,10 +317,8 @@
 					{% endif %}
 					{% endfor %}
 				</table>
-				{% if forloop.counter|divisibleby:"4" %}
-				<div class="clear"></div>
-				{% endif %}
 				{% endfor %}
+			
 				<div class="clear"></div>
 			</div>
 			<!-- 参数 end -->
@@ -360,9 +356,7 @@
 					{% endif %}
 					{% endfor %}
 				</table>
-				{% if forloop.counter|divisibleby:"3" %}
-				<div class="clear"></div>
-				{% endif %}
+
 				{% endfor %}
 				<div class="clear"></div>
 			</div>

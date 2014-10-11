@@ -78,11 +78,11 @@
 
 .car-info .survey .car-surver-content .price-info {
 	height: 71px;
-	width: 400px;
+	width: 391px;
 	background: #F9F9F9;
 	border: 2px solid #E3E3E3;
 	margin: 36px auto auto;
-	padding: 13px 10px 13px 5px;
+	padding: 13px 19px 13px 5px;
 }
 
 .car-info .survey .car-surver-content .evaluate-price {
@@ -254,10 +254,10 @@
 }
 
 .security_1 i {
-background-position: -155px -2px;
+	background-position: -155px -2px;
 }
 .security_2 i {
-background-position: -211px -2px;
+	background-position: -211px -2px;
 }
 
 .security_3 i {
@@ -285,7 +285,7 @@ background-position: -211px -2px;
 	border-right: 2px solid #E3E3E3;
 	height: 100%;
 	line-height: 65px;
-	padding-right:5px;
+	padding: 0 18px 0 8px;
 }
 
 .price-info .price strong {
@@ -295,7 +295,7 @@ background-position: -211px -2px;
 
 .price-info .price-description {
 	font-size: 14px;
-	padding: 8px 0 0 13px;
+	padding: 8px 0 0 22px;
 }
 
 .price-info .price-description p {
@@ -408,16 +408,19 @@ background-position: -211px -2px;
 }
 
 .price-analysis .analysis-content .analysis-diagram {
-	width: 672px;
+	width: 633px;
 	height: 100%;
 	border-right: 1px solid #d9d9d9;
+	margin-right: 46px;
 }
 
 .price-analysis .analysis-content .analysis-diagram .diagram-loading,
 .price-analysis .analysis-content .analysis-diagram .diagram {
 	height: 269px;
 	width: 610px;
-	margin: 66px auto auto;
+	margin-top: 42px;
+	position: relative;
+	left: -35px;
 }
 
 .price-analysis .analysis-content .analysis-diagram .diagram-loading {
@@ -578,9 +581,9 @@ background-position: -211px -2px;
 }
 
 .recommend-list .recommend-content .car-name {
-	font-weight: bold;
 	margin-bottom: 10px;
 	height: 36px;
+	font-size: 14px;
 }
 
 .recommend-list .recommend-content .car-price strong {
@@ -642,7 +645,7 @@ background-position: -211px -2px;
 	width: 100px;
 	height: 27px;
 	font-size: 14px;
-	margin: 12px 0 0 120px;
+	margin: 16px 0 0 120px;
 }
 
 .car-surver-content .page-op .add-contrast span {
@@ -735,7 +738,7 @@ background-position: -211px -2px;
 }
 
 #mandatory-tip i {
-	left: 161px;
+	left: 190px;
 	top: 2px;
 }
 
@@ -745,7 +748,7 @@ background-position: -211px -2px;
 }
 
 #business-tip i {
-	left: 147px;
+	left: 175px;
 	top: 1px;
 }
 

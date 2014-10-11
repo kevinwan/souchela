@@ -93,16 +93,26 @@ $(function(){
 		}
 	);
 		
-	$(".base-info .nav").find("li").click(function(){
-		var contentEle = $(this).find("a").attr("href"),
-			$contentEle = $(contentEle);
-
-		$(this).parent().find("li").removeClass("focus");
-		$(this).addClass("focus");
-		if (contentEle != "#base-content") {
-			$contentEle.css("padding-top","50px");
-		}
-	});
+	//$(".base-info .nav").find("li").click(function(){
+	//	var contentEle = $(this).find("a").attr("href"),
+	//		$contentEle = $(contentEle);
+	//
+	//	$(this).parent().find("li").removeClass("focus");
+	//	$(this).addClass("focus");
+	//});
+	
+	
+	fixedNav(".base-info nav", 30, "focus");
+	
+	var fixedNav = function(navBar, topOffest, focusName) {
+		$(navBar).find("li").click(function() {
+			var vPageId = $(navBtn).find("a").attr("data-page-id"),
+				vPageTop = $(vPageId).offest.Top(),
+				navBarTop = vPageTop - topOffest;
+				
+				scrollPage(navBarTop);
+		});
+	};
 	
 	//加入对比
 	$("#select-contrast").click(function(){
@@ -119,8 +129,7 @@ $(function(){
 			carId = $(".main").attr("id");
 		var compare = new Compare();
 		
-		flag == "none" ? $mark.show() && compare.add(carId)
-			: $mark.hide() && compare.del(carId);;
+		flag == "none" ? $mark.show() && compare.add(carId) : $mark.hide() && compare.del(carId);
 	}
 	
 	//Tip
